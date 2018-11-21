@@ -8,6 +8,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{url('adm/painel/usuario')}}">Usuários</a>
     </li>
+    
 
 </ul>
 <span class="navbar-text">
