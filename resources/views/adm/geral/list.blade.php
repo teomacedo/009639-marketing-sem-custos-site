@@ -1,7 +1,6 @@
 @extends('adm.geral.estrutura-painel')
 @section('area-especifica')
 
-
 <div class="card">
     <h5 class="card-header">{{$titulo ?? 'Itens'}}</h5>
     <div class="card-body">
@@ -21,7 +20,7 @@
                     @include('adm.'.$path.'.registros')
                     <td>
                         <a href="{{url($diretorio.'/'.$row->id.'/edit')}}"><span class="badge badge-primary"><i class="fas fa-pen"></i></span></a>
-                        <a href="{{url($diretorio.'/destroy', $row->id)}}"><span class="badge badge-danger"><i class="fas fa-trash"></i></span></a>
+                        <a onclick="deletarDefault('{{url($diretorio.'/destroy', $row->id)}}')" style="cursor: pointer"><span class="badge badge-danger"><i class="fas fa-trash"></i></span></a>
                     </td>
                 </tr>
                 @endforeach

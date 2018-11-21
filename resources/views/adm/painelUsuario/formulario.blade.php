@@ -10,6 +10,7 @@
     <label>Função</label>
     {!! Form::select('funcao', $funcoes, null, ['class' => 'form-control', 'placeholder' => 'Escolha uma opção']) !!}
 </div>
+
 @if(!isset($model))
 <div class="form-group col-md-3">
     <label>Password</label>
@@ -18,6 +19,11 @@
 @else
 {!! Form::hidden('password', null)!!}
 @endif
+
+<div class="form-group col-md-12">
+    <label>Descrição</label>
+    {!! Form::textarea('descricao', null, ['class' => 'form-control tinymce', 'rows' => '3',])!!}
+</div>
 
 
 

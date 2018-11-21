@@ -12,6 +12,8 @@
 </div>
 @endif
 
+﻿@include('adm.geral.tinymce', ['selector' => '.tinymce'])
+
 
 <div class="card">
     <h5 class="card-header">{{$titulo ?? 'Formulário'}}</h5>
@@ -24,6 +26,33 @@
         @else
         {!!Form::open(['url' => [url($diretorio)], 'class' => 'form'])!!}
         @endif
+
+        @if($imagem['active'] == 'yes')
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label>{{$imagem['label']}}</label>
+                <div class="input-group">
+                    <span class="input-group-prepend">
+                        <div id="lfm" data-input="thumbnail" style="height:40px; line-height:25px;" data-preview="holder" class="btn btn-primary">
+                            <i class="fas fa-cloud-upload-alt"></i> Selecione o Arquivo
+                        </div>
+                    </span>
+                    {!! Form::text('imagem', null, ['class' => 'form-control', 'placeholder' => '', 'readonly' => 'readonly', 'id' => 'thumbnail'])!!}
+                </div>
+                @if(isset($model->imagem))
+                <img id="holder" src="{{ url($model->imagem)}}">
+                @else
+                <img id="holder" src="">
+                @endif
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#lfm').filemanager('image');
+            });
+        </script>
+        @endif
+
         
         <div class="row">
             @include('adm.'.$path.'.formulario')
@@ -33,11 +62,13 @@
             <i class="fas fa-check-circle"></i> Salvar
         </button>
         {!! Form::close() !!}
+
     </div>
 </div>
 <br>
-@if(isset($include))
-@foreach($include as $row)
+@if(isset($createEditInclude))
+@foreach($createEditInclude as $row)
+@if($row['active'] == 'yes')
 <div class="card">
     <h5 class="card-header">{{$row['titulo'] ?? 'Seção'}}</h5>
     <div class="card-body">
@@ -45,6 +76,7 @@
     </div>
 </div>
 <br>
+@endif
 @endforeach
 @endif
 
