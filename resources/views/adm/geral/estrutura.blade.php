@@ -11,7 +11,7 @@
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         
-        <link rel="shortcut icon" href="{{ URL::asset('photos/nuc-logos/nuc-icon.png') }}" />
+        <link rel="shortcut icon" href="{{ URL::asset('photos/shares/nuc-logos/nuc-icon.png') }}" />
 
         <script src="{{ URL::asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
         
@@ -27,7 +27,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 72px;">
                 <div class="container">
                     <a class="navbar-brand" href="#">
-                        <img src="{{ URL::asset('photos/nuc-logos/logo.png') }}" width="100" height="30" class="d-inline-block align-top" alt="">
+                        <img src="{{ URL::asset('photos/shares/nuc-logos/logo.png') }}" width="100" height="30" class="d-inline-block align-top" alt="">
                         Tecnologia&nbsp;&nbsp;&nbsp;
                     </a>
 

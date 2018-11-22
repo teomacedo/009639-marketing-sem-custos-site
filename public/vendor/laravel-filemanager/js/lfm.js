@@ -7,6 +7,7 @@
       var route_prefix = (options && options.prefix) ? options.prefix : 'laravel-filemanager';
       localStorage.setItem('target_input', $(this).data('input'));
       localStorage.setItem('target_preview', $(this).data('preview'));
+      console.log(route_prefix);
       window.open(route_prefix + '?type=' + type, 'FileManager', 'width=900,height=600');
       window.SetUrl = function (url, file_path) {
           //set the value of the desired input to image url

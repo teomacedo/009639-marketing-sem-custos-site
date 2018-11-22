@@ -9,8 +9,8 @@ Route::get('/adm/login/sair', 'Adm\Login@sair')->name('sair'); //sair
 Route::group(["middleware" => "auth:adm"], function() {
     
     //File Upload
-    Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
-    Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
+    Route::get('/laravel-filemanage', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
+    Route::post('/laravel-filemanage/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
     
     
     Route::get('/adm/painel', 'Adm\Painel@index')->name('painel');
