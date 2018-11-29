@@ -39,10 +39,11 @@
                     </span>
                     {!! Form::text('imagem', null, ['class' => 'form-control', 'placeholder' => '', 'readonly' => 'readonly', 'id' => 'thumbnail'])!!}
                 </div>
+                <br>
                 @if(isset($model->imagem))
-                <img id="holder" src="{{ url($model->imagem)}}">
+                <img id="holder" src="{{ url($model->imagem)}}" style="max-width: 200px">
                 @else
-                <img id="holder" src="">
+                <img id="holder" src="" style="max-width: 200px">
                 @endif
             </div>
         </div>
@@ -55,7 +56,7 @@
 
         
         <div class="row">
-            @include('adm.'.$path.'.formulario')
+            @include('adm.'.$path.'.create-edit')
         </div>
 
         <button class='btn btn-success' type='submit' value='submit'>

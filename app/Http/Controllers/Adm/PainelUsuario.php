@@ -73,7 +73,7 @@ class PainelUsuario extends Controller {
     }
 
     public function show($id) {
-        //
+        return "Página show: " . $id;
     }
 
     public function edit($id) {

@@ -15,8 +15,6 @@
 
         <script src="{{ URL::asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
         
-        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-        
         <script src="{{ URL::asset('js/adm.js') }}"></script>
         @yield('head')
 
@@ -24,7 +22,7 @@
 
     <body class="bg-light">
         <div class="card">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 72px;">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="min-height: 72px;">
                 <div class="container">
                     <a class="navbar-brand" href="#">
                         <img src="{{ URL::asset('photos/shares/nuc-logos/logo.png') }}" width="100" height="30" class="d-inline-block align-top" alt="">
