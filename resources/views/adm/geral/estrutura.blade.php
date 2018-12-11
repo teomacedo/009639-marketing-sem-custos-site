@@ -1,7 +1,12 @@
+<?php
+use App\Models\Empresa;
+$empresa = Empresa::first();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>{{$titulo ?? 'Nuc Tecnologia'}}</title>
+        <title>{{$tituloAba ?? $empresa->nome}}</title>
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +16,7 @@
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         
-        <link rel="shortcut icon" href="{{ URL::asset('photos/shares/nuc-logos/nuc-icon.png') }}" />
+        <link rel="shortcut icon" href="{{ URL::asset(''.$empresa->icon) }}" />
 
         <script src="{{ URL::asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
         
@@ -25,10 +30,8 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="min-height: 72px;">
                 <div class="container">
                     <a class="navbar-brand" href="#">
-                        <img src="{{ URL::asset('photos/shares/nuc-logos/logo.png') }}" width="100" height="30" class="d-inline-block align-top" alt="">
-                        Tecnologia&nbsp;&nbsp;&nbsp;
+                        <img src="{{ URL::asset(''.$empresa->imagem) }}" height="30" class="d-inline-block align-top" alt="">
                     </a>
-
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>

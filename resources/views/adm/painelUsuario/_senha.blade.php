@@ -1,5 +1,5 @@
-@if(isset($model))
-{!! Form::model($model, ['route' => ['usuario.update', $model->id], 'class' => 'form', 'method' => 'put'])!!}
+@if(isset($dadosBase['model']->id))
+{!! Form::model($dadosBase['model'], ['route' => ['usuario.update', $dadosBase['model']->id], 'class' => 'form', 'method' => 'put'])!!}
 
 <div class="row">
     {!! Form::hidden('name', null)!!}

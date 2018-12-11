@@ -11,7 +11,7 @@
     {!! Form::select('funcao', $funcoes, null, ['class' => 'form-control', 'placeholder' => 'Escolha uma opção']) !!}
 </div>
 
-@if(!isset($model))
+@if(!isset($dadosBase['model']->id))
 <div class="form-group col-md-3">
     <label>Password</label>
     {!! Form::password('password', ['class' => 'form-control' ])!!}
@@ -24,8 +24,6 @@
     <label>Descrição</label>
     {!! Form::textarea('descricao', null, ['class' => 'form-control tinymce', 'rows' => '3',])!!}
 </div>
-
-
 
 
 

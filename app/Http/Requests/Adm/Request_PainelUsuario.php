@@ -18,4 +18,18 @@ class Request_PainelUsuario extends FormRequest {
         ];
     }
 
+    public function messages() {
+        return [
+            'name.required' => 'O campo "Nome" precisa ser preenchido',
+            'name.min' => 'O campo "Nome" precisa ter no mínimo 5 caracteres',
+            'name.min' => 'O campo "Nome" pode ter no máximo 190 caracteres',
+            
+            'email.email' => 'O campo "E-mail" precisa ser um e-mail válido',
+            'email.required' => 'O campo "E-mail" precisa ser preenchido',
+            'email.max' => 'O campo "E-mail" pode ter no máximo 190 caracteres',
+            
+            'funcao.required' => 'O campo "Função" precisa ser preenchido',
+        ];
+    }
+
 }

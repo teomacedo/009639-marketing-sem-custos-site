@@ -1,0 +1,161 @@
+@media (min-width: 993px) {
+    .menu-desktop{
+        height: 72px;
+        box-shadow: 0 3px 3px rgba(0,0,0,.3);
+        z-index: 2;
+        position: relative;
+    }
+
+    .menu-desktop-geral{
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-desktop-geral img{
+        height: 30px;
+    }
+
+    .menu-desktop-links-item{
+        display: inline-block;
+        color: #807F7F;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 4px;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 2px;
+        border-color: rgba(0,0,0,.0);
+    }
+
+    .menu-desktop-links-item:hover{
+        border-color: #807F7F;
+    }
+
+    .menu-desktop-links-item-centro{
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    .menu-desktop-links-botao{
+        background: #4181C2;
+        color: white;
+        border: initial;
+        padding: 10px;
+        padding-top: 5px;
+        padding-bottom: 7px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 2px;
+
+    }
+
+    a .menu-desktop-links-botao:hover{
+        background: #165589;
+        color: white;
+        border: initial;
+    }
+
+    .capa-desktop{
+        width: 100%;
+        height: 450px;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .capa-desktop-pelicula{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5)
+    }
+
+    .capa-desktop-pelicula-nuvem{
+        padding-top: 60px;
+        width: 100%;
+        height: 100%;
+        background-repeat: repeat-x;
+        background-position: center bottom;
+    }
+
+    .capa-desktop-nome{
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 65px;
+        font-weight: bolder;
+        color: white;
+    }
+
+    .capa-desktop-subtitulo-categoria{
+        margin-top: -12px;
+        margin-bottom: -12px;
+        max-width: 50%;
+        font-size: 25px;
+        color: #ffff00;
+        width: 100%;
+        line-height: 1;
+    }
+
+    .capa-desktop-titulo{
+        width: 100%;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 50px;
+        font-weight: bolder;
+        color: #4181C2;
+        line-height: 1;
+    }
+
+
+    .capa-desktop-subtitulo{
+        font-size: 25px;
+        color: #807F7F;
+        width: 100%;
+        line-height: 1;
+    }
+
+    .capa-desktop-descricao{
+        font-size: 15px;
+        color: white;
+        line-height: 1;
+        font-style: italic;
+        max-width: 50%;
+    }
+
+    .miniatura-artigo-area{
+        max-width: 49%;
+    }
+
+    .miniatura-artigo-area-nome-categoria{
+        color: #8999a8;
+    }
+
+    .miniatura-artigo-area-titulo{
+        color: #4181C2;
+    }
+
+    .miniatura-artigo-area-nome-autor-data{
+        color: #8999a8;
+        font-size: 13px;
+    }
+
+    .rodape-area-coluna{
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 25%;
+        text-align: right;
+    }
+
+    .rodape-area-coluna:nth-of-type(1){
+        text-align: left;
+    }
+
+
+    .rodape-area-coluna:nth-of-type(4){
+        padding-right: 0px;
+    }
+
+    .rodape-area-coluna:nth-of-type(1){
+        padding-left: 0px;
+    }
+
+
+}

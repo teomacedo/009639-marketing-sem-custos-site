@@ -8,7 +8,35 @@
     <li class="nav-item">
         <a class="nav-link" href="{{url('adm/painel/usuario')}}">Usuários</a>
     </li>
-    
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-informacao" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Informações
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown-informacao">
+            <a class="dropdown-item" href="{{url('adm/painel/empresa')}}">Empresa</a>
+            <a class="dropdown-item" href="{{url('adm/painel/endereco')}}">Endereços</a>
+            <a class="dropdown-item" href="{{url('adm/painel/rede-social')}}">Redes Sociais</a>
+            <a class="dropdown-item" href="{{url('adm/painel/telefone')}}">Telefones</a>
+            <a class="dropdown-item" href="{{url('adm/painel/email')}}">E-mails</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-conteudo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Conteúdo
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown-conteudo">
+            <a class="dropdown-item" href="{{url('adm/painel/sobre-nos')}}">Sobre nós</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-artigo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Artigos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown-artigo">
+            <a class="dropdown-item" href="{{url('adm/painel/artigo-categoria')}}">Categorias</a>
+            <a class="dropdown-item" href="{{url('adm/painel/artigo')}}">Artigos</a>
+        </div>
+    </li>
 
 </ul>
 <span class="navbar-text">
@@ -22,6 +50,7 @@
         </div>
     </div>
 </span>
+
 @endsection
 
 

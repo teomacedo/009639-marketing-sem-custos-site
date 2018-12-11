@@ -1,5 +1,12 @@
 <?php
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Web\Site@blog');
+Route::get('/home', 'Web\Site@blog')->name('home');
+
+Route::get('/blog', 'Web\Site@blog')->name('blog');
+
+
+
+Route::get('/categoria/{id?}', 'Web\Site@categoria');
+Route::get('/artigo/{id?}', 'Web\Site@artigo');
+Route::get('/sobre-nos', 'Web\Site@sobreNos');
 

@@ -1,8 +1,6 @@
 @extends('adm.geral.estrutura')
 @section('content')
 
-
-
 <div class="text-center" style="width: 400px; margin: 0 auto; margin-top: 130px">
     @if ($message = Session::get('error'))
     <div class="alert alert-danger" role="alert">

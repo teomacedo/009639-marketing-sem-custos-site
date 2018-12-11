@@ -1,0 +1,1 @@
+<small class="form-text text-muted"><i class="fas fa-arrow-circle-up"></i> {{$texto}}</small>
