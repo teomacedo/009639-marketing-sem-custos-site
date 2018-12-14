@@ -9,6 +9,7 @@ class SobreNos extends Model {
     protected $fillable = [
         'sequencia',
         'imagem',
+        'imagem_altura',
         'titulo',
         'subtitulo',
         'trecho'

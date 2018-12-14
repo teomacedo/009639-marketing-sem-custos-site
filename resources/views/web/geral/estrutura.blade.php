@@ -34,7 +34,7 @@
                     <div>
                         <a href="{{route('home')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Home</div></a>
                         <a href="{{url('/sobre-nos')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Sobre nós</div></a>
-                        <a href="{{url('/contato')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Contato</div></a>
+                        <a href="{{url('/fale-conosco')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Fale conosco</div></a>
                         <a href="{{route('blog')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Blog</div></a>
                     </div>
                     <div>
@@ -45,6 +45,26 @@
             </div>
         </div>
         <div class="container">
+            @if (count($errors) > 0)
+            <div class="alerta alert alert-danger" role="alert">
+                @foreach ($errors->all() as $error)
+                -{{ $error }}<br>
+                @endforeach
+            </div>
+            @endif
+
+            @if (session('mensagemSucesso'))
+            <div class="alerta alert alert-success text-center">
+                {!! session('mensagemSucesso') !!}
+            </div>
+            @endif
+
+            @if (session('mensagemErro'))
+            <div class="alerta alert alert-danger text-center">
+                {!! session('mensagemErro') !!}
+            </div>
+            @endif
+
             <div style="display: flex; justify-content: flex-end;">
                 <div style="margin-top: 60px; width: 350px; position: absolute; z-index: 2;">
                     <div class="aba-assinautra-area">
@@ -54,12 +74,20 @@
                         <div class="aba-assinautra-area-titulo-grande">
                             Informe seu e-mail abaixo para ser notificado sempre que tivermos novas publicações.
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Qual seu email?" aria-label="Qual seu melhor email?" aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="button" id="button-addon2"><i class="fas fa-check"></i> Cadastrar</button>
+
+                        {!!Form::open(['url' => [url('/email-assinatura')]])!!}
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Qual seu melhor email?' ])!!}
                             </div>
                         </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="nome" class="form-control" placeholder="Nome" aria-label="" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="submit" value='submit' id="button-addon2"><i class="fas fa-check"></i> Cadastrar</button>
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
 
                     <div class="aba-assinautra-area">
@@ -79,7 +107,7 @@
                 </div>
             </div>
             <div style="display: flex; justify-content: flex-end;">
-                <div style="position: fixed; bottom: 5px;">
+                <div style="position: fixed; bottom: 5px; z-index: 3">
                     <a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{$empresa->whatsapp}}">
                         <div class="menu-desktop-links-botao">
                             <i class="fab fa-whatsapp"></i> Converse com a gente via WhatsApp
@@ -128,7 +156,7 @@
                         @foreach($emails as $row)
                         {{$row->email}}<br>
                         @endforeach
-                        
+
                     </div>
 
                     <div class="rodape-area-coluna-titulo">
@@ -145,7 +173,7 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+        <script type="text/javascript" src="{{ url('js/nunTelefone.js') }}"></script>
 
     </body>
 

@@ -5,8 +5,12 @@ a:hover{text-decoration: none;}
 a:hover{color: white;}
 html{height: 100%;}
 body{height: 100%;}
-p{margin: 0}
+p{margin: 0;}
 
+
+.alerta{
+    margin-top: 30px;
+}
 .categoria-botao{
     font-size: 16px;
     color: #4181C2;
@@ -109,18 +113,19 @@ p{margin: 0}
 }
 
 .conteudo-composto-foto{
-    width: 49%;
-    height: 400px;
+    width: 100%;
     background-position: center center;
     background-size: cover;
+    margin-bottom: 10px;
 }
 
 .conteudo-composto-texto{
     max-width: 50%;
-    padding-left: 10px;
+    padding-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .conteudo-composto-texto-titulo{
@@ -128,6 +133,7 @@ p{margin: 0}
     font-weight: bolder;
     color: #4181C2;
     line-height: 1;
+    margin-bottom: 10px;
 }
 
 .conteudo-composto-texto-subtitulo{
@@ -135,6 +141,7 @@ p{margin: 0}
     line-height: 1.3;
     font-style: italic;
     color: #4181C2;
+    margin-bottom: 10px;
 }
 
 .miniatura-artigo-area{
@@ -146,6 +153,7 @@ p{margin: 0}
     height: 170px;
     background-size: cover;
     background-position: center center;
+    margin-bottom: 15px;
 
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
@@ -162,6 +170,7 @@ p{margin: 0}
     font-size: 24px;
     line-height: 1;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .miniatura-artigo-area-nome-subtitulo p{
@@ -198,4 +207,30 @@ p{margin: 0}
     color: #8999a8;
     margin-bottom: 5px;
 }
+
+.secao{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.secao-titulo{
+    font-size: 30px;
+    color: #4181C2;
+    width: 100%;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.secao-subtitulo{
+    font-size: 18px;
+    width: 65%;
+    color: #8999a8;
+    text-align: center;
+    font-style: italic;
+    margin: 0 auto;
+    line-height: 1.1;
+}
+
+
+
 

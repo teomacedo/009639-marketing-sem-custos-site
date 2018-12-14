@@ -27,7 +27,8 @@ class Site extends Controller {
     }
 
     public function blog() {
-        return view('web.home.index')->with($this->cabecaloRodape);
+        $artigos = Artigo::orderBy('updated_at', 'desc')->get();
+        return view('web.home.index', compact('artigos'))->with($this->cabecaloRodape);
     }
 
     public function categoria($id = null) {
@@ -53,17 +54,38 @@ class Site extends Controller {
 
     public function sobreNos() {
         $conteudo = $this->conteudoComposto(SobreNos::orderBy('sequencia')->get(), 'trecho');
-        return view('web.sobreNos.index', compact('conteudo'))->with($this->cabecaloRodape);
+        return view('web.sobre-nos.index', compact('conteudo'))->with($this->cabecaloRodape);
+    }
+    
+    public function faleConosco() {
+        return view('web.fale-conosco.index')->with($this->cabecaloRodape);
     }
 
     public function conteudoComposto($objeto, $conteudo) {
         for ($i = 0; $i < count($objeto); $i++) {
             if (($i % 2) != 0) {
                 $objeto[$i]['order'] = 'order: -1;';
-                $objeto[$i]['padding'] = 'padding-right: 55px; padding-left: 0px;';
+                if($objeto[$i][$conteudo] != ''){
+                    $objeto[$i]['padding'] = 'padding-right: 55px; padding-left: 0px;';
+                } else {
+                    $objeto[$i]['padding'] = 'padding-right: 0px; padding-left: 0px;';
+                }
+                
+            }
+            
+            if ($objeto[$i]['imagem_altura'] == ''){
+                $objeto[$i]['img_altura'] = 'height: 400px;';
+            } else{
+                $objeto[$i]['img_altura'] = 'height: '.$objeto[$i]['imagem_altura'].'px;';
             }
             if ($objeto[$i]['imagem'] == '') {
-                $objeto[$i]['noimg'] = 'max-width: 100%; padding: 0px;';
+                $objeto[$i]['noimg'] = 'min-width: 100%; padding: 0px;';
+            }
+            
+            if (($objeto[$i]['titulo'] == '') && ($objeto[$i]['subtitulo'] == '')) {
+                if ($objeto[$i][$conteudo] == '') {
+                    $objeto[$i]['onlyimg'] = 'min-width: 100%;';
+                }
             }
             
             $objeto[$i]['conteudo'] = $objeto[$i][$conteudo];

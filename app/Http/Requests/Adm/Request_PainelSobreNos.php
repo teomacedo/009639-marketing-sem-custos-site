@@ -12,7 +12,8 @@ class Request_PainelSobreNos extends FormRequest {
 
     public function rules() {
         return [
-            'sequencia' => 'required|numeric'
+            'sequencia' => 'required|numeric',
+            'imagem_altura' => 'numeric'
         ];
     }
 

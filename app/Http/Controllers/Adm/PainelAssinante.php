@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Adm;
 
 use App\Http\Controllers\Controller;
-use App\Models\ArtigoComponente; //editavel
-use App\Http\Requests\Adm\Request_PainelArtigoComponente; //editavel
+use App\Models\Assinante; //editavel
+use App\Http\Requests\Adm\Request_PainelAssinante; //editavel
 
-class PainelArtigoComponente extends Controller {
+class PainelAssinante extends Controller {
     public $dadosBase;
 
-    public function __construct(ArtigoComponente $model) {
-        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/artigo-componente';
-        /* editavel */$this->dadosBase['tabelaColunas'] = ['Seq.', 'Textos', 'Imagem'];
-        /* editavel */$this->dadosBase['imagem'] = ['active' => 'yes', 'label' => 'Capa'];
+    public function __construct(Assinante $model) {
+        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/assinante';
+        /* editavel */$this->dadosBase['tabelaColunas'] = ['Data', 'Nome', 'Email'];
+        /* editavel */$this->dadosBase['imagem'] = ['active' => 'no', 'label' => 'Logo'];
         /* editavel */$this->dadosBase['createEditInclude'] = [['active' => 'no', 'titulo' => 'baza', 'path' => 'baza']];
         /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'no', 'create' => 'yes', 'edit' => 'yes', 'delete' => 'yes'];
-        /* editavel */$this->dadosBase['foreign'] = 'yes';
+        /* editavel */$this->dadosBase['foreign'] = 'no';
         $this->dadosBase['model'] = $model;
         $nomeClasse = array_slice(explode("\\", get_class()), -1)[0];
         $this->dadosBase['nomeClasse'] = strtolower(substr($nomeClasse, 0, 1)) . substr($nomeClasse, 1, strlen($nomeClasse));
@@ -25,18 +25,17 @@ class PainelArtigoComponente extends Controller {
 
     public function index($foreign = '') {
         if ($foreign != '') {
-            $this->dadosBase['model'] = $this->dadosBase['model']->where('artigo_id', $foreign)->orderBy('sequencia')->get();
+            $this->dadosBase['model'] = $this->dadosBase['model']->all()->where('artigo_id', $foreign);
         } else {
             if ($this->dadosBase['foreign'] == 'no') {
-                $this->dadosBase['model'] = $this->dadosBase['model']->all();
+                $this->dadosBase['model'] = $this->dadosBase['model']->orderBy('updated_at', 'desc')->get();
             } else {
                 return redirect()->route('painel');
             }
         }
         return view('adm.geral.list', compact(''))
                         ->with('dadosBase', $this->dadosBase)
-                        ->with('foreign', $foreign)
-                        ->with('titulo', strip_tags(\App\Models\Artigo::find($foreign)->titulo));
+                        ->with('foreign', $foreign);
     }
 
     public function create($foreign = '') {
@@ -59,8 +58,16 @@ class PainelArtigoComponente extends Controller {
         }
     }
 
-    public function store(Request_PainelArtigoComponente $request) {
+    public function store(Request_PainelAssinante $request) {
         $dataForm = $request->all();
+        
+        /* personalizado */
+        if(isset($dataForm['notificar'])){
+            $dataForm['notificar'] = 1;
+        } else {
+            $dataForm['notificar'] = 0;
+        }
+        
         $retorno = $this->dadosBase['model']->create($dataForm);
 
         if ($retorno) {
@@ -75,7 +82,7 @@ class PainelArtigoComponente extends Controller {
     }
 
     public function edit($id, $foreign = '') {
-        $this->dadosBase['model'] = ArtigoComponente::find($id);
+        $this->dadosBase['model'] = Assinante::find($id);
         /* editavel */$titulo = 'Editar';
         if ($foreign != '') {
             return view('adm.geral.create-edit', compact(''))
@@ -93,8 +100,16 @@ class PainelArtigoComponente extends Controller {
         }
     }
 
-    public function update(Request_PainelArtigoComponente $request, $id) {
+    public function update(Request_PainelAssinante $request, $id) {
         $dataForm = $request->all();
+        
+        /* personalizado */
+        if(isset($dataForm['notificar'])){
+            $dataForm['notificar'] = 1;
+        } else {
+            $dataForm['notificar'] = 0;
+        }
+      
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);
         if ($retorno) {

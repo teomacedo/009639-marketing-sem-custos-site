@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Adm;
 
 use App\Http\Controllers\Controller;
-use App\Models\ArtigoComponente; //editavel
-use App\Http\Requests\Adm\Request_PainelArtigoComponente; //editavel
+use App\Models\FaleConosco; //editavel
+use App\Http\Requests\Adm\Request_PainelFaleConosco; //editavel
 
-class PainelArtigoComponente extends Controller {
+class PainelFaleConosco extends Controller {
     public $dadosBase;
 
-    public function __construct(ArtigoComponente $model) {
-        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/artigo-componente';
-        /* editavel */$this->dadosBase['tabelaColunas'] = ['Seq.', 'Textos', 'Imagem'];
-        /* editavel */$this->dadosBase['imagem'] = ['active' => 'yes', 'label' => 'Capa'];
+    public function __construct(FaleConosco $model) {
+        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/fale-conosco';
+        /* editavel */$this->dadosBase['tabelaColunas'] = ['Data', 'Nome', 'Telefone', 'Status'];
+        /* editavel */$this->dadosBase['imagem'] = ['active' => 'no', 'label' => 'Logo'];
         /* editavel */$this->dadosBase['createEditInclude'] = [['active' => 'no', 'titulo' => 'baza', 'path' => 'baza']];
         /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'no', 'create' => 'yes', 'edit' => 'yes', 'delete' => 'yes'];
-        /* editavel */$this->dadosBase['foreign'] = 'yes';
+        /* editavel */$this->dadosBase['foreign'] = 'no';
         $this->dadosBase['model'] = $model;
         $nomeClasse = array_slice(explode("\\", get_class()), -1)[0];
         $this->dadosBase['nomeClasse'] = strtolower(substr($nomeClasse, 0, 1)) . substr($nomeClasse, 1, strlen($nomeClasse));
@@ -25,7 +25,7 @@ class PainelArtigoComponente extends Controller {
 
     public function index($foreign = '') {
         if ($foreign != '') {
-            $this->dadosBase['model'] = $this->dadosBase['model']->where('artigo_id', $foreign)->orderBy('sequencia')->get();
+            $this->dadosBase['model'] = $this->dadosBase['model']->all()->where('artigo_id', $foreign);
         } else {
             if ($this->dadosBase['foreign'] == 'no') {
                 $this->dadosBase['model'] = $this->dadosBase['model']->all();
@@ -35,8 +35,7 @@ class PainelArtigoComponente extends Controller {
         }
         return view('adm.geral.list', compact(''))
                         ->with('dadosBase', $this->dadosBase)
-                        ->with('foreign', $foreign)
-                        ->with('titulo', strip_tags(\App\Models\Artigo::find($foreign)->titulo));
+                        ->with('foreign', $foreign);
     }
 
     public function create($foreign = '') {
@@ -59,7 +58,7 @@ class PainelArtigoComponente extends Controller {
         }
     }
 
-    public function store(Request_PainelArtigoComponente $request) {
+    public function store(Request_PainelFaleConosco $request) {
         $dataForm = $request->all();
         $retorno = $this->dadosBase['model']->create($dataForm);
 
@@ -75,7 +74,7 @@ class PainelArtigoComponente extends Controller {
     }
 
     public function edit($id, $foreign = '') {
-        $this->dadosBase['model'] = ArtigoComponente::find($id);
+        $this->dadosBase['model'] = FaleConosco::find($id);
         /* editavel */$titulo = 'Editar';
         if ($foreign != '') {
             return view('adm.geral.create-edit', compact(''))
@@ -93,7 +92,7 @@ class PainelArtigoComponente extends Controller {
         }
     }
 
-    public function update(Request_PainelArtigoComponente $request, $id) {
+    public function update(Request_PainelFaleConosco $request, $id) {
         $dataForm = $request->all();
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);

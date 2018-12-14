@@ -1,7 +1,7 @@
 @foreach($conteudo as $row)
 <div class="conteudo-composto">
     @if(($row->imagem) != '')
-    <div class="conteudo-composto-foto img-thumbnail" style="background-image: url('{{url(''.$row->imagem)}}')">
+    <div class="conteudo-composto-foto img-thumbnail" style="{{$row->img_altura}} {{$row->onlyimg}} background-image: url('{{url(''.$row->imagem)}}')">
 
     </div>
     @endif

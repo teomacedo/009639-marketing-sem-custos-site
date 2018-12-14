@@ -37,6 +37,15 @@
             <a class="dropdown-item" href="{{url('adm/painel/artigo')}}">Artigos</a>
         </div>
     </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-gestao" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Gestão
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown-gestao">
+            <a class="dropdown-item" href="{{url('adm/painel/fale-conosco')}}">Contatos</a>
+            <a class="dropdown-item" href="{{url('adm/painel/assinante')}}">Assinantes</a>
+        </div>
+    </li>
 
 </ul>
 <span class="navbar-text">
