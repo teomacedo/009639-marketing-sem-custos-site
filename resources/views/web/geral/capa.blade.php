@@ -1,7 +1,12 @@
+<style type="text/css">
+    .aba-assinautra-area-margin-top{
+        margin-top: -390px;
+    }
+</style>
 <div class="capa-desktop" style="background-image: url('{{url(''.$fotoCapa)}}')">
     @if(isset($nome))
     <div class="capa-desktop-pelicula">
-        <div class="capa-desktop-pelicula-nuvem" style="background-image: url('{{url('/photos/shares/geral/nuvem.png')}}')">
+        <div class="capa-desktop-pelicula-nuvem" style="background-image: url('{{url('/photos/shares/geral/tarja-decor.png')}}')">
             <div class="container">
                 <div class="capa-desktop-nome">
                     {!!$nome!!}
@@ -20,26 +25,6 @@
         </div>
     </div>
     @else
-    <div class="capa-desktop-pelicula-nuvem" style="background-image: url('{{url('/photos/shares/geral/nuvem.png')}}')"></div>
+    <div class="capa-desktop-pelicula-nuvem" style="background-image: url('{{url('/photos/shares/geral/tarja-decor.png')}}')"></div>
     @endif
 </div>
-@if(!isset($nome))
-<div class="container">
-    <div class="pagina-divisao-vertical">
-        <div class="pagina-divisao-vertical-principal">
-            <a href="{{url('categoria'.'/'.$categoriaId)}}">
-                <div class="categoria-botao">
-                    {!!$categoria!!}
-                </div>
-            </a>
-            <div class="capa-desktop-titulo">
-                {!!$titulo!!}
-            </div>
-            <div class="capa-desktop-subtitulo">
-                {!!$subtitulo!!}
-            </div>
-        </div>
-        <div class="pagina-divisao-vertical-secundario"></div>
-    </div>
-</div>
-@endif

@@ -1,11 +1,32 @@
 @extends('web.geral.estrutura')
-
 @section('capa')
-@include('web.geral.capa',[
-'fotoCapa' => $categoria->imagem,
-'nome' => $categoria->nome,
-'subtitulo' => $categoria->subtitulo,
-'descricao' => $categoria->descricao])
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <?php $active = 'active'; ?>
+        @foreach($categorias as $row)
+        @if(count($row->artigos)>0)
+        <div class="carousel-item {{$active}}">
+            <a href="{{url('categoria'.'/'.$row->id)}}">
+                @include('web.geral.capa',[
+                'fotoCapa' => $row->imagem,
+                'nome' => $row->nome,
+                'subtitulo' => $row->subtitulo,
+                'descricao' => $row->descricao])
+            </a>
+        </div>
+        <?php $active = ''; ?>
+        @endif
+        @endforeach
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 @endsection
 
 @section('content')

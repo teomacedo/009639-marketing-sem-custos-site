@@ -28,7 +28,7 @@ class Site extends Controller {
 
     public function blog() {
         $artigos = Artigo::orderBy('updated_at', 'desc')->get();
-        return view('web.home.index', compact('artigos'))->with($this->cabecaloRodape);
+        return view('web.blog.index', compact('artigos'))->with($this->cabecaloRodape);
     }
 
     public function categoria($id = null) {

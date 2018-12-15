@@ -64,60 +64,80 @@
                 {!! session('mensagemErro') !!}
             </div>
             @endif
-
-            <div style="display: flex; justify-content: flex-end;">
-                <div style="margin-top: 60px; width: 350px; position: absolute; z-index: 2;">
-                    <div class="aba-assinautra-area">
-                        <div class="aba-assinautra-area-titulo-pequeno">
-                            JUNTE-SE A NÓS!
-                        </div>
-                        <div class="aba-assinautra-area-titulo-grande">
-                            Informe seu e-mail abaixo para ser notificado sempre que tivermos novas publicações.
-                        </div>
-
-                        {!!Form::open(['url' => [url('/email-assinatura')]])!!}
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Qual seu melhor email?' ])!!}
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input type="text" name="nome" class="form-control" placeholder="Nome" aria-label="" aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-primary" type="submit" value='submit' id="button-addon2"><i class="fas fa-check"></i> Cadastrar</button>
-                            </div>
-                        </div>
-                        {!! Form::close() !!}
-                    </div>
-
-                    <div class="aba-assinautra-area">
-                        <div class="aba-assinautra-area-titulo-pequeno">
-                            CATEGORIAS
-                        </div>
-                        @foreach($categorias as $row)
-                        @if(count($row->artigos)>0)
-                        <a href="{{url('categoria'.'/'.$row->id)}}">
-                            <div class="categoria-botao">
-                                {!!$row->nome!!}
-                            </div>
-                        </a>
-                        @endif
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-            <div style="display: flex; justify-content: flex-end;">
-                <div style="position: fixed; bottom: 5px; z-index: 3">
-                    <a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{$empresa->whatsapp}}">
-                        <div class="menu-desktop-links-botao">
-                            <i class="fab fa-whatsapp"></i> Converse com a gente via WhatsApp
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
 
-        @yield('content')
+        <style type="text/css">
+            .aba-assinautra-area-margin-top{
+                margin-top: 60px;
+            }
+        </style>
+        @yield('capa')
+        <div class="container">
+            <div class="pagina-divisao-vertical">
+                <div class="pagina-divisao-vertical-principal">
+                    <div class="secao">
+                        <div style="display: flex; flex-wrap: wrap;">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+                <div class="pagina-divisao-vertical-secundario">
+                    <div style="display: flex; justify-content: flex-end;">
+                        <div class="aba-assinautra-area-margin-top" style="width: 350px; position: absolute; z-index: 2;">
+                            <div class="aba-assinautra-area">
+                                <div class="aba-assinautra-area-titulo-pequeno">
+                                    JUNTE-SE A NÓS!
+                                </div>
+                                <div class="aba-assinautra-area-titulo-grande">
+                                    Informe seu e-mail abaixo para ser notificado sempre que tivermos novas publicações.
+                                </div>
+
+                                {!!Form::open(['url' => [url('/email-assinatura')]])!!}
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Qual seu melhor email?' ])!!}
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="text" name="nome" class="form-control" placeholder="Nome" aria-label="" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-primary" type="submit" value='submit' id="button-addon2"><i class="fas fa-check"></i> Cadastrar</button>
+                                    </div>
+                                </div>
+                                {!! Form::close() !!}
+                            </div>
+
+                            <div class="aba-assinautra-area">
+                                <div class="aba-assinautra-area-titulo-pequeno">
+                                    CATEGORIAS
+                                </div>
+                                @foreach($categorias as $row)
+                                @if(count($row->artigos)>0)
+                                <a href="{{url('categoria'.'/'.$row->id)}}">
+                                    <div class="categoria-botao">
+                                        {!!$row->nome!!}
+                                    </div>
+                                </a>
+                                @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>           
+
+
+
+        <div style="position: fixed; bottom: 5px; right: 5px; z-index: 3">
+            <a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{$empresa->whatsapp}}">
+                <div class="menu-desktop-links-botao">
+                    <i class="fab fa-whatsapp"></i><span class="small-off"> Converse com a gente via </span>WhatsApp
+                </div>
+            </a>
+        </div>
+
+
         <div class="rodape-divisao"></div>
         <div class="container">
             <div class="rodape-area">
