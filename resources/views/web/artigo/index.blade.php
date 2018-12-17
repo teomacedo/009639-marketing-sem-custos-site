@@ -17,6 +17,13 @@
 <div class="capa-desktop-subtitulo">
     {!!$artigo->subtitulo!!}
 </div>
+@if($banner->ativo != 0)
+@if($banner->banner_blog_horizontal != '')                            
+<a href="{{$banner->botao_link}}">
+    <img src="{{ url(''.$banner->banner_blog_horizontal)}}" class="img-fluid banner-blog-horizontal">
+</a>
+@endif
+@endif
 
 @include('web.geral.conteudo-composto')
 <div class="artigo-autor-area">
@@ -33,4 +40,13 @@
         </div>
     </div>
 </div>
+
+@if($banner->ativo != 0)
+@if($banner->banner_blog_horizontal != '')                            
+<a href="{{$banner->botao_link}}">
+    <img src="{{ url(''.$banner->banner_blog_horizontal)}}" class="img-fluid banner-blog-horizontal">
+</a>
+@endif
+@endif
+
 @endsection

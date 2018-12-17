@@ -7,6 +7,23 @@ html{height: 100%;}
 body{height: 100%;}
 p{margin: 0;}
 
+.loading-bar{
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: none;
+}
+
+.loading-bar-off{
+    display: block;
+}
+
 
 .alerta{
     margin-top: 30px;
@@ -64,6 +81,8 @@ p{margin: 0;}
 
 .pagina-divisao-vertical-secundario{
     min-width: 370px;
+    max-width: 370px;
+    padding-left: 20px;
 }
 
 .artigo-autor-area{
@@ -229,6 +248,32 @@ p{margin: 0;}
     font-style: italic;
     margin: 0 auto;
     line-height: 1.1;
+}
+
+.banner-blog-vertical-area{
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.banner-blog-vertical-area-botao{
+    background: #4181C2;
+    color: #FFFF00;
+    font-weight: bolder;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: solid 2px #FFFF00;
+    border-radius: 0 0 3px 3px;
+}
+
+.banner-blog-vertical-area-botao:hover{
+    background-color: #807F7F;
+}
+
+.banner-blog-horizontal{
+    margin-bottom: 10px;
 }
 
 

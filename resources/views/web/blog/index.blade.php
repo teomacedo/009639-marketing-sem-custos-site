@@ -3,16 +3,10 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <?php $active = 'active'; ?>
-        @foreach($categorias as $row)
-        @if(count($row->artigos)>0)
+        @foreach($slides as $row)
+        @if($row->ativo != 0)
         <div class="carousel-item {{$active}}">
-            <a href="{{url('categoria'.'/'.$row->id)}}">
-                @include('web.geral.capa',[
-                'fotoCapa' => $row->imagem,
-                'nome' => $row->nome,
-                'subtitulo' => $row->subtitulo,
-                'descricao' => $row->descricao])
-            </a>
+            @include('web.geral.slide')
         </div>
         <?php $active = ''; ?>
         @endif

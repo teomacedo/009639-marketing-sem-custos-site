@@ -25,6 +25,7 @@
             Conteúdo
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown-conteudo">
+            <a class="dropdown-item" href="{{url('adm/painel/slide')}}">Slides</a>
             <a class="dropdown-item" href="{{url('adm/painel/sobre-nos')}}">Sobre nós</a>
         </div>
     </li>

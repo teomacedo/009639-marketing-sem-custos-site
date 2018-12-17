@@ -12,6 +12,7 @@ use App\Models\ArtigoCategoria;
 use App\Models\Artigo;
 use App\Models\ArtigoComponente;
 use App\Models\SobreNos;
+use App\Models\Slide;
 
 class Site extends Controller {
 
@@ -24,6 +25,7 @@ class Site extends Controller {
         $this->cabecaloRodape['redesSociais'] = RedeSocial::orderBy('sequencia')->get();
         $this->cabecaloRodape['telefones'] = Telefone::orderBy('sequencia')->get();
         $this->cabecaloRodape['emails'] = Email::orderBy('sequencia')->get();
+        $this->cabecaloRodape['slides'] = Slide::orderBy('sequencia')->get();
     }
 
     public function blog() {
@@ -48,7 +50,11 @@ class Site extends Controller {
         } else {
             $artigo = Artigo::find($id);
             $conteudo = $this->conteudoComposto(ArtigoComponente::orderBy('sequencia')->where('artigo_id', $id)->get(), 'trecho');
-            return view('web.artigo.index', compact('artigo', 'conteudo'))->with($this->cabecaloRodape);
+            $banner = $this->cabecaloRodape['slides'][rand(0, count($this->cabecaloRodape['slides'])-1)];
+            //$banner = ;
+
+            
+            return view('web.artigo.index', compact('artigo', 'conteudo', 'banner'))->with($this->cabecaloRodape);
         }
     }
 

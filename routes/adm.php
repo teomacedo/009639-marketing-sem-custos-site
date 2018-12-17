@@ -53,6 +53,9 @@ Route::group(["middleware" => "auth:adm"], function() {
     
     Route::resource('adm/painel/fale-conosco', 'Adm\PainelFaleConosco');
     Route::get('adm/painel/fale-conosco/destroy/{id}', 'Adm\PainelFaleConosco@destroy'); 
+    
+    Route::resource('adm/painel/slide', 'Adm\PainelSlide');
+    Route::get('adm/painel/slide/destroy/{id}', 'Adm\PainelSlide@destroy'); 
 });
 
 

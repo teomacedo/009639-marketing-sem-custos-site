@@ -27,6 +27,7 @@
     </head>
 
     <body>
+        <div id="loading-bar" class="loading-bar loading-bar-off" style="background-image: url('{{url('/photos/shares/geral/progress.gif')}}')"></div>
         <div class="menu-desktop">
             <div class="container" style="height: 100%;">
                 <div class="menu-desktop-geral">
@@ -44,26 +45,28 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            @if (count($errors) > 0)
-            <div class="alerta alert alert-danger" role="alert">
-                @foreach ($errors->all() as $error)
-                -{{ $error }}<br>
-                @endforeach
-            </div>
-            @endif
+        <div style="position: fixed; z-index: 5; width: 100%">
+            <div style="max-width: 390px; margin: 0 auto; box-shadow: -2px 2px 3px rgba(0,0,0,.1);">
+                @if (count($errors) > 0)
+                <div class="alerta alert alert-danger" role="alert">
+                    @foreach ($errors->all() as $error)
+                    -{{ $error }}<br>
+                    @endforeach
+                </div>
+                @endif
 
-            @if (session('mensagemSucesso'))
-            <div class="alerta alert alert-success text-center">
-                {!! session('mensagemSucesso') !!}
-            </div>
-            @endif
+                @if (session('mensagemSucesso'))
+                <div class="alerta alert alert-success text-center">
+                    {!! session('mensagemSucesso') !!}
+                </div>
+                @endif
 
-            @if (session('mensagemErro'))
-            <div class="alerta alert alert-danger text-center">
-                {!! session('mensagemErro') !!}
+                @if (session('mensagemErro'))
+                <div class="alerta alert alert-danger text-center">
+                    {!! session('mensagemErro') !!}
+                </div>
+                @endif
             </div>
-            @endif
         </div>
 
         <style type="text/css">
@@ -83,7 +86,7 @@
                 </div>
                 <div class="pagina-divisao-vertical-secundario">
                     <div style="display: flex; justify-content: flex-end;">
-                        <div class="aba-assinautra-area-margin-top" style="width: 350px; position: absolute; z-index: 2;">
+                        <div class="aba-assinautra-area-margin-top" style="">
                             <div class="aba-assinautra-area">
                                 <div class="aba-assinautra-area-titulo-pequeno">
                                     JUNTE-SE A NÓS!
@@ -121,6 +124,25 @@
                                 @endif
                                 @endforeach
                             </div>
+
+                            @foreach($slides as $row)
+                            @if($row->ativo != 0)
+                            @if($row->banner_blog_vertical != '')                            
+                            <a href="{{$row->botao_link}}">
+                                <div class="banner-blog-vertical-area">
+                                    <img src="{{url(''.$row->banner_blog_vertical)}}" class="img-fluid">
+                                    <div class="banner-blog-vertical-area-botao">
+                                        <div>
+                                            {{$row->banner_blog_botao_texto}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            @endif
+                            @endif
+                            @endforeach
+
+
                         </div>
                     </div>
                 </div>
