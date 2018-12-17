@@ -31,7 +31,7 @@ class PainelArtigo extends Controller {
     }
 
     public function index() {
-        $this->dadosBase['model'] = $this->dadosBase['model']->all();
+        $this->dadosBase['model'] = $this->dadosBase['model']->orderBy('updated_at', 'desc')->get();
         $dadosBase = $this->dadosBase;
         return view('adm.geral.list', compact('dadosBase'));
     }

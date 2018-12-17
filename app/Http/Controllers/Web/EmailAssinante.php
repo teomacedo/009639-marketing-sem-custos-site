@@ -21,7 +21,7 @@ class EmailAssinante extends Controller {
         $retorno = Assinante::create($dataForm);
         if ($retorno) {
             $equipe = Empresa::first();
-            $from = Email::first();
+            $from = Email::orderBy('sequencia')->first();
             $assunto = 'Bem-vindo';
             Mail::to($dataForm['email'])->send(new EmailAssinatura($dataForm, $equipe->nome, $from->email, $assunto));
             $mensagemSucesso = ":) Seu cadastro foi feito com sucesso! Seja muito bem-vindo!";

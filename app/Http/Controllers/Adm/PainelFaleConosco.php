@@ -28,7 +28,7 @@ class PainelFaleConosco extends Controller {
             $this->dadosBase['model'] = $this->dadosBase['model']->all()->where('artigo_id', $foreign);
         } else {
             if ($this->dadosBase['foreign'] == 'no') {
-                $this->dadosBase['model'] = $this->dadosBase['model']->all();
+                $this->dadosBase['model'] = $this->dadosBase['model']->orderBy('updated_at', 'desc')->get();
             } else {
                 return redirect()->route('painel');
             }

@@ -34,7 +34,7 @@ class PainelEndereco extends Controller {
             $this->dadosBase['model'] = $this->dadosBase['model']->all()->where('artigo_id', $foreign);
         } else {
             if ($this->dadosBase['foreign'] == 'no') {
-                $this->dadosBase['model'] = $this->dadosBase['model']->all();
+                $this->dadosBase['model'] = $this->dadosBase['model']->orderBy('sequencia')->get();
             } else {
                 return redirect()->route('painel');
             }

@@ -25,7 +25,7 @@ class PainelArtigoCategoria extends Controller {
     }
 
     public function index() {
-        $this->dadosBase['model'] = $this->dadosBase['model']->all();
+        $this->dadosBase['model'] = $this->dadosBase['model']->orderBy('sequencia')->get();
         $dadosBase = $this->dadosBase;
         return view('adm.geral.list', compact('dadosBase'));
     }
