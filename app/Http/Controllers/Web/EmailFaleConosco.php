@@ -25,13 +25,13 @@ class EmailFaleConosco extends Controller {
         
         if ($retorno) {
             $equipe = Empresa::first();
-            $from = Email::first();
+            $from = Email::orderBy('sequencia')->first();
             $assunto = 'A Equipe Nuc já, já te retornará';
             $telefones = Telefone::orderBy('sequencia')->get();
             $emails = Email::orderBy('sequencia')->get();
             Mail::to($dataForm['email'])->send(new EmailContatoUsuario($dataForm, $equipe->nome, $from->email, $assunto, $telefones, $emails));
             Mail::to($from->email)->send(new EmailContatoEquipe($dataForm, $equipe->nome, $from->email));
-            $mensagemSucesso = ":) Sua solicitação de conto foi enviada com sucesso!<br>Retornaremos seu contato o mais breve possível!";
+            $mensagemSucesso = ":) Sua solicitação de conto foi enviada com sucesso! Retornaremos seu contato o mais breve possível!";
             return redirect()->back()->with('mensagemSucesso', $mensagemSucesso);
         } else {
             $mensagemErro = "Ops! Erro ao cadastrar.";
