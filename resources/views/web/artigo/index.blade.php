@@ -11,10 +11,10 @@
         {!!$artigo->categoria()->nome!!}
     </div>
 </a>
-<div class="capa-desktop-titulo">
+<div class="capa-titulo">
     {!!$artigo->titulo!!}
 </div>
-<div class="capa-desktop-subtitulo">
+<div class="capa-subtitulo">
     {!!$artigo->subtitulo!!}
 </div>
 @if($banner->ativo != 0)

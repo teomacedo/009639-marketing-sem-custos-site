@@ -23,7 +23,7 @@
     <body>
         <div id="loading-bar" class="loading-bar loading-bar-off" style="background-image: url('{{url('/photos/shares/geral/progress.gif')}}')"></div>
         @include('web.geral.menu')
-        
+
         @include('web.geral.alert')
 
         <style type="text/css">
@@ -31,14 +31,14 @@
                 margin-top: 60px;
             }
         </style>
-        
+
         @yield('capa')
-        
+
         <div class="container">
             <div class="pagina-divisao-vertical">
                 <div class="pagina-divisao-vertical-principal">
                     <div class="secao">
-                        <div style="display: flex; flex-wrap: wrap;">
+                        <div class="secao-involucro">
                             @yield('content')
                         </div>
                     </div>

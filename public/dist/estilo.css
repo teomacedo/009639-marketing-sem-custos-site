@@ -251,6 +251,10 @@ a .botao-azul-preenchido:hover{
     padding-bottom: 30px;
 }
 
+.secao-involucro{
+    display: flex; flex-wrap: wrap;
+}
+
 .secao-titulo{
     font-size: 30px;
     color: #4181C2;
@@ -293,6 +297,24 @@ a .botao-azul-preenchido:hover{
 
 .banner-blog-horizontal{
     margin-bottom: 10px;
+}
+
+.capa-titulo{
+    width: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+    color: #4181C2;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.capa-subtitulo{
+    font-size: 25px;
+    color: #807F7F;
+    width: 100%;
+    line-height: 1;
+    padding-bottom: 15px;
 }
 
 
