@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-
+    <div style="height: 60px; width: 100%"></div>
     <div class="collapse" id="collapseExample">
         <a href="{{route('home')}}" class="menu-small-itens">
             <div class="container">

@@ -25,7 +25,7 @@ class Site extends Controller {
         $this->cabecaloRodape['redesSociais'] = RedeSocial::orderBy('sequencia')->get();
         $this->cabecaloRodape['telefones'] = Telefone::orderBy('sequencia')->get();
         $this->cabecaloRodape['emails'] = Email::orderBy('sequencia')->get();
-        $this->cabecaloRodape['slides'] = Slide::orderBy('sequencia')->get();
+        $this->cabecaloRodape['slides'] = $this->conteudoSlide();
     }
 
     public function blog() {
@@ -50,10 +50,10 @@ class Site extends Controller {
         } else {
             $artigo = Artigo::find($id);
             $conteudo = $this->conteudoComposto(ArtigoComponente::orderBy('sequencia')->where('artigo_id', $id)->get(), 'trecho');
-            $banner = $this->cabecaloRodape['slides'][rand(0, count($this->cabecaloRodape['slides'])-1)];
+            $banner = $this->cabecaloRodape['slides'][rand(0, count($this->cabecaloRodape['slides']) - 1)];
             //$banner = ;
 
-            
+
             return view('web.artigo.index', compact('artigo', 'conteudo', 'banner'))->with($this->cabecaloRodape);
         }
     }
@@ -62,7 +62,7 @@ class Site extends Controller {
         $conteudo = $this->conteudoComposto(SobreNos::orderBy('sequencia')->get(), 'trecho');
         return view('web.sobre-nos.index', compact('conteudo'))->with($this->cabecaloRodape);
     }
-    
+
     public function faleConosco() {
         return view('web.fale-conosco.index')->with($this->cabecaloRodape);
     }
@@ -71,32 +71,51 @@ class Site extends Controller {
         for ($i = 0; $i < count($objeto); $i++) {
             if (($i % 2) != 0) {
                 $objeto[$i]['order'] = 'order: -1;';
-                if($objeto[$i][$conteudo] != ''){
+                if ($objeto[$i][$conteudo] != '') {
                     $objeto[$i]['padding'] = 'padding-right: 55px; padding-left: 0px;';
                 } else {
                     $objeto[$i]['padding'] = 'padding-right: 0px; padding-left: 0px;';
                 }
-                
             }
-            
-            if ($objeto[$i]['imagem_altura'] == ''){
+
+            if ($objeto[$i]['imagem_altura'] == '') {
                 $objeto[$i]['img_altura'] = 'height: 400px;';
-            } else{
-                $objeto[$i]['img_altura'] = 'height: '.$objeto[$i]['imagem_altura'].'px;';
+            } else {
+                $objeto[$i]['img_altura'] = 'height: ' . $objeto[$i]['imagem_altura'] . 'px;';
             }
             if ($objeto[$i]['imagem'] == '') {
                 $objeto[$i]['noimg'] = 'min-width: 100%; padding: 0px;';
             }
-            
+
             if (($objeto[$i]['titulo'] == '') && ($objeto[$i]['subtitulo'] == '')) {
                 if ($objeto[$i][$conteudo] == '') {
                     $objeto[$i]['onlyimg'] = 'min-width: 100%;';
                 }
             }
-            
+
             $objeto[$i]['conteudo'] = $objeto[$i][$conteudo];
         }
         return $objeto;
+    }
+
+    public function conteudoSlide() {
+        $slides = Slide::orderBy('sequencia')->get();
+        for ($i = 0; $i < count($slides); $i++) {
+            if ($i == 0) {
+                $slides[$i]['active'] = 'active';
+            }
+            if ($slides[$i]['imagem_small'] == '') {
+                $slides[$i]['imagem_small'] = $slides[$i]['imagem'];
+            }
+            if ($slides[$i]['titulo_small'] == '') {
+                $slides[$i]['titulo_small'] = $slides[$i]['titulo_desktop'];
+            }
+            if ($slides[$i]['subtitulo_small'] == '') {
+                $slides[$i]['subtitulo_small'] = $slides[$i]['subtitulo_desktop'];
+            }
+        }
+
+        return $slides;
     }
 
 }

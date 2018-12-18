@@ -5,10 +5,14 @@
 
     .menu-small-topo{
         width: 100%;
-        background: -moz-linear-gradient(45deg, rgba(65,129,194,0) 49.9%, rgba(65,129,194,1) 50%, rgba(65,129,194,1) 100%);
-        background: -webkit-linear-gradient(45deg, rgba(65,129,194,0) 49.9%,rgba(65,129,194,1) 50%,rgba(65,129,194,1) 100%);
-        background: linear-gradient(45deg, rgba(65,129,194,0) 49.9%,rgba(65,129,194,1) 50%,rgba(65,129,194,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004181c2', endColorstr='#4181c2',GradientType=1 );
+        position: absolute;
+        z-index: 2;
+        box-shadow: 0 3px 3px rgba(0,0,0,.3);
+        background: rgb(255,255,255);
+        background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 49.9%, rgba(65,129,194,1) 50%, rgba(65,129,194,1) 100%);
+        background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 49.9%,rgba(65,129,194,1) 50%,rgba(65,129,194,1) 100%);
+        background: linear-gradient(45deg, rgba(255,255,255,1) 49.9%,rgba(65,129,194,1) 50%,rgba(65,129,194,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#4181c2',GradientType=1 );
     }
 
     .menu-small-topo-area-geral{
@@ -136,8 +140,64 @@
         order: 3;
     }
 
-
     .rodape-area-coluna:nth-of-type(3){
         order: 4;
+    }
+
+    .carousel-item{
+        flex-direction:column;
+        background-position: center center;
+    }
+
+    .slide-small-pelicula{
+        background-color: rgba(0,0,0,.75);
+    }
+
+    .slide-small-foto-principal{
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-position: center center;
+        border-bottom:solid 1px white;
+    }
+
+    .slide-small-texto-area-conteudo{
+        text-align:left;
+        color:white;
+        padding: 45px;
+    }
+
+    .slide-small-texto-area-conteudo-titulo{
+        line-height: 1.1;
+        font-size:25px;
+        font-weight:bolder;
+        color: #FFFF00;
+    }
+
+
+    .slide-small-texto-area-conteudo-subtitulo{
+        font-size:16px;
+        font-style:italic;
+        margin-top:5px;
+        margin-bottom:20px;
+    }
+
+    .slide-small-texto-area-conteudo-botao{
+        display:flex;
+        min-width:100%;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .slide-small-texto-area-conteudo-botao-circulo{
+        width:50px;
+        height:50px;
+        background-color:white;
+        border-radius:25px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        color:black;
+        font-size:25px;
     }
 }

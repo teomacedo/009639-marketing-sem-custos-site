@@ -1,28 +1,7 @@
 @extends('web.geral.estrutura')
 @section('capa')
-<div class="small-off">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <?php $active = 'active'; ?>
-            @foreach($slides as $row)
-            @if($row->ativo != 0)
-            <div class="carousel-item {{$active}}">
-                @include('web.geral.slide')
-            </div>
-            <?php $active = ''; ?>
-            @endif
-            @endforeach
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div>
+@include('web.geral.slide') 
+
 @endsection
 
 @section('content')
