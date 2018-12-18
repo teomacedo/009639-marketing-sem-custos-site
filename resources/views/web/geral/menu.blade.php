@@ -15,7 +15,7 @@
         </div>
     </div>
 </div>
-<div class="desktop-off">
+<div class="desktop-off" style="position: fixed; z-index: 3; width: 100%;">
     <div class="menu-small-topo">
         <div class="container">
             <div class="menu-small-topo-area-geral">
@@ -30,7 +30,6 @@
             </div>
         </div>
     </div>
-    <div style="height: 60px; width: 100%"></div>
     <div class="collapse" id="collapseExample">
         <a href="{{route('home')}}" class="menu-small-itens">
             <div class="container">
@@ -75,3 +74,4 @@
         </div>
     </div>
 </div>
+<div class="desktop-off" style="height: 60px; width: 100%"></div>
