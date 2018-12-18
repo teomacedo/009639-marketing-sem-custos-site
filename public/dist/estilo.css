@@ -24,6 +24,25 @@ p{margin: 0;}
     display: block;
 }
 
+.botao-azul-preenchido{
+    background: #4181C2;
+    color: white;
+    border: initial;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 2px;
+
+}
+
+a .botao-azul-preenchido:hover{
+    background: #165589;
+    color: white;
+    border: initial;
+}
+
 
 .alerta{
     margin-top: 30px;

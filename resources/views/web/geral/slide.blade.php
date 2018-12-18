@@ -1,5 +1,4 @@
-<div class="slide-desktop" style="background-image: url('{{url(''.$row->imagem)}}')">
-
+<div class="slide-desktop small-off" style="background-image: url('{{url(''.$row->imagem)}}')">
     <div class="slide-desktop-pelicula">
         <div class="container">
             <div class="slide-desktop-conteudo">

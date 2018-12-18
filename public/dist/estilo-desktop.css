@@ -1,4 +1,8 @@
 @media (min-width: 993px) {
+    .desktop-off{
+        display: none;
+    }
+    
     .menu-desktop{
         height: 72px;
         box-shadow: 0 3px 3px rgba(0,0,0,.3);
@@ -36,25 +40,6 @@
     .menu-desktop-links-item-centro{
         font-size: 20px;
         font-weight: bolder;
-    }
-
-    .menu-desktop-links-botao{
-        background: #4181C2;
-        color: white;
-        border: initial;
-        padding: 10px;
-        padding-top: 5px;
-        padding-bottom: 7px;
-        padding-left: 15px;
-        padding-right: 15px;
-        border-radius: 2px;
-
-    }
-
-    a .menu-desktop-links-botao:hover{
-        background: #165589;
-        color: white;
-        border: initial;
     }
 
     .capa-desktop{

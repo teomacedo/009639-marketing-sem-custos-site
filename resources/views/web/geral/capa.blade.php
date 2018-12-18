@@ -3,7 +3,7 @@
         margin-top: -390px;
     }
 </style>
-<div class="capa-desktop" style="background-image: url('{{url(''.$fotoCapa)}}')">
+<div class="capa-desktop small-off" style="background-image: url('{{url(''.$fotoCapa)}}')">
     @if(isset($nome))
     <div class="capa-desktop-pelicula">
         <div class="capa-desktop-pelicula-nuvem" style="background-image: url('{{url('/photos/shares/geral/tarja-decor.png')}}')">
