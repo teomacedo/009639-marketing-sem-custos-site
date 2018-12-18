@@ -5,24 +5,12 @@
 
     .menu-small-topo{
         width: 100%;
-        border-bottom: solid 1px white;
         background: -moz-linear-gradient(45deg, rgba(0,123,255,0) 49.9%, rgba(0,123,255,1) 50%, rgba(0,123,255,1) 100%);
         background: -webkit-linear-gradient(45deg, rgba(0,123,255,0) 49.9%,rgba(0,123,255,1) 50%,rgba(0,123,255,1) 100%);
         background: linear-gradient(45deg, rgba(0,123,255,0) 49.9%,rgba(0,123,255,1) 50%,rgba(0,123,255,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00007bff', endColorstr='#007bff',GradientType=1 );
     }
     
-    .menu-small-topo .btn-outline-secondary{
-        color: #FFFF00;
-        border-color: #FFFF00;
-        border-width: 1px;
-    }
-    
-    .menu-small-topo .btn-outline-secondary:hover{
-        color: #007bff;
-        background-color: #FFFF00;
-    }
-
     .menu-small-topo-area-geral{
         width: 100%;
         height: 60px;
@@ -55,24 +43,35 @@
     .menu-small-topo-area-botao{
 
     }
+    
+    .menu-small-topo .btn-outline-secondary{
+        color: #FFFF00;
+        border-color: #FFFF00;
+        border-width: 1px;
+    }
+    
+    .menu-small-topo .btn-outline-secondary:hover{
+        color: #007bff;
+        background-color: #FFFF00;
+    }
 
     .menu-small-itens{
-        color: #1C3B67;
+        color: #007bff;
         background-color:#ffffff;
         display:flex;
         align-items:center;
         width:100%;
         height:40px;
-        border-bottom: dashed 1px #ccc;
+        border-bottom: solid 1px #ccc;
         font-weight:bolder;
     }
 
     .menu-small-itens:first-of-type{
-        border-top: dashed 1px #ccc;
+        border-top: solid 1px #ccc;
     }
 
     .menu-small-itens:hover{
-        background-color: #01579B;
+        background-color: #007bff;
     }
 
     .menu-small-itens-secundarios{
@@ -83,7 +82,7 @@
 
     .menu-small-rede-social-area-fundo{
         width: 100%;
-        background-color:#1C3B67;
+        background-color: #007bff;
     }
 
     .menu-small-rede-social-area{
@@ -105,7 +104,8 @@
     }
 
     .menu-small-rede-social:hover{
-        background-color: #F58635;
+        background-color: #FFFF00;
+        color: #007bff;
     }
 
     .pagina-divisao-vertical{
