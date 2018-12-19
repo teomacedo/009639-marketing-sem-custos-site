@@ -270,4 +270,8 @@
         position: relative;
         z-index: 1;
     }
+
+    .miniatura-artigo-area{
+        max-width: initial;
+    }
 }
