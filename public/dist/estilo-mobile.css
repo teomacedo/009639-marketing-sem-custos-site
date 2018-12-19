@@ -213,4 +213,28 @@
         max-width: 100%;
         padding-left: initial;
     }
+    
+    .capa{
+        height: initial;
+    }
+    
+    .capa-pelicula-nuvem{
+        padding: initial;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        min-height: 250px;
+        background-position: left bottom;
+        background-size: 200%;
+    }
+    
+    .capa-nome{
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .capa-subtitulo-categoria{
+        font-size: 17px;
+        max-width: initial;
+        margin-bottom: 15px;
+    }
 }

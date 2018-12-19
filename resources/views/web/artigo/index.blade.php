@@ -1,7 +1,7 @@
 @extends('web.geral.estrutura')
 
 @section('capa')
-@include('web.geral.capa',['fotoCapa' => $artigo->imagem])
+@include('web.geral.capa-artigo')
 @endsection
 
 @section('content')

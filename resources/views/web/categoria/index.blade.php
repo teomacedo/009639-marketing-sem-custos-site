@@ -1,11 +1,7 @@
 @extends('web.geral.estrutura')
 
 @section('capa')
-@include('web.geral.capa',[
-'fotoCapa' => $categoria->imagem,
-'nome' => $categoria->nome,
-'subtitulo' => $categoria->subtitulo,
-'descricao' => $categoria->descricao])
+@include('web.geral.capa-categoria')
 @endsection
 
 @section('content')

@@ -23,9 +23,7 @@
         </div>
     </div>
 </div>
-@endforeach
 
-@foreach($conteudo as $row)
 <div class="conteudo-composto desktop-off">
     @if(($row->imagem) != '')
     <div class="conteudo-composto-foto img-thumbnail" style="{{$row->img_altura}} background-image: url('{{url(''.$row->imagem)}}')"></div>
