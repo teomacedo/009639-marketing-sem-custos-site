@@ -3,6 +3,11 @@
         display: none;
     }
 
+    .secao{
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+
     .menu-small-topo{
         width: 100%;
         z-index: 2;
@@ -213,12 +218,12 @@
         max-width: 100%;
         padding-left: initial;
     }
-    
+
     .capa{
         height: initial;
         background-color: white;
     }
-    
+
     .capa-pelicula-nuvem{
         padding: initial;
         padding-top: 60px;
@@ -227,11 +232,19 @@
         background-image: none !important;
     }
     
+    .capa-titulo{
+        font-size: 30px;
+    }
+    
+    .capa-subtitulo{
+        font-size: 18px;
+    }
+
     .capa-nome{
         font-size: 30px;
         margin-bottom: 15px;
     }
-    
+
     .capa-subtitulo-categoria{
         font-size: 17px;
         max-width: initial;
