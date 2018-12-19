@@ -225,7 +225,7 @@
         min-height: 250px;
         background-position: left bottom;
         background-size: 200%;
-        margin-bottom: -1px;
+        border-bottom: solid 2px white;
     }
     
     .capa-nome{
