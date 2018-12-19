@@ -7,6 +7,10 @@
         padding-top: 20px;
         padding-bottom: 10px;
     }
+    
+    .secao-subtitulo{
+        width: initial;
+    }
 
     .menu-small-topo{
         width: 100%;

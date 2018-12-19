@@ -364,6 +364,27 @@ a .botao-azul-preenchido:hover{
     padding-bottom: 15px;
 }
 
+.miniatura-artigo-area{
+    max-width: 49%;
+}
+
+.miniatura-artigo-area-nome-categoria{
+    color: #8999a8;
+}
+
+.miniatura-artigo-area-titulo{
+    color: #4181C2;
+}
+
+.miniatura-artigo-area-nome-autor-data{
+    color: #8999a8;
+    font-size: 13px;
+}
+
+.miniatura-artigo-area {
+    max-width: initial;
+}
+
 
 
 
