@@ -9,10 +9,10 @@
         }
     }
 </style>
-<div class="capa" style="background-image: url('{{url(''.$categoria->thumbnail)}}')">
+<div class="capa small-off" style="background-image: url('{{url(''.$categoria->imagem)}}')">
     <div class="capa-pelicula">
         <div class="capa-pelicula-nuvem" style="background-image: url('{{url('/photos/shares/geral/tarja-decor.png')}}')">
-            <div class="container small-off">
+            <div class="container">
                 <div class="capa-nome">
                     {!!$categoria->nome!!}
                 </div>
@@ -22,6 +22,14 @@
                 </div>
                 @endif
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="capa desktop-off" style="background-image: url('{{url(''.$categoria->thumbnail)}}')">
+    <div class="capa-pelicula">
+        <div class="capa-pelicula-nuvem" style="background-image: url('{{url('/photos/shares/geral/tarja-decor.png')}}')">
+
         </div>
     </div>
 </div>

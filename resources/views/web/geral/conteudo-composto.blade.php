@@ -26,7 +26,8 @@
 
 <div class="conteudo-composto desktop-off">
     @if(($row->imagem) != '')
-    <div class="conteudo-composto-foto img-thumbnail" style="{{$row->img_altura}} background-image: url('{{url(''.$row->imagem)}}')"></div>
+    {!!$row->imagem_altura_mobile!!}
+    <div class="conteudo-composto-foto img-thumbnail {{$row->class_img_altura_smal}}" style="{{$row->img_altura}} background-image: url('{{url(''.$row->imagem)}}')"></div>
     @endif
     <div class="conteudo-composto-texto">
         <div>
@@ -46,4 +47,9 @@
         </div>
     </div>
 </div>
+@if(($row->video) != '')
+<div class='embed-responsive embed-responsive-16by9'>
+    <iframe class='embed-responsive-item' src='{{$row->video}}' allowfullscreen></iframe>
+</div>
+@endif
 @endforeach

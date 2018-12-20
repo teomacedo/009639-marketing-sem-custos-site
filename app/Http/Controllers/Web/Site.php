@@ -38,6 +38,9 @@ class Site extends Controller {
             return redirect()->route('blog');
         } else {
             $categoria = ArtigoCategoria::find($id);
+            if ($categoria->thumbnail == '') {
+                $categoria->thumbnail = $categoria->imagem;
+            }
             $artigos = $categoria->artigos;
             //$artigos = Artigo::orderBy('updated_at', 'desc')->get();
             return view('web.categoria.index', compact('categoria', 'artigos'))->with($this->cabecaloRodape);
@@ -49,11 +52,12 @@ class Site extends Controller {
             return redirect()->route('blog');
         } else {
             $artigo = Artigo::find($id);
+            if ($artigo->thumbnail == '') {
+                $artigo->thumbnail = $artigo->imagem;
+            }
             $conteudo = $this->conteudoComposto(ArtigoComponente::orderBy('sequencia')->where('artigo_id', $id)->get(), 'trecho');
             $banner = $this->cabecaloRodape['slides'][rand(0, count($this->cabecaloRodape['slides']) - 1)];
             //$banner = ;
-
-
             return view('web.artigo.index', compact('artigo', 'conteudo', 'banner'))->with($this->cabecaloRodape);
         }
     }
@@ -72,17 +76,19 @@ class Site extends Controller {
             if (($i % 2) != 0) {
                 $objeto[$i]['order'] = 'order: -1;';
                 if ($objeto[$i][$conteudo] != '') {
-                    $objeto[$i]['padding'] = 'padding-right: 55px; padding-left: 0px;';
+                    $objeto[$i]['padding'] = 'padding-right: 15px; padding-left: 0px;';
                 } else {
                     $objeto[$i]['padding'] = 'padding-right: 0px; padding-left: 0px;';
                 }
             }
 
-            if ($objeto[$i]['imagem_altura'] == '') {
-                $objeto[$i]['img_altura'] = 'height: 400px;';
-            } else {
-                $objeto[$i]['img_altura'] = 'height: ' . $objeto[$i]['imagem_altura'] . 'px;';
+            if($objeto[$i]['img_altura'] != $objeto[$i]['imagem_altura_mobile']){
+                $objeto[$i]['imagem_altura_mobile'] = "<style type='text/css'>@media (max-width: 992px) {.conteudo-composto-foto-altura-small-".$i."{height: ".$objeto[$i]['imagem_altura_mobile']."px !important;}}</style>";
             }
+            
+            $objeto[$i]['class_img_altura_smal'] = 'conteudo-composto-foto-altura-small-'.$i;
+            $objeto[$i]['img_altura'] = 'height: ' . $objeto[$i]['imagem_altura'] . 'px;';
+
             if ($objeto[$i]['imagem'] == '') {
                 $objeto[$i]['noimg'] = 'min-width: 100%; padding: 0px;';
             }

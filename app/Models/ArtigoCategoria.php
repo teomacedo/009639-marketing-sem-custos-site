@@ -11,8 +11,7 @@ class ArtigoCategoria extends Model {
         'imagem',
         'thumbnail',
         'nome',
-        'subtitulo',
-        'descricao'
+        'subtitulo'
     ];
     
     public function artigos(){

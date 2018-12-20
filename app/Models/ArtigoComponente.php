@@ -10,6 +10,8 @@ class ArtigoComponente extends Model {
         'sequencia',
         'imagem',
         'imagem_altura',
+        'imagem_altura_mobile',
+        'video',
         'titulo',
         'subtitulo',
         'trecho',

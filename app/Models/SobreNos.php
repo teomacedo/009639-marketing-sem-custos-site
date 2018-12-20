@@ -10,6 +10,8 @@ class SobreNos extends Model {
         'sequencia',
         'imagem',
         'imagem_altura',
+        'video',
+        'imagem_altura_mobile',
         'titulo',
         'subtitulo',
         'trecho'
