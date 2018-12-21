@@ -1,6 +1,6 @@
 <?php
-Route::get('/', 'Web\Site@blog');
-Route::get('/home', 'Web\Site@blog')->name('home');
+Route::get('/', 'Web\Site@home');
+Route::get('/home', 'Web\Site@home')->name('home');
 
 Route::get('/blog', 'Web\Site@blog')->name('blog');
 

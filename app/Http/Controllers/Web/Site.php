@@ -21,15 +21,23 @@ class Site extends Controller {
     function __construct() {
         $this->cabecaloRodape['empresa'] = Empresa::first();
         $this->cabecaloRodape['endereco'] = Endereco::orderBy('sequencia')->get();
-        $this->cabecaloRodape['categorias'] = ArtigoCategoria::orderBy('sequencia')->get();
         $this->cabecaloRodape['redesSociais'] = RedeSocial::orderBy('sequencia')->get();
         $this->cabecaloRodape['telefones'] = Telefone::orderBy('sequencia')->get();
         $this->cabecaloRodape['emails'] = Email::orderBy('sequencia')->get();
         $this->cabecaloRodape['slides'] = $this->conteudoSlide();
+        $this->injetarCategorias();
+    }
+
+    public function home() {
+        $quadroCategoriaOculto = 'none';
+        return view('web.home.index', compact('quadroCategoriaOculto'))->with($this->cabecaloRodape);
     }
 
     public function blog() {
         $artigos = Artigo::orderBy('updated_at', 'desc')->get();
+
+
+
         return view('web.blog.index', compact('artigos'))->with($this->cabecaloRodape);
     }
 
@@ -82,11 +90,11 @@ class Site extends Controller {
                 }
             }
 
-            if($objeto[$i]['img_altura'] != $objeto[$i]['imagem_altura_mobile']){
-                $objeto[$i]['imagem_altura_mobile'] = "<style type='text/css'>@media (max-width: 992px) {.conteudo-composto-foto-altura-small-".$i."{height: ".$objeto[$i]['imagem_altura_mobile']."px !important;}}</style>";
+            if ($objeto[$i]['img_altura'] != $objeto[$i]['imagem_altura_mobile']) {
+                $objeto[$i]['imagem_altura_mobile'] = "<style type='text/css'>@media (max-width: 992px) {.conteudo-composto-foto-altura-small-" . $i . "{height: " . $objeto[$i]['imagem_altura_mobile'] . "px !important;}}</style>";
             }
-            
-            $objeto[$i]['class_img_altura_smal'] = 'conteudo-composto-foto-altura-small-'.$i;
+
+            $objeto[$i]['class_img_altura_smal'] = 'conteudo-composto-foto-altura-small-' . $i;
             $objeto[$i]['img_altura'] = 'height: ' . $objeto[$i]['imagem_altura'] . 'px;';
 
             if ($objeto[$i]['imagem'] == '') {
@@ -122,6 +130,22 @@ class Site extends Controller {
         }
 
         return $slides;
+    }
+
+    public function injetarCategorias() {
+        $this->cabecaloRodape['categorias'] = ArtigoCategoria::orderBy('sequencia')->get();
+        $i = 0;
+        foreach ($this->cabecaloRodape['categorias'] as $categoria) {
+            if ($i == 0) {
+                if (count($categoria->artigos) > 0) {
+                    $categoria->active = 'active';
+                    $i++;
+                }
+            }
+            if ($categoria->thumbnail == '') {
+                $categoria->thumbnail = $categoria->imagem;
+            }
+        }
     }
 
 }

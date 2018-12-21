@@ -69,7 +69,7 @@
                                 {!! Form::close() !!}
                             </div>
 
-                            <div class="aba-assinautra-area">
+                            <div class="aba-assinautra-area" style="display:{{$quadroCategoriaOculto ?? 'block'}};">
                                 <div class="aba-assinautra-area-titulo-pequeno">
                                     CATEGORIAS
                                 </div>
