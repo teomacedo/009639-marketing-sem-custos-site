@@ -59,6 +59,9 @@ Route::group(["middleware" => "auth:adm"], function() {
     
     Route::resource('adm/painel/chamada-principal', 'Adm\PainelChamadaPrincipal');
     Route::get('adm/painel/chamada-principal/destroy/{id}', 'Adm\PainelChamadaPrincipal@destroy'); 
+    
+    Route::resource('adm/painel/funcionalidade', 'Adm\PainelFuncionalidade');
+    Route::get('adm/painel/funcionalidade/destroy/{id}', 'Adm\PainelFuncionalidade@destroy'); 
 });
 
 
