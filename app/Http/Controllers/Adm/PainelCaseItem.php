@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Adm;
 
 use App\Http\Controllers\Controller;
-use App\Models\Funcionalidade; //editavel
-use App\Http\Requests\Adm\Request_PainelFuncionalidade; //editavel
+use App\Models\CaseItem; //editavel
+use App\Http\Requests\Adm\Request_PainelCaseItem; //editavel
 
-class PainelFuncionalidade extends Controller {
+class PainelCaseItem extends Controller {
     public $dadosBase;
 
-    public function __construct(Funcionalidade $model) {
-        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/funcionalidade';
-        /* editavel */$this->dadosBase['tabelaColunas'] = ['Seq', 'Nome', 'Icon'];
-        /* editavel */$this->dadosBase['imagem'] = ['active' => 'no', 'label' => 'Logo'];
+    public function __construct(CaseItem $model) {
+        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/case-item';
+        /* editavel */$this->dadosBase['tabelaColunas'] = ['Seq', 'Cliente', 'Titulo'];
+        /* editavel */$this->dadosBase['imagem'] = ['active' => 'yes', 'label' => 'Foto'];
         /* editavel */$this->dadosBase['createEditInclude'] = [['active' => 'no', 'titulo' => 'baza', 'path' => 'baza']];
         /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'no', 'create' => 'yes', 'edit' => 'yes', 'delete' => 'yes'];
         /* editavel */$this->dadosBase['foreign'] = 'no';
@@ -58,7 +58,7 @@ class PainelFuncionalidade extends Controller {
         }
     }
 
-    public function store(Request_PainelFuncionalidade $request) {
+    public function store(Request_PainelCaseItem $request) {
         $dataForm = $request->all();
         $retorno = $this->dadosBase['model']->create($dataForm);
 
@@ -74,7 +74,7 @@ class PainelFuncionalidade extends Controller {
     }
 
     public function edit($id, $foreign = '') {
-        $this->dadosBase['model'] = Funcionalidade::find($id);
+        $this->dadosBase['model'] = CaseItem::find($id);
         /* editavel */$titulo = 'Editar';
         if ($foreign != '') {
             return view('adm.geral.create-edit', compact(''))
@@ -92,7 +92,7 @@ class PainelFuncionalidade extends Controller {
         }
     }
 
-    public function update(Request_PainelFuncionalidade $request, $id) {
+    public function update(Request_PainelCaseItem $request, $id) {
         $dataForm = $request->all();
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);

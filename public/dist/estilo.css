@@ -7,6 +7,26 @@ html{height: 100%;}
 body{height: 100%;}
 p{margin: 0;}
 
+.map{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.map__image{
+    width: 30%;
+    display: inline-block;
+}
+
+.map__image path{
+    fill: #c4c4c4;
+    stroke: #FFF;
+    stroke-width: 2px;
+    transition: fill 0.3s;
+}
+
 .loading-bar{
     position: fixed;
     z-index: 1000;
@@ -379,6 +399,84 @@ a .botao-azul-preenchido:hover{
 .miniatura-artigo-area-nome-autor-data{
     color: #8999a8;
     font-size: 13px;
+}
+
+.clientes-area{
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.clientes-area-titulo{
+    width: 100%;
+    font-size: 36px;
+    color: #4181c2;
+    line-height: 1.2em;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.estado-area{
+    margin-left: 35px;
+}
+
+.lista-cliente-item{
+    width: 100%;
+    margin: 10px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: solid #4181c2 4px;
+}
+
+.lista-cliente-item-nome{
+    font-size: 18px;
+    font-weight: bolder;
+    color: #637381;
+}
+
+.lista-cliente-item-site{
+    font-size: 14px;   
+}
+
+.estado-item{
+    font-weight: bolder;
+    color: #637381;
+    cursor: pointer;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+    transition: .7s;
+}
+
+.estado-item:hover{
+    background-color: #4181c2;
+    color: #ffff00;
+}
+
+.estado-quant{
+    display: inline-block;
+    text-align: center;
+    width: 26px;
+    height: 26px;
+    color: white;
+    font-weight: initial;
+    font-size: 12px;
+    background-color: #4181c2;
+    border-radius: 13px;
+    padding-top: 2px;
+    border: solid 2px white;
+    margin-right: 10px;
+}
+
+.estado-destaque{
+    background-color: #4181c2;
+    color: #ffff00;
+}
+
+.mapa-destaque{
+    fill: #ffff00 !important;
 }
 
 

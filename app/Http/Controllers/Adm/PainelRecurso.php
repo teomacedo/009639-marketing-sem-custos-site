@@ -3,19 +3,15 @@
 namespace App\Http\Controllers\Adm;
 
 use App\Http\Controllers\Controller;
-use App\Models\Endereco; //editavel
-use App\Models\Estado; //Personalizado
-use App\Http\Requests\Adm\Request_PainelEndereco; //editavel
+use App\Models\Recurso; //editavel
+use App\Http\Requests\Adm\Request_PainelRecurso; //editavel
 
-
-class PainelEndereco extends Controller {
-
+class PainelRecurso extends Controller {
     public $dadosBase;
-    /* personalizado */public $estadosUfs;
 
-    public function __construct(Endereco $model) {
-        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/endereco';
-        /* editavel */$this->dadosBase['tabelaColunas'] = ['Seq.', 'Cidade', 'Bairro', 'Endereço'];
+    public function __construct(Recurso $model) {
+        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/recurso-item';
+        /* editavel */$this->dadosBase['tabelaColunas'] = ['Seq', 'Titulo', 'Descrição', 'Icons'];
         /* editavel */$this->dadosBase['imagem'] = ['active' => 'no', 'label' => 'Logo'];
         /* editavel */$this->dadosBase['createEditInclude'] = [['active' => 'no', 'titulo' => 'baza', 'path' => 'baza']];
         /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'no', 'create' => 'yes', 'edit' => 'yes', 'delete' => 'yes'];
@@ -25,8 +21,6 @@ class PainelEndereco extends Controller {
         $this->dadosBase['nomeClasse'] = strtolower(substr($nomeClasse, 0, 1)) . substr($nomeClasse, 1, strlen($nomeClasse));
         $rotaArray = explode('/', $this->dadosBase['diretorio']);
         $this->dadosBase['rota'] = $rotaArray[count($rotaArray) - 1];
-
-        /* personalizado */$this->estadosUfs = Estado::pluck('nome', 'uf');
     }
 
     public function index($foreign = '') {
@@ -47,27 +41,24 @@ class PainelEndereco extends Controller {
     public function create($foreign = '') {
         /* editavel */$titulo = 'Cadastro';
 
-
         if ($foreign != '') {
             return view('adm.geral.create-edit', compact(''))
                             ->with('dadosBase', $this->dadosBase)
                             ->with('foreign', $foreign)
-                            ->with('titulo', $titulo)
-                            /* personalizado */->with('estadosUfs', $this->estadosUfs);
+                            ->with('titulo', $titulo);
         } else {
             if ($this->dadosBase['foreign'] == 'no') {
                 return view('adm.geral.create-edit', compact(''))
                                 ->with('dadosBase', $this->dadosBase)
                                 ->with('foreign', $foreign)
-                                ->with('titulo', $titulo)
-                                /* personalizado */->with('estadosUfs', $this->estadosUfs);
+                                ->with('titulo', $titulo);
             } else {
                 return redirect()->route('painel');
             }
         }
     }
 
-    public function store(Request_PainelEndereco $request) {
+    public function store(Request_PainelRecurso $request) {
         $dataForm = $request->all();
         $retorno = $this->dadosBase['model']->create($dataForm);
 
@@ -83,27 +74,25 @@ class PainelEndereco extends Controller {
     }
 
     public function edit($id, $foreign = '') {
-        $this->dadosBase['model'] = Endereco::find($id);
+        $this->dadosBase['model'] = Recurso::find($id);
         /* editavel */$titulo = 'Editar';
         if ($foreign != '') {
             return view('adm.geral.create-edit', compact(''))
                             ->with('dadosBase', $this->dadosBase)
                             ->with('foreign', $foreign)
-                            ->with('titulo', $titulo)
-                            /* personalizado */->with('estadosUfs', $this->estadosUfs);
+                            ->with('titulo', $titulo);
         } else {
             if ($this->dadosBase['foreign'] == 'no') {
                 return view('adm.geral.create-edit', compact(''))
                                 ->with('dadosBase', $this->dadosBase)
-                                ->with('titulo', $titulo)
-                                /* personalizado */->with('estadosUfs', $this->estadosUfs);
+                                ->with('titulo', $titulo);
             } else {
                 return redirect()->route('painel');
             }
         }
     }
 
-    public function update(Request_PainelEndereco $request, $id) {
+    public function update(Request_PainelRecurso $request, $id) {
         $dataForm = $request->all();
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);

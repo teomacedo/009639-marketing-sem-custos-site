@@ -4,7 +4,7 @@ namespace App\Http\Requests\Adm;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Request_PainelFuncionalidade extends FormRequest {
+class Request_PainelRecursoChamada extends FormRequest {
 
     public function authorize() {
         return true;
@@ -12,10 +12,10 @@ class Request_PainelFuncionalidade extends FormRequest {
 
     public function rules() {
         return [
-            'sequencia' => 'required|numeric',
             'titulo' => 'required',
             'subtitulo' => 'required',
-            'icons' => 'required'
+            'botao_texto' => 'required|max:190',
+            'botao_link' => 'required|max:190'
         ];
     }
 }

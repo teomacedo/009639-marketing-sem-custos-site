@@ -3,6 +3,10 @@
         display: none;
     }
 
+    .map__image {
+        width: 90%;
+    }
+
     .secao{
         padding-top: 20px;
         padding-bottom: 10px;
@@ -271,5 +275,10 @@
 
     .miniatura-artigo-area{
         max-width: initial;
+    }
+
+    .estado-area {
+        margin-left: 10px;
+        width: 100%;
     }
 }

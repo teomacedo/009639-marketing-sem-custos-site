@@ -60,8 +60,14 @@ Route::group(["middleware" => "auth:adm"], function() {
     Route::resource('adm/painel/chamada-principal', 'Adm\PainelChamadaPrincipal');
     Route::get('adm/painel/chamada-principal/destroy/{id}', 'Adm\PainelChamadaPrincipal@destroy'); 
     
-    Route::resource('adm/painel/funcionalidade', 'Adm\PainelFuncionalidade');
-    Route::get('adm/painel/funcionalidade/destroy/{id}', 'Adm\PainelFuncionalidade@destroy'); 
+    Route::resource('adm/painel/recurso-item', 'Adm\PainelRecurso');
+    Route::get('adm/painel/recurso-item/destroy/{id}', 'Adm\PainelRecurso@destroy'); 
+    
+    Route::resource('adm/painel/recurso-chamada', 'Adm\PainelRecursoChamada');
+    Route::get('adm/painel/recurso-chamada/destroy/{id}', 'Adm\PainelRecursoChamada@destroy'); 
+    
+    Route::resource('adm/painel/case-item', 'Adm\PainelCaseItem');
+    Route::get('adm/painel/case-item/destroy/{id}', 'Adm\PainelCaseItem@destroy'); 
 });
 
 

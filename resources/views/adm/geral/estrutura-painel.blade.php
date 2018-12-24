@@ -27,7 +27,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown-conteudo">
             <a class="dropdown-item" href="{{url('adm/painel/slide')}}">Slides</a>
             <a class="dropdown-item" href="{{url('adm/painel/chamada-principal')}}">Chamada Principal</a>
-            <a class="dropdown-item" href="{{url('adm/painel/funcionalidade')}}">Funcionalidades</a>
+            <a class="dropdown-item" href="{{url('adm/painel/recurso-chamada')}}">Recurso/Chamada</a>
+            <a class="dropdown-item" href="{{url('adm/painel/recurso-item')}}">Recurso/Itens</a>
+            <a class="dropdown-item" href="{{url('adm/painel/case-item')}}">Case/Itens</a>
             <a class="dropdown-item" href="{{url('adm/painel/sobre-nos')}}">Sobre nós</a>
         </div>
     </li>

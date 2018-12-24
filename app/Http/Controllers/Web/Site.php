@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Models\Empresa;
 use App\Models\Endereco;
 use App\Models\RedeSocial;
@@ -13,6 +14,7 @@ use App\Models\Artigo;
 use App\Models\ArtigoComponente;
 use App\Models\SobreNos;
 use App\Models\Slide;
+use App\Models\Estado;
 
 class Site extends Controller {
 
@@ -30,7 +32,10 @@ class Site extends Controller {
 
     public function home() {
         $quadroCategoriaOculto = 'none';
-        return view('web.home.index', compact('quadroCategoriaOculto'))->with($this->cabecaloRodape);
+        $clientes = DB::connection('nucserver')->select('SELECT distinct clientes.codigo_estado, clientes.nome, clientes.url FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE() order by clientes.codigo_estado');
+        $estados = DB::connection('nucserver')->select('SELECT distinct codigo_estado FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE()');
+        $estadosLista = Estado::get();
+        return view('web.home.index', compact('quadroCategoriaOculto', 'clientes', 'estados', 'estadosLista' ))->with($this->cabecaloRodape);
     }
 
     public function blog() {

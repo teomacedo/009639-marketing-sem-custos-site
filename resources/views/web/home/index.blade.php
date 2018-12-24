@@ -5,6 +5,6 @@
 @endsection
 
 @section('content')
-home
+@include('web.clientes.index')
 
 @endsection
