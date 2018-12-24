@@ -1,0 +1,2 @@
+<td>{!!$row->titulo!!}</th>
+

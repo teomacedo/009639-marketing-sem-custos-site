@@ -64,15 +64,10 @@
                         <style type="text/css">
                             .cor-estado-{{strtolower($rowEstado->uf)}}:hover  path{ fill: #ffff00; }
                         </style>
-
-
-
                     @endif
                 @endforeach
             @endforeach
         </div>
-
-
     </div>
 </div>
 <script type="text/javascript">

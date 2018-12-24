@@ -68,6 +68,18 @@ Route::group(["middleware" => "auth:adm"], function() {
     
     Route::resource('adm/painel/case-item', 'Adm\PainelCaseItem');
     Route::get('adm/painel/case-item/destroy/{id}', 'Adm\PainelCaseItem@destroy'); 
+    
+    Route::resource('adm/painel/case-chamada', 'Adm\PainelCaseChamada');
+    Route::get('adm/painel/case-chamada/destroy/{id}', 'Adm\PainelCaseChamada@destroy');
+    
+    Route::resource('adm/painel/faq-item', 'Adm\PainelFaqItem');
+    Route::get('adm/painel/faq-item/destroy/{id}', 'Adm\PainelFaqItem@destroy');
+    
+    Route::resource('adm/painel/faq-chamada', 'Adm\PainelFaqChamada');
+    Route::get('adm/painel/faq-chamada/destroy/{id}', 'Adm\PainelFaqChamada@destroy');
+    
+    Route::resource('adm/painel/cliente-chamada', 'Adm\PainelClienteChamada');
+    Route::get('adm/painel/cliente-chamada/destroy/{id}', 'Adm\PainelClienteChamada@destroy');
 });
 
 

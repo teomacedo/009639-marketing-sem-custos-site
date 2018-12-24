@@ -26,10 +26,20 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown-conteudo">
             <a class="dropdown-item" href="{{url('adm/painel/slide')}}">Slides</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{url('adm/painel/chamada-principal')}}">Chamada Principal</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{url('adm/painel/recurso-chamada')}}">Recurso/Chamada</a>
             <a class="dropdown-item" href="{{url('adm/painel/recurso-item')}}">Recurso/Itens</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{url('adm/painel/case-chamada')}}">Case/Chamada</a>
             <a class="dropdown-item" href="{{url('adm/painel/case-item')}}">Case/Itens</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{url('adm/painel/faq-chamada')}}">Faq/Chamada</a>
+            <a class="dropdown-item" href="{{url('adm/painel/faq-item')}}">Faq/Itens</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{url('adm/painel/cliente-chamada')}}">Cliente/Chamada</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{url('adm/painel/sobre-nos')}}">Sobre nós</a>
         </div>
     </li>
