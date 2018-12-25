@@ -8,11 +8,11 @@ use App\Models\ArtigoCategoria; //personalizado
 use App\Models\ArtigoCategoriaRelac; //personalizado
 use App\Http\Requests\Adm\Request_PainelArtigo; //editavel
 
-
 class PainelArtigo extends Controller {
 
     public $dadosBase;
     /* personalizado 
+     
     */public $categorias;
 
     public function __construct(Artigo $model) {
@@ -48,6 +48,15 @@ class PainelArtigo extends Controller {
 
     public function store(Request_PainelArtigo $request) {
         $dataForm = $request->all();
+        
+        if ($dataForm['pagina_titulo'] == '') {
+            $dataForm['pagina_titulo'] = $dataForm['titulo'];
+        }
+
+        if ($dataForm['pagina_url'] == '') {
+            $dataForm['pagina_url'] = $this->string2url($dataForm['pagina_titulo']);
+        }
+        
         $retorno = $this->dadosBase['model']->create($dataForm);
 
         if ($retorno) {
@@ -78,6 +87,13 @@ class PainelArtigo extends Controller {
 
     public function update(Request_PainelArtigo $request, $id) {
         $dataForm = $request->all();
+        if ($dataForm['pagina_titulo'] == '') {
+            $dataForm['pagina_titulo'] = $dataForm['titulo'];
+        }
+
+        if ($dataForm['pagina_url'] == '') {
+            $dataForm['pagina_url'] = $this->string2url($dataForm['pagina_titulo']);
+        }
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);
 
@@ -97,6 +113,17 @@ class PainelArtigo extends Controller {
         } else {
             return redirect()->route($this->dadosBase['rota'] . '.index')->with(['errors' => 'Falha ao deletar']);
         }
+    }
+
+    function string2url($cadeia) {
+        $cadeia = trim($cadeia);
+        $cadeia = strtr($cadeia, "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ", "aaaaaaaaaaaaooooooooooooeeeeeeeecciiiiiiiiuuuuuuuuynn");
+        $cadeia = strtr($cadeia, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz");
+        $cadeia = preg_replace('#([^.a-z0-9]+)#i', '-', $cadeia);
+        $cadeia = preg_replace('#-{2,}#', '-', $cadeia);
+        $cadeia = preg_replace('#-$#', '', $cadeia);
+        $cadeia = preg_replace('#^-#', '', $cadeia);
+        return $cadeia;
     }
 
 }

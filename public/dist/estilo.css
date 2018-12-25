@@ -187,7 +187,7 @@ a .botao-azul-preenchido:hover{
     margin-bottom: 10px;
 }
 
-.conteudo-composto-texto-titulo{
+.conteudo-composto-texto-titulo h3{
     font-size: 25px;
     font-weight: bolder;
     color: #4181C2;
@@ -195,7 +195,7 @@ a .botao-azul-preenchido:hover{
     margin-bottom: 10px;
 }
 
-.conteudo-composto-texto-subtitulo{
+.conteudo-composto-texto-subtitulo h4{
     font-size: 20px;
     line-height: 1.3;
     font-style: italic;
@@ -366,7 +366,7 @@ a .botao-azul-preenchido:hover{
     max-width: 50%;
 }
 
-.capa-titulo{
+.capa-titulo h1{
     width: 100%;
     font-family: 'Ubuntu', sans-serif;
     font-size: 50px;
@@ -376,7 +376,7 @@ a .botao-azul-preenchido:hover{
     margin-bottom: 10px;
 }
 
-.capa-subtitulo{
+.capa-subtitulo h2{
     font-size: 25px;
     color: #807F7F;
     width: 100%;
@@ -403,8 +403,6 @@ a .botao-azul-preenchido:hover{
 
 .clientes-area{
     width: 100%;
-    padding-bottom: 50px;
-    padding-top: 50px;
 }
 
 .clientes-area-titulo{

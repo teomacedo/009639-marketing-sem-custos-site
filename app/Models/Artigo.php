@@ -13,7 +13,9 @@ class Artigo extends Model {
         'user_id',
         'thumbnail',
         'titulo',
-        'subtitulo'
+        'subtitulo',
+        'pagina_url',
+        'pagina_titulo'
     ];
     
     public function autor(){

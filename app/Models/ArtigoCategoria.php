@@ -10,11 +10,13 @@ class ArtigoCategoria extends Model {
         'sequencia',
         'imagem',
         'thumbnail',
+        'pagina_url',
+        'pagina_titulo',
         'nome',
         'subtitulo'
     ];
-    
-    public function artigos(){
+
+    public function artigos() {
         return $this->belongsToMany(Artigo::class, 'artigo_categoria_relacs', 'categoria_id');
     }
 

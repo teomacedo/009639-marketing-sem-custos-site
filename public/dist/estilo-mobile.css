@@ -243,11 +243,11 @@
     }
 
 
-    .capa-titulo{
+    .capa-titulo h1{
         font-size: 30px;
     }
 
-    .capa-subtitulo{
+    .capa-subtitulo h2{
         font-size: 18px;
     }
 

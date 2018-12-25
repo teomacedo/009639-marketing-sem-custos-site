@@ -13,13 +13,13 @@
         </div>
     </a>
 
-    <a href="{{url('artigo'.'/'.$row->id)}}">
+    <a href="{{url($row->pagina_url)}}">
         <div class="miniatura-artigo-area-titulo">
             {!!$row->titulo!!}
         </div>
     </a>
 
-    <a href="{{url('artigo'.'/'.$row->id)}}">
+    <a href="{{url($row->pagina_url)}}">
         @if($row->thumbnail == '')
         <div class="miniatura-artigo-area-imagem img-thumbnail" style="background-image: url('{{url(''.$row->imagem)}}')"></div>
         @else

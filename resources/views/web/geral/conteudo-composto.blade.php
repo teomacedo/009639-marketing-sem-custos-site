@@ -9,12 +9,12 @@
         <div>
             @if(($row->titulo) != '')
             <div class="conteudo-composto-texto-titulo">
-                {!!$row->titulo!!}
+                <h3>{!!$row->titulo!!}</h3>
             </div>
             @endif
             @if(($row->subtitulo) != '')
             <div class="conteudo-composto-texto-subtitulo">
-                {!!$row->subtitulo!!}
+                <h4>{!!$row->subtitulo!!}</h4>
             </div>
             @endif
             <div class="conteudo-composto-texto-descricao">
@@ -33,12 +33,12 @@
         <div>
             @if(($row->titulo) != '')
             <div class="conteudo-composto-texto-titulo">
-                {!!$row->titulo!!}
+                <h3>{!!$row->titulo!!}</h3>
             </div>
             @endif
             @if(($row->subtitulo) != '')
             <div class="conteudo-composto-texto-subtitulo">
-                {!!$row->subtitulo!!}
+                <h4>{!!$row->subtitulo!!}</h4>
             </div>
             @endif
             <div class="conteudo-composto-texto-descricao">

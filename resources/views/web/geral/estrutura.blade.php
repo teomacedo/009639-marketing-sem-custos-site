@@ -75,7 +75,7 @@
                                 </div>
                                 @foreach($categorias as $row)
                                 @if(count($row->artigos)>0)
-                                <a href="{{url('categoria'.'/'.$row->id)}}">
+                                <a href="{{url('categoria'.'/'.$row->pagina_url)}}">
                                     <div class="categoria-botao">
                                         {!!$row->nome!!}
                                     </div>

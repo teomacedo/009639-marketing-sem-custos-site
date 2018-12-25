@@ -6,16 +6,16 @@
 
 @section('content')
 
-<a href="{{url('categoria'.'/'.$artigo->categoria()->id)}}">
+<a href="{{url('categoria'.'/'.$artigo->categoria()->pagina_url)}}">
     <div class="categoria-botao">
         {!!$artigo->categoria()->nome!!}
     </div>
 </a>
 <div class="capa-titulo">
-    {!!$artigo->titulo!!}
+    <h1>{!!$artigo->titulo!!}</h1>
 </div>
 <div class="capa-subtitulo">
-    {!!$artigo->subtitulo!!}
+    <h2>{!!$artigo->subtitulo!!}</h2>
 </div>
 @if($banner->ativo != 0)
 @if($banner->banner_blog_horizontal != '')                            

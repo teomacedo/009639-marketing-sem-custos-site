@@ -40,6 +40,15 @@ class PainelArtigoCategoria extends Controller {
 
     public function store(Request_PainelArtigoCategoria $request) {
         $dataForm = $request->all();
+        
+        if ($dataForm['pagina_titulo'] == '') {
+            $dataForm['pagina_titulo'] = $dataForm['nome'];
+        }
+
+        if ($dataForm['pagina_url'] == '') {
+            $dataForm['pagina_url'] = $this->string2url($dataForm['pagina_titulo']);
+        }
+        
         $retorno = $this->dadosBase['model']->create($dataForm);
 
         if ($retorno) {
@@ -64,6 +73,15 @@ class PainelArtigoCategoria extends Controller {
 
     public function update(Request_PainelArtigoCategoria $request, $id) {
         $dataForm = $request->all();
+        
+        if ($dataForm['pagina_titulo'] == '') {
+            $dataForm['pagina_titulo'] = $dataForm['nome'];
+        }
+
+        if ($dataForm['pagina_url'] == '') {
+            $dataForm['pagina_url'] = $this->string2url($dataForm['pagina_titulo']);
+        }
+        
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);
 
@@ -81,6 +99,17 @@ class PainelArtigoCategoria extends Controller {
         } else {
             return redirect()->route($this->dadosBase['rota'] . '.index')->with(['errors' => 'Falha ao deletar']);
         }
+    }
+    
+    function string2url($cadeia) {
+        $cadeia = trim($cadeia);
+        $cadeia = strtr($cadeia, "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ", "aaaaaaaaaaaaooooooooooooeeeeeeeecciiiiiiiiuuuuuuuuynn");
+        $cadeia = strtr($cadeia, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz");
+        $cadeia = preg_replace('#([^.a-z0-9]+)#i', '-', $cadeia);
+        $cadeia = preg_replace('#-{2,}#', '-', $cadeia);
+        $cadeia = preg_replace('#-$#', '', $cadeia);
+        $cadeia = preg_replace('#^-#', '', $cadeia);
+        return $cadeia;
     }
 
 }

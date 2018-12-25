@@ -1,6 +1,6 @@
 <div class="clientes-area">
     <div class="clientes-area-titulo">
-        Já ajudamos muitos restaurantes em<br>vários Estados do país.
+        {!!$clienteChamada->titulo!!}
     </div>
     
     <div class="map" id="map">

@@ -32,56 +32,58 @@ class Site extends Controller {
 
     public function home() {
         $quadroCategoriaOculto = 'none';
+        $clienteChamada = \App\Models\ClienteChamada::first();
         $clientes = DB::connection('nucserver')->select('SELECT distinct clientes.codigo_estado, clientes.nome, clientes.url FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE() order by clientes.codigo_estado');
         $estados = DB::connection('nucserver')->select('SELECT distinct codigo_estado FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE()');
         $estadosLista = Estado::get();
-        return view('web.home.index', compact('quadroCategoriaOculto', 'clientes', 'estados', 'estadosLista' ))->with($this->cabecaloRodape);
+        return view('web.home.index', compact('quadroCategoriaOculto', 'clienteChamada', 'clientes', 'estados', 'estadosLista'))->with($this->cabecaloRodape);
     }
 
     public function blog() {
         $artigos = Artigo::orderBy('updated_at', 'desc')->get();
-
-
-
-        return view('web.blog.index', compact('artigos'))->with($this->cabecaloRodape);
+        $tituloAba = 'Blog';
+        return view('web.blog.index', compact('artigos','tituloAba'))->with($this->cabecaloRodape);
     }
 
-    public function categoria($id = null) {
-        if ($id == null) {
+    public function categoria($url = null) {
+        $categoria = ArtigoCategoria::where('pagina_url', $url)->first();
+        if (!isset($categoria->id)) {
             return redirect()->route('blog');
         } else {
-            $categoria = ArtigoCategoria::find($id);
             if ($categoria->thumbnail == '') {
                 $categoria->thumbnail = $categoria->imagem;
             }
             $artigos = $categoria->artigos;
-            //$artigos = Artigo::orderBy('updated_at', 'desc')->get();
-            return view('web.categoria.index', compact('categoria', 'artigos'))->with($this->cabecaloRodape);
+            $tituloAba = $categoria->pagina_titulo;
+            return view('web.categoria.index', compact('categoria', 'artigos', 'tituloAba'))->with($this->cabecaloRodape);
         }
     }
 
-    public function artigo($id = null) {
-        if ($id == null) {
+    public function artigo($url = null) {
+        $artigo = Artigo::where('pagina_url', $url)->first();
+        if (!isset($artigo->id)) {
             return redirect()->route('blog');
         } else {
-            $artigo = Artigo::find($id);
+
             if ($artigo->thumbnail == '') {
                 $artigo->thumbnail = $artigo->imagem;
             }
-            $conteudo = $this->conteudoComposto(ArtigoComponente::orderBy('sequencia')->where('artigo_id', $id)->get(), 'trecho');
+            $conteudo = $this->conteudoComposto(ArtigoComponente::orderBy('sequencia')->where('artigo_id', $artigo->id)->get(), 'trecho');
             $banner = $this->cabecaloRodape['slides'][rand(0, count($this->cabecaloRodape['slides']) - 1)];
-            //$banner = ;
-            return view('web.artigo.index', compact('artigo', 'conteudo', 'banner'))->with($this->cabecaloRodape);
+            $tituloAba = $artigo->pagina_titulo;
+            return view('web.artigo.index', compact('artigo', 'conteudo', 'banner', 'tituloAba'))->with($this->cabecaloRodape);
         }
     }
 
     public function sobreNos() {
         $conteudo = $this->conteudoComposto(SobreNos::orderBy('sequencia')->get(), 'trecho');
-        return view('web.sobre-nos.index', compact('conteudo'))->with($this->cabecaloRodape);
+        $tituloAba = 'Sobre nós';
+        return view('web.sobre-nos.index', compact('conteudo', 'tituloAba'))->with($this->cabecaloRodape);
     }
 
     public function faleConosco() {
-        return view('web.fale-conosco.index')->with($this->cabecaloRodape);
+        $tituloAba = 'Fale conosco';
+        return view('web.fale-conosco.index', compact('tituloAba'))->with($this->cabecaloRodape);
     }
 
     public function conteudoComposto($objeto, $conteudo) {
