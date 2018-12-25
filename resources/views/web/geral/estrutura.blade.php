@@ -37,11 +37,7 @@
         <div class="container">
             <div class="pagina-divisao-vertical">
                 <div class="pagina-divisao-vertical-principal">
-                    <div class="secao">
-                        <div class="secao-involucro">
-                            @yield('content')
-                        </div>
-                    </div>
+                    @yield('content')
                 </div>
                 <div class="pagina-divisao-vertical-secundario">
                     <div style="display: flex; justify-content: flex-end;">
@@ -107,8 +103,6 @@
                 </div>
             </div>
         </div>           
-
-
 
         <div style="position: fixed; bottom: 5px; right: 5px; z-index: 3">
             <a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{$empresa->whatsapp}}">

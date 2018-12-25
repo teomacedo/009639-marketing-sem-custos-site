@@ -32,11 +32,12 @@ class Site extends Controller {
 
     public function home() {
         $quadroCategoriaOculto = 'none';
-        $clienteChamada = \App\Models\ClienteChamada::first();
+        $chamadaPrincipal = \App\Models\ChamadaPrincipal::first();
+        $chamadaCliente = \App\Models\ClienteChamada::first();
         $clientes = DB::connection('nucserver')->select('SELECT distinct clientes.codigo_estado, clientes.nome, clientes.url FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE() order by clientes.codigo_estado');
         $estados = DB::connection('nucserver')->select('SELECT distinct codigo_estado FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE()');
         $estadosLista = Estado::get();
-        return view('web.home.index', compact('quadroCategoriaOculto', 'clienteChamada', 'clientes', 'estados', 'estadosLista'))->with($this->cabecaloRodape);
+        return view('web.home.index', compact('quadroCategoriaOculto', 'chamadaPrincipal', 'chamadaCliente', 'clientes', 'estados', 'estadosLista'))->with($this->cabecaloRodape);
     }
 
     public function blog() {

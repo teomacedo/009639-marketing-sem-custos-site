@@ -13,6 +13,7 @@ p{margin: 0;}
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 30px;
 }
 
 .map__image{
@@ -277,11 +278,12 @@ a .botao-azul-preenchido:hover{
 }
 
 .secao-titulo{
-    font-size: 30px;
+    font-size: 36px;
     color: #4181C2;
     width: 100%;
     text-align: center;
     font-weight: bolder;
+    line-height: 1.1em;
 }
 
 .secao-subtitulo{
@@ -292,6 +294,8 @@ a .botao-azul-preenchido:hover{
     font-style: italic;
     margin: 0 auto;
     line-height: 1.1;
+    margin-top: 5px;
+    margin-bottom: 30px;
 }
 
 .banner-blog-vertical-area{
@@ -405,15 +409,7 @@ a .botao-azul-preenchido:hover{
     width: 100%;
 }
 
-.clientes-area-titulo{
-    width: 100%;
-    font-size: 36px;
-    color: #4181c2;
-    line-height: 1.2em;
-    font-weight: bolder;
-    text-align: center;
-    margin-bottom: 50px;
-}
+
 
 .estado-area{
     margin-left: 35px;
