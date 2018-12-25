@@ -7,6 +7,15 @@ html{height: 100%;}
 body{height: 100%;}
 p{margin: 0;}
 
+.btn-outline-primary {
+    color: #4181C2;
+    border-color: #4181C2;
+}
+
+.btn-outline-primary:hover {
+    background-color: #4181C2;
+}
+
 .map{
     overflow: hidden;
     display: flex;
@@ -86,12 +95,8 @@ a .botao-azul-preenchido:hover{
 }
 
 .aba-assinautra-area{
-    background-color: white;
     width: 100%;
     padding: 30px;
-    border-radius: 2px;
-    border: solid 1px #ccc;
-    box-shadow: -2px 2px 3px rgba(0,0,0,.1);
     margin-bottom: 25px;
 }
 

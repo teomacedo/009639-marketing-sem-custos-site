@@ -42,7 +42,7 @@
                 <div class="pagina-divisao-vertical-secundario">
                     <div style="display: flex; justify-content: flex-end;">
                         <div class="aba-assinautra-area-margin-top" style="">
-                            <div class="aba-assinautra-area">
+                            <div class="aba-assinautra-area border img-thumbnail shadow-sm">
                                 <div class="aba-assinautra-area-titulo-pequeno">
                                     JUNTE-SE A NÓS!
                                 </div>
@@ -65,7 +65,7 @@
                                 {!! Form::close() !!}
                             </div>
 
-                            <div class="aba-assinautra-area" style="display:{{$quadroCategoriaOculto ?? 'block'}};">
+                            <div class="aba-assinautra-area border img-thumbnail shadow-sm" style="display:{{$quadroCategoriaOculto ?? 'block'}};">
                                 <div class="aba-assinautra-area-titulo-pequeno">
                                     CATEGORIAS
                                 </div>
