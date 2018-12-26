@@ -15,6 +15,9 @@ use App\Models\ArtigoComponente;
 use App\Models\SobreNos;
 use App\Models\Slide;
 use App\Models\Estado;
+use App\Models\Recurso;
+use App\Models\CaseItem;
+use App\Models\Faq;
 
 class Site extends Controller {
 
@@ -32,12 +35,19 @@ class Site extends Controller {
 
     public function home() {
         $quadroCategoriaOculto = 'none';
+        
+        $recuros = Recurso::orderBy('sequencia')->get();
+        $cases = CaseItem::orderBy('sequencia')->get();
+        $faqs = Faq::orderBy('sequencia')->get();
         $chamadaPrincipal = \App\Models\ChamadaPrincipal::first();
         $chamadaCliente = \App\Models\ClienteChamada::first();
+        $chamadaRecurso = \App\Models\RecursoChamada::first();
+        $chamadaCase = \App\Models\CaseChamada::first();
+        $chamadaFaq = \App\Models\FaqChamada::first();
         $clientes = DB::connection('nucserver')->select('SELECT distinct clientes.codigo_estado, clientes.nome, clientes.url FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE() order by clientes.codigo_estado');
         $estados = DB::connection('nucserver')->select('SELECT distinct codigo_estado FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE()');
         $estadosLista = Estado::get();
-        return view('web.home.index', compact('quadroCategoriaOculto', 'chamadaPrincipal', 'chamadaCliente', 'clientes', 'estados', 'estadosLista'))->with($this->cabecaloRodape);
+        return view('web.home.index', compact('quadroCategoriaOculto', 'recuros', 'cases', 'faqs', 'chamadaPrincipal', 'chamadaCliente', 'chamadaRecurso', 'chamadaCase', 'chamadaFaq', 'clientes', 'estados', 'estadosLista'))->with($this->cabecaloRodape);
     }
 
     public function blog() {

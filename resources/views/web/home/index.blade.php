@@ -7,5 +7,8 @@
 @section('content')
 @include('web.chamada-principal.index')
 @include('web.clientes.index')
+@include('web.recursos.index')
+@include('web.cases.index')
+@include('web.faqs.index')
 
 @endsection
