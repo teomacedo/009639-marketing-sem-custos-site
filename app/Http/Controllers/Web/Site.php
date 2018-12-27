@@ -19,6 +19,7 @@ use App\Models\Recurso;
 use App\Models\CaseItem;
 use App\Models\Faq;
 
+set_time_limit ( 600 );
 class Site extends Controller {
 
     public $cabecaloRodape;

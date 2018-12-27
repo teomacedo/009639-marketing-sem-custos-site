@@ -122,11 +122,12 @@ a .botao-azul-preenchido:hover{
 
 .pagina-divisao-vertical-principal{
     flex-grow: 1;
+    max-width: 70%;
 }
 
 .pagina-divisao-vertical-secundario{
-    min-width: 370px;
-    max-width: 370px;
+    min-width: 30%;
+    max-width: 30%;
     padding-left: 20px;
     z-index: 2;
 }
@@ -489,6 +490,8 @@ a .botao-azul-preenchido:hover{
     width: 32%;
     margin-bottom: 20px;
     padding: 10px;
+    padding-top: 35px;
+    padding-bottom: 30px;
     text-align: center;
 }
 
@@ -503,10 +506,40 @@ a .botao-azul-preenchido:hover{
     color: #4181C2;
     font-size: 20px;
     background-color: white;
-
-    
     margin-right: 3px;
     margin-left: 3px
+}
+
+.cases-area{
+ width: 90%;
+ margin: 0 auto;
+}
+
+.caso-suceso-item{
+    width: 20%;
+    margin: 15px;
+    padding: 15px;
+    border: solid 1px rgba(255,255,255,0);
+    border-radius: 3px;
+    background-color: white;
+}
+
+
+.cases-item{
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 10px;
+    padding-top: 35px;
+    padding-bottom: 30px;
+    text-align: center;
+    
+}
+
+.cases-item-foto{
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
 }
 
 
