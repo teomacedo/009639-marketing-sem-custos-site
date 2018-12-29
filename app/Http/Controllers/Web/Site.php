@@ -19,7 +19,8 @@ use App\Models\Recurso;
 use App\Models\CaseItem;
 use App\Models\Faq;
 
-set_time_limit ( 600 );
+set_time_limit(600);
+
 class Site extends Controller {
 
     public $cabecaloRodape;
@@ -36,10 +37,10 @@ class Site extends Controller {
 
     public function home() {
         $quadroCategoriaOculto = 'none';
-        
-        $recuros = Recurso::orderBy('sequencia')->get();
+
+        $recuros = Recurso::orderBy('sequencia')->limit(3)->get();
         $cases = CaseItem::orderBy('sequencia')->get();
-        $faqs = Faq::orderBy('sequencia')->get();
+        $faqs = Faq::orderBy('sequencia')->limit(3)->get();
         $chamadaPrincipal = \App\Models\ChamadaPrincipal::first();
         $chamadaCliente = \App\Models\ClienteChamada::first();
         $chamadaRecurso = \App\Models\RecursoChamada::first();
@@ -54,7 +55,7 @@ class Site extends Controller {
     public function blog() {
         $artigos = Artigo::orderBy('updated_at', 'desc')->get();
         $tituloAba = 'Blog';
-        return view('web.blog.index', compact('artigos','tituloAba'))->with($this->cabecaloRodape);
+        return view('web.blog.index', compact('artigos', 'tituloAba'))->with($this->cabecaloRodape);
     }
 
     public function categoria($url = null) {
@@ -96,6 +97,39 @@ class Site extends Controller {
     public function faleConosco() {
         $tituloAba = 'Fale conosco';
         return view('web.fale-conosco.index', compact('tituloAba'))->with($this->cabecaloRodape);
+    }
+
+    public function recursos() {
+        $quadroCategoriaOculto = 'none';
+        $recuros = Recurso::orderBy('sequencia')->get();
+        $chamadaRecurso = \App\Models\RecursoChamada::first();
+        $tituloAba = 'Recursos';
+        $botao = ['botao_link' => '/home', 'botao_texto' => 'VOLTAR'];
+
+        return view('web.recursos.index', compact('quadroCategoriaOculto', 'recuros', 'chamadaRecurso', 'tituloAba', 'botao'))->with($this->cabecaloRodape);
+    }
+
+    public function faqs() {
+        $quadroCategoriaOculto = 'none';
+        $faqs = Faq::orderBy('sequencia')->get();
+        $chamadaFaq = \App\Models\FaqChamada::first();
+        $tituloAba = 'Faqs';
+        $botao = ['botao_link' => '/home', 'botao_texto' => 'VOLTAR'];
+
+        return view('web.faqs.index', compact('quadroCategoriaOculto', 'faqs', 'chamadaFaq', 'tituloAba', 'botao'))->with($this->cabecaloRodape);
+    }
+
+    public function faqItem($url = null) {
+        $faqs = Faq::where('pagina_url', $url)->get();
+        if (!isset($faqs[0]['id'])) {
+            return redirect()->route('home');
+        } else {
+            $chamadaFaq = \App\Models\FaqChamada::first();
+            $tituloAba = $faqs[0]['pagina_titulo'];
+            $exibirTituloSubtitulo = 'no';
+            $botao = ['botao_link' => '/faqs', 'botao_texto' => 'VOLTAR'];
+            return view('web.faqs.item', compact('quadroCategoriaOculto', 'faqs', 'chamadaFaq', 'tituloAba', 'exibirTituloSubtitulo', 'botao'))->with($this->cabecaloRodape);
+        }
     }
 
     public function conteudoComposto($objeto, $conteudo) {

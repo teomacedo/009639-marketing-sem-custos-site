@@ -7,6 +7,7 @@ use App\Models\Artigo;
 use App\Models\ArtigoCategoria; //personalizado
 use App\Models\ArtigoCategoriaRelac; //personalizado
 use App\Http\Requests\Adm\Request_PainelArtigo; //editavel
+use App\Http\Controllers\Utilitario;//personalizado
 
 class PainelArtigo extends Controller {
 
@@ -54,7 +55,9 @@ class PainelArtigo extends Controller {
         }
 
         if ($dataForm['pagina_url'] == '') {
-            $dataForm['pagina_url'] = $this->string2url($dataForm['pagina_titulo']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
+        } else {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
         }
         
         $retorno = $this->dadosBase['model']->create($dataForm);
@@ -92,7 +95,9 @@ class PainelArtigo extends Controller {
         }
 
         if ($dataForm['pagina_url'] == '') {
-            $dataForm['pagina_url'] = $this->string2url($dataForm['pagina_titulo']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
+        } else {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
         }
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);
@@ -113,17 +118,6 @@ class PainelArtigo extends Controller {
         } else {
             return redirect()->route($this->dadosBase['rota'] . '.index')->with(['errors' => 'Falha ao deletar']);
         }
-    }
-
-    function string2url($cadeia) {
-        $cadeia = trim($cadeia);
-        $cadeia = strtr($cadeia, "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ", "aaaaaaaaaaaaooooooooooooeeeeeeeecciiiiiiiiuuuuuuuuynn");
-        $cadeia = strtr($cadeia, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz");
-        $cadeia = preg_replace('#([^.a-z0-9]+)#i', '-', $cadeia);
-        $cadeia = preg_replace('#-{2,}#', '-', $cadeia);
-        $cadeia = preg_replace('#-$#', '', $cadeia);
-        $cadeia = preg_replace('#^-#', '', $cadeia);
-        return $cadeia;
     }
 
 }

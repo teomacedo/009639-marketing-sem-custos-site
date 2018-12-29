@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adm;
 use App\Http\Controllers\Controller;
 use App\Models\Faq; //editavel
 use App\Http\Requests\Adm\Request_PainelFaqItem; //editavel
+use App\Http\Controllers\Utilitario;//personalizado
 
 class PainelFaqItem extends Controller {
     public $dadosBase;
@@ -60,6 +61,17 @@ class PainelFaqItem extends Controller {
 
     public function store(Request_PainelFaqItem $request) {
         $dataForm = $request->all();
+        
+        if ($dataForm['pagina_titulo'] == '') {
+            $dataForm['pagina_titulo'] = $dataForm['questao'];
+        }
+
+        if ($dataForm['pagina_url'] == '') {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
+        } else {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
+        }
+        
         $retorno = $this->dadosBase['model']->create($dataForm);
 
         if ($retorno) {
@@ -94,6 +106,18 @@ class PainelFaqItem extends Controller {
 
     public function update(Request_PainelFaqItem $request, $id) {
         $dataForm = $request->all();
+        
+        if ($dataForm['pagina_titulo'] == '') {
+            $dataForm['pagina_titulo'] = $dataForm['questao'];
+        }
+
+        if ($dataForm['pagina_url'] == '') {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
+        } else {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
+        }
+        
+        
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);
         if ($retorno) {
@@ -111,5 +135,7 @@ class PainelFaqItem extends Controller {
             return redirect()->route($this->dadosBase['rota'] . '.index')->with(['errors' => 'Falha ao deletar']);
         }
     }
+    
+    
 
 }

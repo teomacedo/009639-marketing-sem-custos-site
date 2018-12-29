@@ -289,4 +289,23 @@
     .recursos-item{
         width: 100%;
     }
+    
+    .faq-lista-area-item-pergunta{
+        height:initial;
+        padding-top:5px;
+        padding-bottom:5px;
+        padding-left:5px;
+        padding-right: 5px;
+        border-radius:3px;
+    }
+
+    .faq-lista-area-item-pergunta-texto{
+        line-height: 16px;
+        font-weight:inherit;
+        font-size:16px;
+    }
+
+    .faq-lista-area-item-resposta{
+        font-size:15px;
+    }
 }

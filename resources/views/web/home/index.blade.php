@@ -8,8 +8,9 @@
 
 @include('web.chamada-principal.index')
 @include('web.clientes.index')
-@include('web.recursos.index')
+@include('web.recursos.conteudo')
 @include('web.cases.index')
+@include('web.faqs.conteudo')
 
 
 @endsection

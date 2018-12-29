@@ -14,7 +14,9 @@ class Request_PainelFaqItem extends FormRequest {
         return [
             'sequencia' => 'required|numeric',
             'questao' => 'required',
-            'resposta' => 'required'
+            'resposta' => 'required',
+            'pagina_url' => 'max:190',
+            'pagina_titulo' => 'max:190'
         ];
     }
 

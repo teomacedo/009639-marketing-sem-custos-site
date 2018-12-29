@@ -9,7 +9,9 @@ class Faq extends Model {
     protected $fillable = [
         'sequencia',
         'questao',
-        'resposta'
+        'resposta',
+        'pagina_titulo',
+        'pagina_url'
     ];
 
 }

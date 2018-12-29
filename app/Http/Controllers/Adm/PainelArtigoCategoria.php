@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Adm;
 use App\Http\Controllers\Controller;
 use App\Models\ArtigoCategoria;
 use App\Http\Requests\Adm\Request_PainelArtigoCategoria; //editavel
+use App\Http\Controllers\Utilitario;//personalizado
 
 
 class PainelArtigoCategoria extends Controller {
@@ -46,7 +47,9 @@ class PainelArtigoCategoria extends Controller {
         }
 
         if ($dataForm['pagina_url'] == '') {
-            $dataForm['pagina_url'] = $this->string2url($dataForm['pagina_titulo']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
+        } else {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
         }
         
         $retorno = $this->dadosBase['model']->create($dataForm);
@@ -79,7 +82,9 @@ class PainelArtigoCategoria extends Controller {
         }
 
         if ($dataForm['pagina_url'] == '') {
-            $dataForm['pagina_url'] = $this->string2url($dataForm['pagina_titulo']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
+        } else {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
         }
         
         $model = $this->dadosBase['model']->find($id);
@@ -101,15 +106,6 @@ class PainelArtigoCategoria extends Controller {
         }
     }
     
-    function string2url($cadeia) {
-        $cadeia = trim($cadeia);
-        $cadeia = strtr($cadeia, "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ", "aaaaaaaaaaaaooooooooooooeeeeeeeecciiiiiiiiuuuuuuuuynn");
-        $cadeia = strtr($cadeia, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz");
-        $cadeia = preg_replace('#([^.a-z0-9]+)#i', '-', $cadeia);
-        $cadeia = preg_replace('#-{2,}#', '-', $cadeia);
-        $cadeia = preg_replace('#-$#', '', $cadeia);
-        $cadeia = preg_replace('#^-#', '', $cadeia);
-        return $cadeia;
-    }
+  
 
 }

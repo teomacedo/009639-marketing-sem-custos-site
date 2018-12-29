@@ -61,7 +61,7 @@ class PainelFaqChamada extends Controller {
 
     public function store(Request_PainelFaqChamada $request) {
         $dataForm = $request->all();
-
+        
         $retorno = $this->dadosBase['model']->create($dataForm);
 
         if ($retorno) {
@@ -96,6 +96,7 @@ class PainelFaqChamada extends Controller {
 
     public function update(Request_PainelFaqChamada $request, $id) {
         $dataForm = $request->all();
+        
         $model = $this->dadosBase['model']->find($id);
 
         $retorno = $model->update($dataForm);
@@ -114,5 +115,7 @@ class PainelFaqChamada extends Controller {
             return redirect()->route($this->dadosBase['rota'] . '.index')->with(['errors' => 'Falha ao deletar']);
         }
     }
+    
+    
 
 }
