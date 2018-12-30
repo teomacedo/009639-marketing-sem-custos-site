@@ -12,29 +12,34 @@
 
             <div class="responsive">
                 @foreach($cases as $row)
-                <div class="cases-item border img-thumbnail shadow-sm">
-                    <div class="conteudo-composto-texto-subtitulo" style="min-height: 55px"><h4>{!!$row->titulo!!}</h4></div>
-                    <div style="min-height: 190px;">
-                        @if($row->video != '')
-                        <div class="embed-responsive embed-responsive-16by9 img-thumbnail shadow-sm" style="padding: 10px;">
-                            <iframe class="embed-responsive-item" src="{{$row->video}}" allowfullscreen></iframe>
+                <div class="border img-thumbnail shadow-sm">
+                    <div class="cases-item">
+                        <div class="cases-item-coluna-a">
+                            @if($row->video != '')
+                            <div class="embed-responsive embed-responsive-16by9 img-thumbnail shadow-sm">
+                                <iframe class="embed-responsive-item" src="{{$row->video}}"></iframe>
+                            </div>
+                            <div class="conteudo-composto-texto-subtitulo small-off" style="margin-top: 13px;"><h4>{!!$row->titulo!!}</h4></div>
+                            @else
+                            <div class="conteudo-composto-texto-subtitulo"><h4>{!!$row->titulo!!}</h4></div>
+                            <div class="faq-lista-area-item-resposta">{!!$row->citacao!!}</div>
+                            @endif
                         </div>
-                        @else
-                        <div class="conteudo-composto-texto-descricao">{!!$row->citacao!!}</div>
-                        @endif
-                    </div>
-                    <div class="d-flex justify-content-center" style="width: 100%; margin-top: 30px;">
-                        <div class="cases-item-foto shadow-sm border" style="background-image: url('{{url(''.$row->imagem)}}')"></div>
-                    </div>
-                    <div class="cases-item-nome">
-                        {{$row->nome_cliente}}
-                    </div>
-                    <div class="d-flex justify-content-center" style="width: 100%">
-                        @if($row->link_artigo != '')
-                        <a href="{{$row->link_artigo}}"><button type="button" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Detalhes</a></button></a>
-                        @else
-                        <a href="{{$row->link_loja}}"><button type="button" class="btn btn-outline-primary"><i class="fas fa-arrow-circle-right"></i> {{$row->nome_loja}}</button></a>
-                        @endif
+                        <div class="cases-item-coluna-b border img-thumbnail shadow-sm">
+                            <div class="d-flex justify-content-center" style="width: 100%;">
+                                <div class="cases-item-foto shadow-sm" style="background-image: url('{{url(''.$row->imagem)}}')"></div>
+                            </div>
+                            <div class="faq-lista-area-item-resposta cases-item-nome">
+                                {{$row->nome_cliente}}
+                            </div>
+                            <div class="d-flex justify-content-center" style="width: 100%">
+                                @if($row->link_artigo != '')
+                                <a href="{{$row->link_artigo}}"><button type="button" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Detalhes</a></button></a>
+                                @else
+                                <a href="{{$row->link_loja}}"><button type="button" class="btn btn-outline-primary"><i class="fas fa-arrow-circle-right"></i> {{$row->nome_loja}}</button></a>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
                 @endforeach
@@ -54,13 +59,13 @@ $('.responsive').slick({
     dots: false,
     infinite: false,
     speed: 300,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     responsive: [
         {
             breakpoint: 1024,
             settings: {
-                slidesToShow: 2,
+                slidesToShow: 1,
                 slidesToScroll: 1,
                 infinite: true,
                 dots: true
@@ -93,9 +98,6 @@ $('.responsive').slick({
 
     }
 
-    .slick-slide{
-        min-height: 500px;
-    }
 
     .slick-next, .slick-prev {
         z-index: 4;

@@ -128,7 +128,7 @@
     .pagina-divisao-vertical{
         flex-direction: column;
     }
-    
+
     .pagina-divisao-vertical-principal{
         max-width: initial;
     }
@@ -285,11 +285,11 @@
         margin-left: 10px;
         width: 100%;
     }
-    
+
     .recursos-item{
         width: 100%;
     }
-    
+
     .faq-lista-area-item-pergunta{
         height:initial;
         padding-top:5px;
@@ -307,5 +307,21 @@
 
     .faq-lista-area-item-resposta{
         font-size:15px;
+    }
+
+    .cases-item{
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .cases-item-coluna-a{
+        width: initial;
+        order: initial;
+        padding-left: initial;
+    }
+
+    .cases-item-coluna-b{
+        width: initial;
+        margin-top: 20px;
     }
 }

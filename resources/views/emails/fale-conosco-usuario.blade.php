@@ -13,6 +13,6 @@ Caso queira, também é possível nos contactar pelos seguintes canais de atendi
 {{$row->email}}<br>
 @endforeach
 <br><br>
-Você também pode esclarecer várias de suas dúvidas através da seção <a href="http://nuctecnologia.com.br/perguntas-frequentes">"Dúvidas Mais Frequentes" de nosso site</a>.<br><br>
+Você também pode esclarecer várias de suas dúvidas através da seção <a href="{{url('faqs')}}">"Perguntas Mais Frequentes (Faq)" do nosso site</a>.<br><br>
 Atenciosamente<br>
 Equipe/{{$equipe}}
