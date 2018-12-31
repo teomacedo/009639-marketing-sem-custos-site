@@ -103,13 +103,5 @@ $('.responsive').slick({
         z-index: 4;
     }
 
-    @media (max-width: 992px) {
-        .slick-next {
-            right: -7px;
-        }
 
-        .slick-prev {
-            left: -7px;
-        }
-    }
 </style>

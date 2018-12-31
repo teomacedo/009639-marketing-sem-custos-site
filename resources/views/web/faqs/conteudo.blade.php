@@ -12,10 +12,12 @@
             @foreach($faqs as $row)
             <a href="{{url('faqs/'.$row->pagina_url)}}">
                 <div class="faq-lista-area-item">
-                    <div class="faq-lista-area-item-pergunta">
+                    <div class="faq-lista-area-item-cabecalho">
+
                         <div class="faq-lista-area-item-pergunta-sequencia">
                             {{$row->sequencia}}
                         </div>
+
                         <div class="faq-lista-area-item-pergunta-texto">
                             {{$row->questao}}
                         </div>

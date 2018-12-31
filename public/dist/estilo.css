@@ -500,15 +500,16 @@ a .botao-azul-preenchido:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     width: 50px;
     height: 50px;
+    border: solid #4181c2 3px;
     border-radius: 25px;
-    color: #4181C2;
+    color:#4181c2;
+    background-color:#ffff00;
     font-size: 20px;
-    background-color: white;
     margin-right: 3px;
-    margin-left: 3px
+    margin-left: 3px;
+    margin-bottom: 20px;
 }
 
 .cases-area{
@@ -562,33 +563,32 @@ a .botao-azul-preenchido:hover{
     margin-bottom: 20px;
 }
 
-.faq-lista-area-item-pergunta{
-    display:flex;
-    align-items:center;
-    background-color:#4181c2;
-    padding-left:4px;
-    height:34px;
-    border-radius:17px;
-    margin-bottom:15px;
-}
 
 .faq-lista-area-item-pergunta-sequencia{
+    height:36px;
+    min-width: 36px;
+    border-radius:18px;
+    border: solid #4181c2 3px;
     display:flex;
     justify-content:center;
     align-items:center;
-    border-radius:13px;
     font-weight:bolder;
     color:#4181c2;
     background-color:#ffff00;
-    min-width:26px;
-    min-height:26px;
+}
+
+.faq-lista-area-item-cabecalho{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .faq-lista-area-item-pergunta-texto{
     font-size: 18px;
-    color: white;
+    color: #4181c2;
     font-weight:bold;
-    margin-left:10px;
+    margin-left: 15px;
+    line-height: 1.1;
 }
 
 .faq-lista-area-item-resposta{

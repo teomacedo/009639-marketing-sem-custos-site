@@ -17,7 +17,7 @@
                     @endphp
 
                     @while($i-- > 0)
-                    <div class="icons-circle shadow-sm border">{!!$icons[$i]!!}</div>
+                    <div class="icons-circle">{!!$icons[$i]!!}</div>
                     @endwhile
                 </div>
                 <div class="conteudo-composto-texto-subtitulo"><h4>{!!$row->titulo!!}</h4></div>
