@@ -281,6 +281,21 @@
         max-width: initial;
     }
 
+    .miniatura-artigo-area:nth-of-type(odd){
+        padding-right: initial;
+    }
+
+    .miniatura-artigo-area:nth-of-type(even){
+        padding-left: initial;
+        border-left: none;
+    }
+    
+    .miniatura-artigo-area:nth-of-type(even) .miniatura-artigo-area-col-a{
+        order: 2;
+        padding-right: 0px;
+        padding-left: 10px;
+    }
+
     .estado-area {
         margin-left: 10px;
         width: 100%;
