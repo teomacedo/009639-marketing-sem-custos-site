@@ -7,7 +7,9 @@
         @foreach($categorias as $categoria)
         @if(count($categoria->artigos)>0)
         <div class="carousel-item {{$categoria->active}}">
-            @include('web.geral.capa-categoria')
+            <a href="{{url('categoria'.'/'.$categoria->pagina_url)}}">
+                @include('web.geral.capa-categoria')
+            </a>
         </div>
         @endif
         @endforeach

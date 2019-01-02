@@ -1,6 +1,6 @@
 <div class="miniatura-artigo-area">
     <div class="miniatura-artigo-area-col-a">
-        <a href="{{url('categoria'.'/'.$row->categoria()->id)}}">
+        <a href="{{url('categoria'.'/'.$row->categoria()->pagina_url)}}">
             <div class="miniatura-artigo-area-nome-categoria">
                 {{$row->categoria()->nome}}
             </div>

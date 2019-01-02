@@ -8,6 +8,23 @@ html{height: 100%;}
 body{height: 100%;}
 p{margin: 0;}
 
+.mensagem-alerta-area{
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+}
+
+.mensagem-alerta-quadro{
+    max-width: 390px;
+    margin: 30px auto;
+    box-shadow: -2px 2px 3px rgba(0,0,0,.1);
+    background-color: white;
+    color: #cc0013;
+    padding: 5px;
+    padding-right: 8px;
+}
+
+
 .btn-outline-primary {
     color: #4181C2;
     border-color: #4181C2;
@@ -75,9 +92,7 @@ a .botao-azul-preenchido:hover{
 }
 
 
-.alerta{
-    margin-top: 30px;
-}
+
 .categoria-botao{
     font-size: 16px;
     color: #4181C2;
