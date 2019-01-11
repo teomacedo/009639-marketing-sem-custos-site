@@ -25,17 +25,14 @@
             @include('web.geral.menu')
         </header>
         <h1 class="oculta">{{$tituloAba ?? $empresa->nome}}</h1>
-        
         @include('web.geral.alert')
-
         <style type="text/css">
             .aba-assinautra-area-margin-top{
                 margin-top: 60px;
             }
         </style>
-
         @yield('capa')
-
+        
         <div class="container">
             <div class="pagina-divisao-vertical">
                 <div class="pagina-divisao-vertical-principal">
@@ -66,7 +63,7 @@
                                 </div>
                                 {!! Form::close() !!}
                             </div>
-                            
+
                             @if (!isset($quadroCategoriaOculto))
                             <div class="aba-assinautra-area border img-thumbnail shadow-sm">
                                 <div class="aba-assinautra-area-titulo-pequeno">
@@ -83,7 +80,7 @@
                                 @endforeach
                             </div>
                             @endif
-                            
+
                             @if(isset($slides))
                             @foreach($slides as $row)
                             @if($row->ativo != 0)

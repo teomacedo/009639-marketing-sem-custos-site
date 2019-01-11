@@ -1,4 +1,4 @@
-<div id="mensagem-alerta-quadro" class="mensagem-alerta-quadro border img-thumbnail">
+<div class="mensagem-alerta-quadro border img-thumbnail">
     <button type="button" class="close" aria-label="Close" onclick="fecharJanela();">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -10,7 +10,9 @@
         @endif
 
         @if (session('mensagemSucesso'))
+        <span class="azul-texto">
         {!! session('mensagemSucesso') !!}
+        </span>
         @endif
 
         @if (session('mensagemErro'))

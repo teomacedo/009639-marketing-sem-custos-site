@@ -8,9 +8,15 @@ html{height: 100%;}
 body{height: 100%;}
 p{margin: 0;}
 
+
 .oculta{
     display: none;
 }
+
+.azul-texto{
+    color: #4181C2;
+}
+
 .mensagem-alerta-area{
     position: fixed;
     z-index: 5;
