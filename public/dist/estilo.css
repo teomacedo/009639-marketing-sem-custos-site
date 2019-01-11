@@ -8,6 +8,9 @@ html{height: 100%;}
 body{height: 100%;}
 p{margin: 0;}
 
+.oculta{
+    display: none;
+}
 .mensagem-alerta-area{
     position: fixed;
     z-index: 5;
@@ -148,12 +151,21 @@ a .botao-azul-preenchido:hover{
     z-index: 2;
 }
 
+.artigo-cabecalho{
+    margin-bottom: 20px;
+}
+
+.artigo-cabecalho, .artigo-rodape, .conteudo-composto-video{
+    padding: 0 10px;
+    width: 100%;
+}
+
 .artigo-autor-area{
     display: flex;
     align-items: flex-start;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 5px;
 }
+
 .artigo-autor-area-foto{
     min-width: 50px;
     height: 50px;
@@ -170,6 +182,7 @@ a .botao-azul-preenchido:hover{
     font-weight: bolder;
     color: #4181C2;
     margin-bottom: -7px;
+    font-size: 16px;
 }
 
 .artigo-autor-area-inf-data{
@@ -183,8 +196,13 @@ a .botao-azul-preenchido:hover{
     font-style: italic;
     line-height: 1;
     color: #8999a8;
+    margin-bottom: 20px;
 }
 
+
+.conteudo-composto-area{
+    width: 100%;
+}
 
 
 .conteudo-composto{
@@ -194,23 +212,31 @@ a .botao-azul-preenchido:hover{
     align-items: center;
 }
 
-.conteudo-composto-foto{
-    width: 100%;
-    background-position: center center;
-    background-size: cover;
-    margin-bottom: 10px;
+.conteudo-composto, .conteudo-composto-video{
+    margin-bottom: 20px;
+}
+
+.conteudo-composto-area:nth-of-type(even) .conteudo-composto-texto{
+    order: -1;
+}
+
+
+.conteudo-composto-img{
+    flex-grow: 1;
+    min-width: 50%;
+    padding: 0px 10px;
 }
 
 .conteudo-composto-texto{
-    max-width: 50%;
-    padding-left: 20px;
+    flex-grow: 1;
+    min-width: 50%;
+    padding: 0px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 10px;
 }
 
-.conteudo-composto-texto-titulo h3{
+.conteudo-composto-texto-titulo{
     font-size: 25px;
     font-weight: bolder;
     color: #4181C2;
@@ -218,7 +244,7 @@ a .botao-azul-preenchido:hover{
     margin-bottom: 10px;
 }
 
-.conteudo-composto-texto-subtitulo h4{
+.conteudo-composto-texto-subtitulo{
     font-size: 20px;
     line-height: 1.3;
     font-style: italic;
@@ -332,7 +358,6 @@ a .botao-azul-preenchido:hover{
     font-style: italic;
     margin: 0 auto;
     line-height: 1.1;
-    margin-top: 5px;
     margin-bottom: 30px;
 }
 
@@ -356,10 +381,6 @@ a .botao-azul-preenchido:hover{
 
 .banner-blog-vertical-area-botao:hover{
     background-color: #807F7F;
-}
-
-.banner-blog-horizontal{
-    margin-bottom: 10px;
 }
 
 .capa{
@@ -408,7 +429,7 @@ a .botao-azul-preenchido:hover{
     max-width: 50%;
 }
 
-.capa-titulo h1{
+.capa-titulo{
     width: 100%;
     font-family: 'Ubuntu', sans-serif;
     font-size: 50px;
@@ -418,7 +439,7 @@ a .botao-azul-preenchido:hover{
     margin-bottom: 10px;
 }
 
-.capa-subtitulo h2{
+.capa-subtitulo{
     font-size: 25px;
     color: #807F7F;
     width: 100%;

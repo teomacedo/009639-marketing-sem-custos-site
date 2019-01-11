@@ -61,12 +61,6 @@ class PainelSobreNos extends Controller {
 
     public function store(Request_PainelSobreNos $request) {
         $dataForm = $request->all();
-        if ($dataForm['imagem_altura'] == ''){
-            $dataForm['imagem_altura'] = 400;
-        }
-        if ($dataForm['imagem_altura_mobile'] == ''){
-            $dataForm['imagem_altura_mobile'] = $dataForm['imagem_altura'];
-        }
         
         $retorno = $this->dadosBase['model']->create($dataForm);
 
@@ -102,12 +96,6 @@ class PainelSobreNos extends Controller {
 
     public function update(Request_PainelSobreNos $request, $id) {
         $dataForm = $request->all();
-        if ($dataForm['imagem_altura'] == ''){
-            $dataForm['imagem_altura'] = 400;
-        }
-        if ($dataForm['imagem_altura_mobile'] == ''){
-            $dataForm['imagem_altura_mobile'] = $dataForm['imagem_altura'];
-        }
         
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);

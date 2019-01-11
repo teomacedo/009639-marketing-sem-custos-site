@@ -18,6 +18,7 @@ use App\Models\Estado;
 use App\Models\Recurso;
 use App\Models\CaseItem;
 use App\Models\Faq;
+use App\Models\Seo;
 
 set_time_limit(600);
 
@@ -32,11 +33,12 @@ class Site extends Controller {
         $this->cabecaloRodape['telefones'] = Telefone::orderBy('sequencia')->get();
         $this->cabecaloRodape['emails'] = Email::orderBy('sequencia')->get();
         $this->cabecaloRodape['slides'] = $this->conteudoSlide();
+        $this->cabecaloRodape['seo'] = Seo::get();
         $this->injetarCategorias();
     }
 
     public function home() {
-        $quadroCategoriaOculto = 'none';
+        $quadroCategoriaOculto = 'yes';
 
         $recuros = Recurso::orderBy('sequencia')->limit(3)->get();
         $cases = CaseItem::orderBy('sequencia')->get();
@@ -77,11 +79,10 @@ class Site extends Controller {
         if (!isset($artigo->id)) {
             return redirect()->route('blog');
         } else {
-
             if ($artigo->thumbnail == '') {
                 $artigo->thumbnail = $artigo->imagem;
             }
-            $conteudo = $this->conteudoComposto(ArtigoComponente::orderBy('sequencia')->where('artigo_id', $artigo->id)->get(), 'trecho');
+            $conteudo = ArtigoComponente::orderBy('sequencia')->where('artigo_id', $artigo->id)->get();
             $banner = $this->cabecaloRodape['slides'][rand(0, count($this->cabecaloRodape['slides']) - 1)];
             $tituloAba = $artigo->pagina_titulo;
             return view('web.artigo.index', compact('artigo', 'conteudo', 'banner', 'tituloAba'))->with($this->cabecaloRodape);
@@ -89,7 +90,7 @@ class Site extends Controller {
     }
 
     public function sobreNos() {
-        $conteudo = $this->conteudoComposto(SobreNos::orderBy('sequencia')->get(), 'trecho');
+        $conteudo = SobreNos::orderBy('sequencia')->get();
         $tituloAba = 'Sobre nós';
         return view('web.sobre-nos.index', compact('conteudo', 'tituloAba'))->with($this->cabecaloRodape);
     }
@@ -130,39 +131,6 @@ class Site extends Controller {
             $botao = ['botao_link' => '/faqs', 'botao_texto' => 'VOLTAR'];
             return view('web.faqs.item', compact('quadroCategoriaOculto', 'faqs', 'chamadaFaq', 'tituloAba', 'exibirTituloSubtitulo', 'botao'))->with($this->cabecaloRodape);
         }
-    }
-
-    public function conteudoComposto($objeto, $conteudo) {
-        for ($i = 0; $i < count($objeto); $i++) {
-            if (($i % 2) != 0) {
-                $objeto[$i]['order'] = 'order: -1;';
-                if ($objeto[$i][$conteudo] != '') {
-                    $objeto[$i]['padding'] = 'padding-right: 15px; padding-left: 0px;';
-                } else {
-                    $objeto[$i]['padding'] = 'padding-right: 0px; padding-left: 0px;';
-                }
-            }
-
-            if ($objeto[$i]['img_altura'] != $objeto[$i]['imagem_altura_mobile']) {
-                $objeto[$i]['imagem_altura_mobile'] = "<style type='text/css'>@media (max-width: 992px) {.conteudo-composto-foto-altura-small-" . $i . "{height: " . $objeto[$i]['imagem_altura_mobile'] . "px !important;}}</style>";
-            }
-
-            $objeto[$i]['class_img_altura_smal'] = 'conteudo-composto-foto-altura-small-' . $i;
-            $objeto[$i]['img_altura'] = 'height: ' . $objeto[$i]['imagem_altura'] . 'px;';
-
-            if ($objeto[$i]['imagem'] == '') {
-                $objeto[$i]['noimg'] = 'min-width: 100%; padding: 0px;';
-            }
-
-            if (($objeto[$i]['titulo'] == '') && ($objeto[$i]['subtitulo'] == '')) {
-                if ($objeto[$i][$conteudo] == '') {
-                    $objeto[$i]['onlyimg'] = 'min-width: 100%;';
-                }
-            }
-
-            $objeto[$i]['conteudo'] = $objeto[$i][$conteudo];
-        }
-        return $objeto;
     }
 
     public function conteudoSlide() {

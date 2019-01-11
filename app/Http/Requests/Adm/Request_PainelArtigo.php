@@ -17,7 +17,8 @@ class Request_PainelArtigo extends FormRequest {
             'subtitulo' => 'required',
             'categoria' => 'required',
             'pagina_url' => 'max:190',
-            'pagina_titulo' => 'max:190'
+            'pagina_titulo' => 'max:190',
+            'meta_description' => 'required|max:160'
         ];
     }
 

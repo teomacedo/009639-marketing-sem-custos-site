@@ -1,15 +1,15 @@
 <td>{{$row->sequencia}}</th>
 <td>
     @if($row->titulo != '')
-    <b>Título: </b>{{$row->titulo}}<br>
+    <b>Título: </b>{!!$row->titulo!!}<br>
     @endif
 
     @if($row->subtitulo != '')
-    <b>Subitítulo: </b>{{$row->subtitulo}}<br>
+    <b>Subitítulo: </b>{!!$row->subtitulo!!}<br>
     @endif
 
     @if($row->trecho != '')
-    <b>Trecho: </b>{{$row->trecho}}<br>
+    <b>Trecho: </b>{!!$row->trecho!!}<br>
     @endif
 
     @if($row->video != '')

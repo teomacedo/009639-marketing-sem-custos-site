@@ -28,7 +28,7 @@
     }
   };
 $(document).ready(function(){
-  tinymce.init(editor_config);
+  tinymcex.init(editor_config);
  });
 
 </script>

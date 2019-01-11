@@ -12,7 +12,9 @@ class Request_PainelArtigoComponente extends FormRequest {
 
     public function rules() {
         return [
-            'sequencia' => 'required|numeric'
+            'sequencia' => 'required|numeric',
+            'atributo_alt' => 'max:190',
+            'atributo_title' => 'max:190'
         ];
     }
 

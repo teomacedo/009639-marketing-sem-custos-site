@@ -9,9 +9,9 @@ class SobreNos extends Model {
     protected $fillable = [
         'sequencia',
         'imagem',
-        'imagem_altura',
+        'atributo_alt',
+        'atributo_title',
         'video',
-        'imagem_altura_mobile',
         'titulo',
         'subtitulo',
         'trecho'

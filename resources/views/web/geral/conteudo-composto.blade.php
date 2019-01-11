@@ -1,55 +1,38 @@
 @foreach($conteudo as $row)
-<div class="conteudo-composto small-off">
-    @if(($row->imagem) != '')
-    <div class="conteudo-composto-foto img-thumbnail" style="{{$row->img_altura}} {{$row->onlyimg}} background-image: url('{{url(''.$row->imagem)}}')">
+<div class="conteudo-composto-area">
+    <div class="conteudo-composto">
+        @if($row->imagem != '')
+        <div class="conteudo-composto-img">
+            <img src="{{url(''.$row->imagem)}}" width="100%" alt="{{$row->atributo_alt}}" title="{{$row->atributo_title}}">
+        </div>
+        @endif
 
-    </div>
-    @endif
-    <div class="conteudo-composto-texto" style="{{$row->order}} {{$row->padding}} {{$row->noimg}}">
-        <div>
-            @if(($row->titulo) != '')
-            <div class="conteudo-composto-texto-titulo">
-                <h3>{!!$row->titulo!!}</h3>
-            </div>
-            @endif
-            @if(($row->subtitulo) != '')
-            <div class="conteudo-composto-texto-subtitulo">
-                <h4>{!!$row->subtitulo!!}</h4>
-            </div>
-            @endif
-            <div class="conteudo-composto-texto-descricao">
-                {!!$row->conteudo!!}
+        @if(($row->titulo != '') || ($row->subtitulo != '') || ($row->trecho != ''))
+        <div class="conteudo-composto-texto">
+            <div>
+                @if(($row->titulo) != '')
+                <h3 class="conteudo-composto-texto-titulo">
+                    {!!$row->titulo!!}
+                </h3>
+                @endif
+                @if(($row->subtitulo) != '')
+                <p class="conteudo-composto-texto-subtitulo">
+                    {!!$row->subtitulo!!}
+                </p>
+                @endif
+                <p class="conteudo-composto-texto-descricao">
+                    {!!$row->trecho!!}
+                </p>
             </div>
         </div>
+        @endif
     </div>
-</div>
-
-<div class="conteudo-composto desktop-off">
-    @if(($row->imagem) != '')
-    {!!$row->imagem_altura_mobile!!}
-    <div class="conteudo-composto-foto img-thumbnail {{$row->class_img_altura_smal}}" style="{{$row->img_altura}} background-image: url('{{url(''.$row->imagem)}}')"></div>
-    @endif
-    <div class="conteudo-composto-texto">
-        <div>
-            @if(($row->titulo) != '')
-            <div class="conteudo-composto-texto-titulo">
-                <h3>{!!$row->titulo!!}</h3>
-            </div>
-            @endif
-            @if(($row->subtitulo) != '')
-            <div class="conteudo-composto-texto-subtitulo">
-                <h4>{!!$row->subtitulo!!}</h4>
-            </div>
-            @endif
-            <div class="conteudo-composto-texto-descricao">
-                {!!$row->conteudo!!}
-            </div>
+    @if($row->video != '')
+    <div class="conteudo-composto-video">
+        <div class='embed-responsive embed-responsive-16by9'>
+            <iframe class='embed-responsive-item' src='{{$row->video}}' allowfullscreen></iframe>
         </div>
     </div>
+    @endif
 </div>
-@if(($row->video) != '')
-<div class='embed-responsive embed-responsive-16by9'>
-    <iframe class='embed-responsive-item' src='{{$row->video}}' allowfullscreen></iframe>
-</div>
-@endif
 @endforeach

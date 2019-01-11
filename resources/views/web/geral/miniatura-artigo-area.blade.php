@@ -7,17 +7,17 @@
         </a>
 
         <a href="{{url($row->pagina_url)}}">
-            <div class="miniatura-artigo-area-titulo">
+            <h2 class="miniatura-artigo-area-titulo">
                 {!!$row->titulo!!}
-            </div>
+            </h2>
         </a>
 
-        <div class="miniatura-artigo-area-nome-subtitulo">
+        <p class="miniatura-artigo-area-nome-subtitulo">
             {!!substr($row->subtitulo, 0, 150)!!}
             @if(strlen($row->subtitulo) > 190)
             ...
             @endif
-        </div>
+        </p>
 
         <div class="miniatura-artigo-area-nome-autor-data">
             {{$row->autor->name}}<br><b>{{$row->updated_at->format('d/m/Y')}}</b>

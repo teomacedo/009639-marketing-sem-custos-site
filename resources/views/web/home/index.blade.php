@@ -1,11 +1,14 @@
 @extends('web.geral.estrutura')
+
+@section('head')
+<meta name="description" content="{{$seo[0]['meta_description']}}">
+@endsection
+
 @section('capa')
 @include('web.geral.slide') 
-
 @endsection
 
 @section('content')
-
 @include('web.chamada-principal.index')
 <hr>
 @include('web.clientes.index')
@@ -15,6 +18,4 @@
 @include('web.cases.index')
 <hr>
 @include('web.faqs.conteudo')
-
-
 @endsection

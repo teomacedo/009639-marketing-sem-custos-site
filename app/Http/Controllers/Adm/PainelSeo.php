@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Adm;
 
 use App\Http\Controllers\Controller;
-use App\Models\RecursoChamada; //editavel
-use App\Http\Requests\Adm\Request_PainelRecursoChamada; //editavel
+use App\Models\Seo; //editavel
+use App\Http\Requests\Adm\Request_PainelSeo; //editavel
 
-class PainelRecursoChamada extends Controller {
+class PainelSeo extends Controller {
 
     public $dadosBase;
 
-    public function __construct(RecursoChamada $model) {
-        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/recurso-chamada';
-        /* editavel */$this->dadosBase['tabelaColunas'] = ['Título', 'Subtítulo', 'Botão'];
+    public function __construct(Seo $model) {
+        /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/seo';
+        /* editavel */$this->dadosBase['tabelaColunas'] = ['Página', 'Meta Description'];
         /* editavel */$this->dadosBase['imagem'] = ['active' => 'no', 'label' => '---'];
         /* editavel */$this->dadosBase['createEditInclude'] = [['active' => 'no', 'titulo' => 'baza', 'path' => 'baza']];
         /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'no', 'create' => 'no', 'edit' => 'yes', 'delete' => 'no'];
@@ -59,7 +59,7 @@ class PainelRecursoChamada extends Controller {
         }
     }
 
-    public function store(Request_PainelRecursoChamada $request) {
+    public function store(Request_PainelSeo $request) {
         $dataForm = $request->all();
 
         $retorno = $this->dadosBase['model']->create($dataForm);
@@ -76,7 +76,7 @@ class PainelRecursoChamada extends Controller {
     }
 
     public function edit($id, $foreign = '') {
-        $this->dadosBase['model'] = RecursoChamada::find($id);
+        $this->dadosBase['model'] = Seo::find($id);
         /* editavel */$titulo = 'Editar';
         if ($foreign != '') {
             return view('adm.geral.create-edit', compact(''))
@@ -94,7 +94,7 @@ class PainelRecursoChamada extends Controller {
         }
     }
 
-    public function update(Request_PainelRecursoChamada $request, $id) {
+    public function update(Request_PainelSeo $request, $id) {
         $dataForm = $request->all();
         $model = $this->dadosBase['model']->find($id);
 

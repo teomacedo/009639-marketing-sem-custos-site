@@ -13,7 +13,8 @@ class ArtigoCategoria extends Model {
         'pagina_url',
         'pagina_titulo',
         'nome',
-        'subtitulo'
+        'subtitulo',
+        'meta_description'
     ];
 
     public function artigos() {

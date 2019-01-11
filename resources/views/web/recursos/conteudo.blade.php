@@ -1,11 +1,12 @@
+<section>
 <div class="secao">
     <div class="secao-involucro">
-        <div class="secao-titulo">
+        <h2 class="secao-titulo">
             {!!$chamadaRecurso->titulo!!}
-        </div>
-        <div class="secao-subtitulo">
+        </h2>
+        <p class="secao-subtitulo">
             {!!$chamadaRecurso->subtitulo!!}
-        </div>
+        </p>
 
         <div class="recursos-area">
             @foreach($recuros as $row)
@@ -20,8 +21,8 @@
                     <div class="icons-circle">{!!$icons[$i]!!}</div>
                     @endwhile
                 </div>
-                <div class="conteudo-composto-texto-subtitulo"><h4>{!!$row->titulo!!}</h4></div>
-                <div class="conteudo-composto-texto-descricao">{!!$row->subtitulo!!}</div>
+                <h3 class="conteudo-composto-texto-subtitulo">{!!$row->titulo!!}</h3>
+                <p class="conteudo-composto-texto-descricao">{!!$row->subtitulo!!}</p>
             </div>
             @endforeach
         </div>
@@ -30,4 +31,4 @@
         </div>
     </div>
 </div>
-
+</section>

@@ -9,8 +9,8 @@ class ArtigoComponente extends Model {
     protected $fillable = [
         'sequencia',
         'imagem',
-        'imagem_altura',
-        'imagem_altura_mobile',
+        'atributo_alt',
+        'atributo_title',
         'video',
         'titulo',
         'subtitulo',

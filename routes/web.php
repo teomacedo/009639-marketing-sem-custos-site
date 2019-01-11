@@ -19,3 +19,4 @@ Route::resource('/email-fale-conosco', 'Web\EmailFaleConosco');
 Route::get('/categoria/{url}', 'Web\Site@categoria');
 Route::get('/{url}', 'Web\Site@artigo');
 
+Route::fallback('Web\Error@error404');

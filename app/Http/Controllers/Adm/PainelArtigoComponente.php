@@ -61,12 +61,7 @@ class PainelArtigoComponente extends Controller {
 
     public function store(Request_PainelArtigoComponente $request) {
         $dataForm = $request->all();
-        if ($dataForm['imagem_altura'] == ''){
-            $dataForm['imagem_altura'] = 400;
-        }
-        if ($dataForm['imagem_altura_mobile'] == ''){
-            $dataForm['imagem_altura_mobile'] = $dataForm['imagem_altura'];
-        }
+
         $retorno = $this->dadosBase['model']->create($dataForm);
 
         if ($retorno) {
@@ -101,12 +96,7 @@ class PainelArtigoComponente extends Controller {
 
     public function update(Request_PainelArtigoComponente $request, $id) {
         $dataForm = $request->all();
-        if ($dataForm['imagem_altura'] == ''){
-            $dataForm['imagem_altura'] = 400;
-        }
-        if ($dataForm['imagem_altura_mobile'] == ''){
-            $dataForm['imagem_altura_mobile'] = $dataForm['imagem_altura'];
-        }
+
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);
         if ($retorno) {

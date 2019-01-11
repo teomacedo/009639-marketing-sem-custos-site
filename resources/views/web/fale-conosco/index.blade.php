@@ -1,11 +1,20 @@
 @extends('web.geral.estrutura')
 
+@section('head')
+@if($seo[2]['meta_description'] == '')
+<meta name="description" content="{{$seo[0]['meta_description']}}">
+@else
+<meta name="description" content="{{$seo[2]['meta_description']}}">
+@endif
+@endsection
+
 @section('content')
+<section>
 <div class="secao">
     <div class="secao-involucro">
 
-        <div class="secao-titulo">Fale Conosco</div>
-        <div class="secao-subtitulo">Informe abaixo seu nome, e-mail e telefone para que um de nossos atendentes entre em contato.</div>
+        <h2 class="secao-titulo">Fale Conosco</h2>
+        <p class="secao-subtitulo">Informe abaixo seu nome, e-mail e telefone para que um de nossos atendentes entre em contato.</p>
         {!!Form::open(['url' => [url('/email-fale-conosco')]])!!}
         <div class="row">
             <div class="form-group col-md-12">
@@ -34,6 +43,6 @@
 
     </div>
 </div>
-
+</section>
 
 @endsection

@@ -53,11 +53,13 @@ class PainelArtigo extends Controller {
         if ($dataForm['pagina_titulo'] == '') {
             $dataForm['pagina_titulo'] = $dataForm['titulo'];
         }
+        
+        $dataForm['pagina_titulo'] = Utilitario::string2title($dataForm['pagina_titulo'], 62);
 
         if ($dataForm['pagina_url'] == '') {
-            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo'], 140);
         } else {
-            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url'], 140);
         }
         
         $retorno = $this->dadosBase['model']->create($dataForm);
@@ -93,11 +95,12 @@ class PainelArtigo extends Controller {
         if ($dataForm['pagina_titulo'] == '') {
             $dataForm['pagina_titulo'] = $dataForm['titulo'];
         }
+        $dataForm['pagina_titulo'] = Utilitario::string2title($dataForm['pagina_titulo'], 62);
 
         if ($dataForm['pagina_url'] == '') {
-            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo'], 140);
         } else {
-            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url'], 140);
         }
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);

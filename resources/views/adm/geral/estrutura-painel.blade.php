@@ -61,6 +61,10 @@
             <a class="dropdown-item" href="{{url('adm/painel/assinante')}}">Assinantes</a>
         </div>
     </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" href="{{url('adm/painel/seo')}}">SEO</a>
+    </li>
 
 </ul>
 <span class="navbar-text">

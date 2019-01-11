@@ -1,7 +1,14 @@
 @extends('web.geral.estrutura')
+
+@section('head')
+@if($seo[3]['meta_description'] == '')
+<meta name="description" content="{{$seo[0]['meta_description']}}">
+@else
+<meta name="description" content="{{$seo[3]['meta_description']}}">
+@endif
+@endsection
+
 @section('capa')
-
-
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         @foreach($categorias as $categoria)
@@ -28,11 +35,13 @@
 @endsection
 
 @section('content')
-<div class="secao">
-    <div class="secao-involucro">
-        @foreach($artigos as $row)
-        @include('web.geral.miniatura-artigo-area')
-        @endforeach
+<section>
+    <div class="secao">
+        <div class="secao-involucro">
+            @foreach($artigos as $row)
+            @include('web.geral.miniatura-artigo-area')
+            @endforeach
+        </div>
     </div>
-</div>
+</section>
 @endsection

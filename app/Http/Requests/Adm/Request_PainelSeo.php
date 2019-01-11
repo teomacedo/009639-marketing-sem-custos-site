@@ -4,7 +4,7 @@ namespace App\Http\Requests\Adm;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Request_PainelSobreNos extends FormRequest {
+class Request_PainelSeo extends FormRequest {
 
     public function authorize() {
         return true;
@@ -12,10 +12,7 @@ class Request_PainelSobreNos extends FormRequest {
 
     public function rules() {
         return [
-            'sequencia' => 'required|numeric',
-            'atributo_alt' => 'max:190',
-            'atributo_title' => 'max:190'
+            'meta_description' => 'max:160'
         ];
     }
-
 }

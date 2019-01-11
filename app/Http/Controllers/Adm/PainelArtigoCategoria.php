@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Adm;
 use App\Http\Controllers\Controller;
 use App\Models\ArtigoCategoria;
 use App\Http\Requests\Adm\Request_PainelArtigoCategoria; //editavel
-use App\Http\Controllers\Utilitario;//personalizado
-
+use App\Http\Controllers\Utilitario; //personalizado
 
 class PainelArtigoCategoria extends Controller {
 
@@ -17,7 +16,7 @@ class PainelArtigoCategoria extends Controller {
         /* editavel */$this->dadosBase['tabelaColunas'] = ['Seq.', 'Nome'];
         /* editavel */$this->dadosBase['imagem'] = ['active' => 'yes', 'label' => 'Capa'];
         /* editavel */$this->dadosBase['createEditInclude'] = [['active' => 'no', 'titulo' => 'baza', 'path' => 'baza']];
-        /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'no','create' => 'yes','edit' => 'yes','delete' => 'yes'];
+        /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'no', 'create' => 'yes', 'edit' => 'yes', 'delete' => 'yes'];
         $this->dadosBase['model'] = $model;
         $nomeClasse = array_slice(explode("\\", get_class()), -1)[0];
         $this->dadosBase['nomeClasse'] = strtolower(substr($nomeClasse, 0, 1)) . substr($nomeClasse, 1, strlen($nomeClasse));
@@ -36,22 +35,23 @@ class PainelArtigoCategoria extends Controller {
         /* editavel */$titulo = 'Cadastro';
 
         return view('adm.geral.create-edit', compact('dadosBase', 'titulo'
-                ));
+        ));
     }
 
     public function store(Request_PainelArtigoCategoria $request) {
         $dataForm = $request->all();
-        
+
         if ($dataForm['pagina_titulo'] == '') {
             $dataForm['pagina_titulo'] = $dataForm['nome'];
         }
-
-        if ($dataForm['pagina_url'] == '') {
-            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
-        } else {
-            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
-        }
+        $dataForm['pagina_titulo'] = Utilitario::string2title($dataForm['pagina_titulo'], 62);
         
+        if ($dataForm['pagina_url'] == '') {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo'], 130);
+        } else {
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url'], 130);
+        }
+
         $retorno = $this->dadosBase['model']->create($dataForm);
 
         if ($retorno) {
@@ -70,23 +70,23 @@ class PainelArtigoCategoria extends Controller {
         $dadosBase = $this->dadosBase;
         /* editavel */$titulo = 'Editar';
         return view('adm.geral.create-edit', compact('dadosBase', 'titulo'
-                
         ));
     }
 
     public function update(Request_PainelArtigoCategoria $request, $id) {
         $dataForm = $request->all();
-        
+
         if ($dataForm['pagina_titulo'] == '') {
             $dataForm['pagina_titulo'] = $dataForm['nome'];
         }
+        $dataForm['pagina_titulo'] = Utilitario::string2title($dataForm['pagina_titulo'], 62);
 
         if ($dataForm['pagina_url'] == '') {
-            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_titulo'], 130);
         } else {
-            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url']);
+            $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url'], 130);
         }
-        
+
         $model = $this->dadosBase['model']->find($id);
         $retorno = $model->update($dataForm);
 
@@ -105,7 +105,5 @@ class PainelArtigoCategoria extends Controller {
             return redirect()->route($this->dadosBase['rota'] . '.index')->with(['errors' => 'Falha ao deletar']);
         }
     }
-    
-  
 
 }
