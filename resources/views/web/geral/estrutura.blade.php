@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Compartilhamento Facebook e outras redes sociais sem protocolo definico -->
-        <meta property="og:title" content="{{substr(($tituloAba ?? $empresa->nome), 0, 34)}}" />
+        <meta property="og:title" content="{{($tituloAba ?? $empresa->nome)}}" />
         <meta property="og:url" content="{{'http://'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" />
         <meta property="og:site_name" content="{{$empresa->nome}}">
         
