@@ -10,7 +10,7 @@
         <!-- Compartilhamento Facebook e outras redes sociais sem protocolo definico -->
         <meta property="og:title" content="{{$tituloAba ?? $empresa->nome}}" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="{{$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" />
+        <meta property="og:url" content="{{'http://'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" />
         <meta property="og:image" content="{{ URL::asset('photos/shares/artigos/categoria-b/thumbnail.jpg') }}" />
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
