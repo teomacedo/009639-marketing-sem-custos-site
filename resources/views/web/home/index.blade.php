@@ -2,6 +2,7 @@
 
 @section('head')
 <meta name="description" content="{{$seo[0]['meta_description']}}">
+<meta property="og:description" content="{{$seo[0]['meta_description']}}">
 @endsection
 
 @section('capa')
