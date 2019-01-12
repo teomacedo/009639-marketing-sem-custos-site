@@ -8,9 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Compartilhamento Facebook e outras redes sociais sem protocolo definico -->
-        <meta property="og:title" content="{{$tituloAba ?? $empresa->nome}}" />
+        <meta property="og:title" content="{{substr(($tituloAba ?? $empresa->nome), 0, 34)}}" />
         <meta property="og:url" content="{{'http://'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" />
+        <meta property="og:site_name" content="{{$empresa->nome}}">
         
+        <!-- Compartilhamento Twitter -->
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">

@@ -4,7 +4,7 @@
 <meta name="description" content="{{$artigo->meta_description}}">
 
 <meta property="og:type" content="article" />
-<meta property="og:description" content="{{$artigo->meta_description}}">
+<meta property="og:description" content="{{substr($artigo->meta_description, 0, 64)}}">
 <meta property="og:image" content="{{url(''.$artigo->imagem)}}" />
 
 <meta property="article:published_time" content="{{$artigo->updated_at->format('d/m/Y')}}">
