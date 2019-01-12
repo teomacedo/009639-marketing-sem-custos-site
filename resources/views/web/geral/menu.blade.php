@@ -1,7 +1,7 @@
 <div class="menu-desktop small-off">
     <div class="container" style="height: 100%;">
         <div class="menu-desktop-geral">
-            <a href="{{route('home')}}"><img src="{{url(''.$empresa->imagem)}}"></a>
+            <a href="{{route('home')}}"><img src="{{url(''.$empresa->imagem)}}" alt="{{$empresa->nome}}" title="{{$empresa->nome}}"></a>
             <div>
                 <a href="{{route('home')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Home</div></a>
                 <a href="{{url('/sobre-nos')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Sobre nós</div></a>

@@ -6,6 +6,13 @@
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Compartilhamento Facebook e outras redes sociais sem protocolo definico -->
+        <meta property="og:title" content="{{$tituloAba ?? $empresa->nome}}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{$_SERVER["REQUEST_URI"]}}" />
+        <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="shortcut icon" href="{{ URL::asset(''.$empresa->icon) }}" />
@@ -32,7 +39,7 @@
             }
         </style>
         @yield('capa')
-        
+
         <div class="container">
             <div class="pagina-divisao-vertical">
                 <div class="pagina-divisao-vertical-principal">
@@ -119,7 +126,7 @@
             <div class="container">
                 <div class="rodape-area">
                     <div class="rodape-area-coluna">
-                        <a href="{{route('home')}}"><img src="{{url(''.$empresa->imagem)}}" class="img-fluid"></a>
+                        <a href="{{route('home')}}"><img src="{{url(''.$empresa->imagem)}}" class="img-fluid"  alt="{{$empresa->nome}}" title="{{$empresa->nome}}"></a>
                     </div>
                     <div class="rodape-area-coluna">
                         <div class="rodape-area-coluna-titulo">
