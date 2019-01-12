@@ -2,6 +2,16 @@
 
 @section('head')
 <meta name="description" content="{{$artigo->meta_description}}">
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="{{$seo[0]['meta_description']}}">
+<meta property="og:image" content="{{url(''.$artigo->imagem)}}" />
+
+<meta property="article:published_time" content="{{$artigo->updated_at->format('d/m/Y')}}">
+<meta property="article:author" content="{{$artigo->autor->name}}">
+<meta property="article:section" content="{!!$artigo->categoria()->nome!!}">
+
+
 @endsection
 
 @section('capa')
