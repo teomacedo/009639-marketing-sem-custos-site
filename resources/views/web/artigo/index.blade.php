@@ -25,7 +25,7 @@
             <div class="artigo-cabecalho">
                 <a href="{{url('categoria'.'/'.$artigo->categoria()->pagina_url)}}">
                     <div class="categoria-botao">
-                        {!!$artigo->categoria()->nome!!}
+                        {!!$artigo->categoria()->nome!!} x
                     </div>
                 </a>
                 <h2 class="capa-titulo">
