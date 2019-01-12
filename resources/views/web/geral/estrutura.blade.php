@@ -11,8 +11,14 @@
         <meta property="og:title" content="{{$tituloAba ?? $empresa->nome}}" />
         <meta property="og:url" content="{{'http://'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" />
         <meta property="og:site_name" content="{{$empresa->nome}}">
-        
+
         <!-- Compartilhamento Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:site" content="@plataformanuc">
+        <meta property="twitter:creator" content="@plataformanuc">
+        <meta property="twitter:title" content="{{$tituloAba ?? $empresa->nome}}">
+        
+        
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">

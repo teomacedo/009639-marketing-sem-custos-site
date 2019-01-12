@@ -3,6 +3,7 @@
 @section('head')
 <meta name="description" content="{{$artigo->meta_description}}">
 
+<!-- Compartilhamento Facebook e outras redes sociais sem protocolo definico -->
 <meta property="og:type" content="article" />
 <meta property="og:description" content="{{$artigo->meta_description}}">
 <meta property="og:image" content="{{url($artigo->imagem)}}" />
@@ -11,6 +12,9 @@
 <meta property="article:author" content="{{$artigo->autor->name}}">
 <meta property="article:section" content="{!!$artigo->categoria()->nome!!}">
 
+<!-- Compartilhamento Twitter -->
+<meta property="twitter:description" content="{{$artigo->meta_description}}">
+<meta property="twitter:image" content="{{url($artigo->imagem)}}">
 
 @endsection
 
@@ -25,7 +29,7 @@
             <div class="artigo-cabecalho">
                 <a href="{{url('categoria'.'/'.$artigo->categoria()->pagina_url)}}">
                     <div class="categoria-botao">
-                        {!!$artigo->categoria()->nome!!} xc
+                        {!!$artigo->categoria()->nome!!}
                     </div>
                 </a>
                 <h2 class="capa-titulo">
