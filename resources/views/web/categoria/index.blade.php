@@ -6,11 +6,11 @@
 <!-- Compartilhamento Facebook e outras redes sociais sem protocolo definico -->
 <meta property="og:type" content="website">
 <meta property="og:description" content="{{$categoria->meta_description}}">
-<meta property="og:image" content="{{URL::asset(''.$categoria->imagem}}">
+<meta property="og:image" content="{{URL::asset(''.$categoria->imagem)}}">
 
 <!-- Compartilhamento Twitter -->
 <meta property="twitter:description" content="{{$categoria->meta_description}}">
-<meta property="twitter:image" content="{{URL::asset(''.$categoria->imagem}}">
+<meta property="twitter:image" content="{{URL::asset(''.$categoria->imagem)}}">
 
 
 
