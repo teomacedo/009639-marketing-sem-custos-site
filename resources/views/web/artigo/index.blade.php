@@ -48,14 +48,16 @@
                 </script>
 
                 <!-- Your share button code -->
-                <div class="fb-share-button" data-href="{{'http://.'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{'http://.'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}}};src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
+                <div class="fb-share-button" data-href="{{'http://'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{'http://.'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}}};src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
+
+                <a href="https://api.whatsapp.com/send?text={{$artigo->titulo.' '}}{{'https://'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" rel="nofollow" target="_blank">WhatsApp (Teste)</a>
 
 
 
                 <h2 class="capa-titulo">
                     {!!$artigo->titulo!!}
                 </h2>
-                <div class="capa-subtitulo">
+                <div class="capa-subtit       ulo">
                     <p>{!!$artigo->subtitulo!!}</p>
                 </div>
                 @if($banner->ativo != 0)
