@@ -1,11 +1,16 @@
 @extends('web.geral.estrutura')
 
 @section('head')
-@if($seo[4]['meta_description'] == '')
-<meta name="description" content="{{$seo[0]['meta_description']}}">
-@else
 <meta name="description" content="{{$seo[4]['meta_description']}}">
-@endif
+
+<!-- Compartilhamento Facebook e outras redes sociais sem protocolo definico -->
+<meta property="og:type" content="website">
+<meta property="og:description" content="{{$seo[4]['meta_description']}}">
+<meta property="og:image" content="{{URL::asset(''.$seo[4]['imagem'])}}">
+
+<!-- Compartilhamento Twitter -->
+<meta property="twitter:description" content="{{$seo[4]['meta_description']}}">
+<meta property="twitter:image" content="{{URL::asset(''.$seo[4]['imagem'])}}">
 @endsection
 
 @section('content')

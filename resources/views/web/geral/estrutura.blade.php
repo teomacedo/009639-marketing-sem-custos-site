@@ -5,15 +5,16 @@
         <title>{{$tituloAba ?? $empresa->nome}}</title>
         <meta charset="utf-8">
         
-        <link rel="base" href="{{'http://www.'.$_SERVER['HTTP_HOST']}}">
-        <link rel="base" href="{{'http://www.'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}">
+        <link rel="base" href="{{'https://www.'.$_SERVER['HTTP_HOST']}}">
+        <link rel="canonical" href="{{'https://www.'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}">
+        <meta name="robots" content="index, follow">
         
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Compartilhamento Facebook e outras redes sociais sem protocolo definico -->
         <meta property="og:title" content="{{$tituloAba ?? $empresa->nome}}" />
-        <meta property="og:url" content="{{'http://www.'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" />
+        <meta property="og:url" content="{{'https://www.'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}" />
         <meta property="og:site_name" content="{{$empresa->nome}}">
 
         <!-- Compartilhamento Twitter -->

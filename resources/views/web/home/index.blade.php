@@ -3,9 +3,14 @@
 @section('head')
 <meta name="description" content="{{$seo[0]['meta_description']}}">
 
-<meta property="og:type" content="website" />
+<!-- Compartilhamento Facebook e outras redes sociais sem protocolo definico -->
+<meta property="og:type" content="website">
 <meta property="og:description" content="{{$seo[0]['meta_description']}}">
-<meta property="og:image" content="{{ URL::asset('photos/shares/artigos/categoria-b/thumbnail.jpg') }}" />
+<meta property="og:image" content="{{URL::asset(''.$seo[0]['imagem'])}}">
+
+<!-- Compartilhamento Twitter -->
+<meta property="twitter:description" content="{{$seo[0]['meta_description']}}">
+<meta property="twitter:image" content="{{URL::asset(''.$seo[0]['imagem'])}}">
 @endsection
 
 @section('capa')

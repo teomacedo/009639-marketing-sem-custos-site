@@ -12,7 +12,8 @@ class Request_PainelSeo extends FormRequest {
 
     public function rules() {
         return [
-            'meta_description' => 'max:160'
+            'meta_description' => 'required|max:160',
+            'imagem' => 'required',
         ];
     }
 }

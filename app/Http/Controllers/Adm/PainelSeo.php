@@ -12,8 +12,8 @@ class PainelSeo extends Controller {
 
     public function __construct(Seo $model) {
         /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/seo';
-        /* editavel */$this->dadosBase['tabelaColunas'] = ['Página', 'Meta Description'];
-        /* editavel */$this->dadosBase['imagem'] = ['active' => 'no', 'label' => '---'];
+        /* editavel */$this->dadosBase['tabelaColunas'] = ['Página', 'Meta Description', 'Imagem Microformato'];
+        /* editavel */$this->dadosBase['imagem'] = ['active' => 'yes', 'label' => 'Imagem Para Microformatos'];
         /* editavel */$this->dadosBase['createEditInclude'] = [['active' => 'no', 'titulo' => 'baza', 'path' => 'baza']];
         /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'no', 'create' => 'no', 'edit' => 'yes', 'delete' => 'no'];
         /* editavel */$this->dadosBase['foreign'] = 'no';
