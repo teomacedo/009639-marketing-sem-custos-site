@@ -32,7 +32,7 @@
                         {!!$artigo->categoria()->nome!!}
                     </div>
                 </a>
-                
+
                 <h2 class="capa-titulo">                
                     {!!$artigo->titulo!!}
                 </h2>
@@ -56,7 +56,8 @@
         <div class="secao-involucro">
             <div class="artigo-rodape">
                 <div class="artigo-autor-area">
-                    <div class="artigo-autor-area-foto" style="background-image: url('{{url(''.$artigo->autor->imagem)}}')"></div>
+                    <img class="artigo-autor-area-foto" src="{{url(''.$artigo->autor->imagem)}}" alt="{{$artigo->autor->name}}" title="{{$artigo->autor->name}}">
+
                     <div class="artigo-autor-area-inf">
                         <h2 class="artigo-autor-area-inf-nome">
                             {{'Autor: '.$artigo->autor->name}}
@@ -64,11 +65,12 @@
                         <div class="artigo-autor-area-inf-data">
                             <i class="far fa-calendar-alt"></i> {{$artigo->updated_at->format('d/m/Y')}}
                         </div>
+                        <div class="artigo-autor-area-inf-bio">
+                            <p>{!!$artigo->autor->descricao!!}</p>
+                        </div>
                     </div>
                 </div>
-                <div class="artigo-autor-area-inf-bio">
-                    <p>{!!$artigo->autor->descricao!!}</p>
-                </div>
+
 
                 @if($banner->ativo != 0)
                 @if($banner->banner_blog_horizontal != '')

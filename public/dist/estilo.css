@@ -168,16 +168,14 @@ a .botao-azul-preenchido:hover{
 
 .artigo-autor-area{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 5px;
 }
 
 .artigo-autor-area-foto{
-    min-width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    background-size: cover;
-    background-position: center center;
+    min-width: 150px;
+    height: 150px;
+    border-radius: 75px;
 }
 
 .artigo-autor-area-inf{
@@ -199,8 +197,8 @@ a .botao-azul-preenchido:hover{
 }
 
 .artigo-autor-area-inf-bio{
+    text-align: justify;
     font-style: italic;
-    line-height: 1;
     color: #8999a8;
     margin-bottom: 20px;
 }
@@ -258,28 +256,20 @@ a .botao-azul-preenchido:hover{
     margin-bottom: 10px;
 }
 
-.miniatura-artigo-area{
+.miniatura-artigo-area {
     display: flex;
     margin-bottom: 25px;
-    max-width: 49%;
-}
-
-.miniatura-artigo-area:nth-of-type(odd){
-    padding-right: 20px;
-}
-
-.miniatura-artigo-area:nth-of-type(even){
-    padding-left: 20px;
-    border-left: 1px solid #ccc;
+    padding-bottom: 25px;
+    border-bottom: solid 1px #ccc;
 }
 
 .miniatura-artigo-area-col-a{
-    max-width: 60%;
+    width: 50%;
     padding-right: 10px;
 }
 
 .miniatura-artigo-area-col-b{
-    min-width: 40%;
+    width: 50%;
 }
 
 .miniatura-artigo-area-imagem{
@@ -287,7 +277,9 @@ a .botao-azul-preenchido:hover{
     height: 100%;
     background-size: cover;
     background-position: center center;
+}
 
+.miniatura-artigo-area-imagem:hover{
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     -ms-filter: grayscale(100%);
@@ -295,9 +287,13 @@ a .botao-azul-preenchido:hover{
     filter: grayscale(100%);
 }
 
-.miniatura-artigo-area-imagem:hover{
-    filter: grayscale(0%);
+.miniatura-artigo-area:nth-of-type(even) .miniatura-artigo-area-col-a{
+    order: 2;
+    padding-left: 10px;
+    padding-right: 0px;
 }
+
+
 
 .miniatura-artigo-area-titulo{
     font-size: 24px;

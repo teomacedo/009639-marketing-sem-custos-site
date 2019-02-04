@@ -3,7 +3,7 @@
     <div class="conteudo-composto">
         @if($row->imagem != '')
         <div class="conteudo-composto-img">
-            <img src="{{url(''.$row->imagem)}}" width="100%" alt="{{$row->atributo_alt}}" title="{{$row->atributo_title}}">
+            <img src="{{url(''.$row->imagem)}}" class="img-thumbnail" width="100%" alt="{{$row->atributo_alt}}" title="{{$row->atributo_title}}">
         </div>
         @endif
 

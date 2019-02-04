@@ -36,7 +36,6 @@
             @include('adm.'.$dadosBase['nomeClasse'].'.create-edit')
         </div>
         <input type="hidden" name="foreign" value="{{$foreign ?? ''}}">
-
         <button class='btn btn-success' type='submit' value='submit'>
             <i class="fas fa-check-circle"></i> Salvar
         </button>

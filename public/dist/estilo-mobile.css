@@ -362,4 +362,20 @@
         width: initial;
         margin-top: 20px;
     }
+
+    .artigo-autor-area {
+        flex-direction: column;
+    }
+
+    .artigo-autor-area-foto {
+        margin-bottom: 30px;
+    }
+    
+    .artigo-autor-area-inf{
+        margin-left: initial;
+    }
+
+    .artigo-autor-area-inf-nome .artigo-autor-area-inf-data {
+        text-align: center;
+    }
 }

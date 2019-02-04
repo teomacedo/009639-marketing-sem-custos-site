@@ -61,7 +61,7 @@ class PainelArtigoComponente extends Controller {
 
     public function store(Request_PainelArtigoComponente $request) {
         $dataForm = $request->all();
-
+        $dataForm['artigo_id'] = $dataForm['foreign'];
         $retorno = $this->dadosBase['model']->create($dataForm);
 
         if ($retorno) {
