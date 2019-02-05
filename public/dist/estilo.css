@@ -161,7 +161,7 @@ a .botao-azul-preenchido:hover{
     margin-bottom: 20px;
 }
 
-.artigo-cabecalho, .artigo-rodape, .conteudo-composto-video{
+.artigo-cabecalho, .artigo-rodape, .conteudo-composto-video, .conteudo-composto-links-externos{
     padding: 0 10px;
     width: 100%;
 }
@@ -216,7 +216,15 @@ a .botao-azul-preenchido:hover{
     align-items: center;
 }
 
-.conteudo-composto, .conteudo-composto-video{
+.link-externo{
+    color: #4181C2;
+}
+.link-externo:hover{
+    color: #495057;
+    font-weight: bolder;
+}
+
+.conteudo-composto, .conteudo-composto-video, .conteudo-composto-links-externos{
     margin-bottom: 20px;
 }
 

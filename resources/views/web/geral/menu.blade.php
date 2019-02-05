@@ -9,8 +9,8 @@
                 <a href="{{route('blog')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Blog</div></a>
             </div>
             <div>
-                <a href="https://nucserver.com.br/painel"><div class="menu-desktop-links-item">Entrar</div></a>
-                <a href="https://nucserver.com.br/cadastro"><div class="menu-desktop-links-item menu-desktop-links-botao">Tenho interesse</div></a>
+                <a href="https://sys.nuctecnologia.com.br/painel"><div class="menu-desktop-links-item">Entrar</div></a>
+                <a href="https://sys.nuctecnologia.com.br/cadastro"><div class="menu-desktop-links-item menu-desktop-links-botao">Tenho interesse</div></a>
             </div>
         </div>
     </div>
@@ -51,12 +51,12 @@
                 BLOG
             </div>
         </a>
-        <a href="https://nucserver.com.br/painel" class="menu-small-itens menu-small-itens-secundarios">
+        <a href="https://sys.nuctecnologia.com.br/painel" class="menu-small-itens menu-small-itens-secundarios">
             <div class="container">
                 ENTRAR
             </div>
         </a>
-        <a href="https://nucserver.com.br/cadastro" class="menu-small-itens menu-small-itens-secundarios">
+        <a href="https://sys.nuctecnologia.com.br/cadastro" class="menu-small-itens menu-small-itens-secundarios">
             <div class="container">
                 TENHO INTERESSE
             </div>

@@ -15,7 +15,8 @@ class ArtigoComponente extends Model {
         'titulo',
         'subtitulo',
         'trecho',
-        'artigo_id'
+        'artigo_id',
+        'links_externos'
     ];
 
 }

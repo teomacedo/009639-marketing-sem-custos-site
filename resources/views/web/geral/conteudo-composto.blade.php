@@ -27,6 +27,13 @@
         </div>
         @endif
     </div>
+
+    @if($row->links_externos != '')
+    <div class="conteudo-composto-links-externos">
+        {!!$row->links_externos!!}
+    </div>
+    @endif
+
     @if($row->video != '')
     <div class="conteudo-composto-video">
         <div class='embed-responsive embed-responsive-16by9'>

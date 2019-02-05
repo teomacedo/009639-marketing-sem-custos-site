@@ -18,7 +18,7 @@ class PainelArtigo extends Controller {
 
     public function __construct(Artigo $model) {
         /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/artigo';
-        /* editavel */$this->dadosBase['tabelaColunas'] = ['Titulo', 'Subtitulo', 'Categoria'];
+        /* editavel */$this->dadosBase['tabelaColunas'] = ['ID', 'Titulo', 'Subtitulo', 'Categoria'];
         /* editavel */$this->dadosBase['imagem'] = ['active' => 'yes', 'label' => 'Capa'];
         /* editavel */$this->dadosBase['createEditInclude'] = [['active' => 'no', 'titulo' => 'baza', 'path' => 'baza']];
         /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'yes', 'create' => 'yes', 'edit' => 'yes', 'delete' => 'yes'];

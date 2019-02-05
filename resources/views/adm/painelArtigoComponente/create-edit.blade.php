@@ -35,6 +35,12 @@
     {!! Form::text('video', null, ['class' => 'form-control', 'placeholder' => '' ])!!}
 </div>
 
+<div class="form-group col-md-12">
+    <label>ID do artigo - Links externos</label>
+    {!! Form::text('links_externos', null, ['class' => 'form-control', 'placeholder' => '' ])!!}
+    @include('adm.geral.label-small', ['texto' => 'use \';\' para separar os IDs'])
+</div>
+
 
 
 

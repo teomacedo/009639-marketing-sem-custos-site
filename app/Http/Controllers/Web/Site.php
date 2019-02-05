@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Utilitario;
 use App\Models\Empresa;
 use App\Models\Endereco;
 use App\Models\RedeSocial;
@@ -48,7 +49,7 @@ class Site extends Controller {
         $chamadaRecurso = \App\Models\RecursoChamada::first();
         $chamadaCase = \App\Models\CaseChamada::first();
         $chamadaFaq = \App\Models\FaqChamada::first();
-        $clientes = DB::connection('nucserver')->select('SELECT distinct clientes.codigo_estado, clientes.nome, clientes.url FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE() order by clientes.codigo_estado');
+        $clientes = DB::connection('nucserver')->select('SELECT distinct clientes.codigo_estado, clientes.nome, clientes.url FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8 and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE() order by clientes.codigo_estado');
         $estados = DB::connection('nucserver')->select('SELECT distinct codigo_estado FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE()');
         $estadosLista = Estado::get();
         return view('web.home.index', compact('quadroCategoriaOculto', 'recuros', 'cases', 'faqs', 'chamadaPrincipal', 'chamadaCliente', 'chamadaRecurso', 'chamadaCase', 'chamadaFaq', 'clientes', 'estados', 'estadosLista'))->with($this->cabecaloRodape);
@@ -83,6 +84,11 @@ class Site extends Controller {
                 $artigo->thumbnail = $artigo->imagem;
             }
             $conteudo = ArtigoComponente::orderBy('sequencia')->where('artigo_id', $artigo->id)->get();
+            foreach ($conteudo as $item) {
+                if($item->links_externos != ''){
+                    $item->links_externos = Utilitario::linksExternos($item->links_externos);
+                }
+            }
             $banner = $this->cabecaloRodape['slides'][rand(0, count($this->cabecaloRodape['slides']) - 1)];
             $tituloAba = $artigo->pagina_titulo;
             return view('web.artigo.index', compact('artigo', 'conteudo', 'banner', 'tituloAba'))->with($this->cabecaloRodape);

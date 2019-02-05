@@ -42,7 +42,7 @@
                                                 {{$rowClientes->nome}}
                                             </div>
                                             <div class="lista-cliente-item-site">
-                                                <a href="{{'http://'.$rowClientes->url}}">{{$rowClientes->url}}</a>
+                                                <a class="link-externo" href="{{'http://'.$rowClientes->url}}">{{$rowClientes->url}}</a>
                                             </div>
                                             <?php $cont++; ?>
                                         </div>

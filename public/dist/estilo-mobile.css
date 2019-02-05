@@ -296,7 +296,7 @@
         z-index: 1;
     }
 
-    .artigo-cabecalho, .artigo-rodape, .conteudo-composto-video{
+    .artigo-cabecalho, .artigo-rodape, .conteudo-composto-video, .conteudo-composto-links-externos{
         padding: initial;
     }
 

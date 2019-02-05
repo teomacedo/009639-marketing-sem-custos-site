@@ -36,7 +36,7 @@
                 <h2 class="capa-titulo">                
                     {!!$artigo->titulo!!}
                 </h2>
-                <div class="capa-subtit       ulo">
+                <div class="capa-subtitulo">
                     <p>{!!$artigo->subtitulo!!}</p>
                 </div>
                 @if($banner->ativo != 0)
