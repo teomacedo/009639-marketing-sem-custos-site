@@ -157,7 +157,7 @@
                         </div>
                         <div class="rodape-area-coluna-itens">
                             @foreach($endereco as $row)
-                            {{$row->cidade}}-{{$row->estado}}<br>
+                            {{$row->cidade}}-{{strtoupper($row->estado)}}<br>
                             {{$row->bairro}}<br>
                             {{$row->endereco}}, {{$row->numero}}<br>
                             {{$row->cep}}<br><br>

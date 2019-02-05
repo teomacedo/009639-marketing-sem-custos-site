@@ -23,64 +23,64 @@
 @endsection
 
 @section('content')
-<section>
-    <article class="secao">
-        <div class="secao-involucro">
-            <div class="artigo-cabecalho">
-                <a href="{{url('categoria'.'/'.$artigo->categoria()->pagina_url)}}">
-                    <div class="categoria-botao">
-                        {!!$artigo->categoria()->nome!!}
-                    </div>
-                </a>
 
-                <h2 class="capa-titulo">                
-                    {!!$artigo->titulo!!}
-                </h2>
-                <div class="capa-subtitulo">
-                    <p>{!!$artigo->subtitulo!!}</p>
+<article class="secao">
+    <div class="secao-involucro">
+        <div class="artigo-cabecalho">
+            <a href="{{url('categoria'.'/'.$artigo->categoria()->pagina_url)}}">
+                <div class="categoria-botao">
+                    {!!$artigo->categoria()->nome!!}
                 </div>
-                @if($banner->ativo != 0)
-                @if($banner->banner_blog_horizontal != '')                            
-                <a href="{{$banner->botao_link}}">
-                    <img src="{{ url(''.$banner->banner_blog_horizontal)}}" width="100%" class="banner-blog-horizontal" alt="{!!strip_tags($banner->titulo_desktop)!!}" title="{!!strip_tags($banner->titulo_desktop)!!}">
-                </a>
-                @endif
-                @endif
+            </a>
+
+            <h2 class="capa-titulo">                
+                {!!$artigo->titulo!!}
+            </h2>
+            <div class="capa-subtitulo">
+                <p>{!!$artigo->subtitulo!!}</p>
             </div>
-            @include('web.geral.conteudo-composto')
+            @if($banner->ativo != 0)
+            @if($banner->banner_blog_horizontal != '')                            
+            <a href="{{$banner->botao_link}}">
+                <img src="{{ url(''.$banner->banner_blog_horizontal)}}" width="100%" class="banner-blog-horizontal" alt="{!!strip_tags($banner->titulo_desktop)!!}" title="{!!strip_tags($banner->titulo_desktop)!!}">
+            </a>
+            @endif
+            @endif
         </div>
-    </article>
-</section>
-<section>
-    <div class="secao">
-        <div class="secao-involucro">
-            <div class="artigo-rodape">
-                <div class="artigo-autor-area">
-                    <img class="artigo-autor-area-foto" src="{{url(''.$artigo->autor->imagem)}}" alt="{{$artigo->autor->name}}" title="{{$artigo->autor->name}}">
+        @include('web.geral.conteudo-composto')
 
-                    <div class="artigo-autor-area-inf">
-                        <h2 class="artigo-autor-area-inf-nome">
-                            {{'Autor: '.$artigo->autor->name}}
-                        </h2>
-                        <div class="artigo-autor-area-inf-data">
-                            <i class="far fa-calendar-alt"></i> {{$artigo->updated_at->format('d/m/Y')}}
-                        </div>
-                        <div class="artigo-autor-area-inf-bio">
-                            <p>{!!$artigo->autor->descricao!!}</p>
-                        </div>
+
+
+
+        <div class="artigo-rodape">
+            <hr>
+            <div class="artigo-autor-area">
+                <img class="artigo-autor-area-foto" src="{{url(''.$artigo->autor->imagem)}}" alt="{{$artigo->autor->name}}" title="{{$artigo->autor->name}}">
+
+                <div class="artigo-autor-area-inf">
+                    <h2 class="artigo-autor-area-inf-nome">
+                        {{'Autor: '.$artigo->autor->name}}
+                    </h2>
+                    <div class="artigo-autor-area-inf-data">
+                        <i class="far fa-calendar-alt"></i> {{$artigo->updated_at->format('d/m/Y')}}
+                    </div>
+                    <div class="artigo-autor-area-inf-bio">
+                        <p>{!!$artigo->autor->descricao!!}</p>
                     </div>
                 </div>
-
-
-                @if($banner->ativo != 0)
-                @if($banner->banner_blog_horizontal != '')
-                <a href="{{$banner->botao_link}}">
-                    <img src="{{ url(''.$banner->banner_blog_horizontal)}}" width="100%" class="banner-blog-horizontal" alt="{!!strip_tags($banner->titulo_desktop)!!}" title="{!!strip_tags($banner->titulo_desktop)!!}">
-                </a>
-                @endif
-                @endif
             </div>
+            <hr>
+
+            @if($banner->ativo != 0)
+            @if($banner->banner_blog_horizontal != '')
+            <a href="{{$banner->botao_link}}">
+                <img src="{{ url(''.$banner->banner_blog_horizontal)}}" width="100%" class="banner-blog-horizontal" alt="{!!strip_tags($banner->titulo_desktop)!!}" title="{!!strip_tags($banner->titulo_desktop)!!}">
+            </a>
+            @endif
+            @endif
         </div>
     </div>
-</section>
+</article>
+
+
 @endsection
