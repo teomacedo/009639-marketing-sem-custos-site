@@ -50,6 +50,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown-artigo">
             <a class="dropdown-item" href="{{url('adm/painel/artigo-categoria')}}">Categorias</a>
             <a class="dropdown-item" href="{{url('adm/painel/artigo')}}">Artigos</a>
+            <a class="dropdown-item" href="{{url('adm/painel/artigo-conclusao')}}">Conclusões</a>
         </div>
     </li>
     <li class="nav-item dropdown">

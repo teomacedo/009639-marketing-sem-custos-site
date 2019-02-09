@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ArtigoCategoria;
+use App\Models\ArtigoConclusao;
 use App\User;
 
 class Artigo extends Model {
@@ -17,7 +18,8 @@ class Artigo extends Model {
         'pagina_url',
         'pagina_titulo',
         'meta_description',
-        'publicado'
+        'publicado',
+        'artigo_conclusaos_id'
     ];
     
     public function autor(){
@@ -27,6 +29,10 @@ class Artigo extends Model {
     public function categoria(){
         $categorias = $this->belongsToMany(ArtigoCategoria::class, 'artigo_categoria_relacs', 'artigo_id', 'categoria_id');
         return $categorias->first();
+    }
+    
+    public function conclusao(){
+        return $this->belongsTo(ArtigoConclusao::class, 'artigo_conclusaos_id');
     }
     
  

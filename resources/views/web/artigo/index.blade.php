@@ -48,7 +48,10 @@
             @endif
         </div>
         @include('web.geral.conteudo-composto')
-
+        <div class="conteudo-composto-texto">
+            <hr>
+            {!!$artigo->conclusao->texto!!}
+        </div>
 
 
 

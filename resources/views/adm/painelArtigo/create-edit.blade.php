@@ -38,6 +38,11 @@
     {!! Form::text('meta_description', null, ['class' => 'form-control', 'placeholder' => '' ])!!}
 </div>
 
+<div class="form-group col-md-3">
+    <label>Conclusão</label>
+    {!! Form::select('artigo_conclusaos_id', $conclusoes, null, ['class' => 'form-control', 'placeholder' => 'Escolha uma opção']) !!}
+</div>
+
 
 <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 

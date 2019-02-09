@@ -30,6 +30,9 @@ Route::group(["middleware" => "auth:adm"], function() {
     Route::get('adm/painel/artigo-componente/destroy/{id}/{foreign?}', 'Adm\PainelArtigoComponente@destroy'); 
     Route::resource('adm/painel/artigo-componente', 'Adm\PainelArtigoComponente');
     
+    Route::resource('adm/painel/artigo-conclusao', 'Adm\PainelArtigoConclusao');
+    Route::get('adm/painel/artigo-conclusao/destroy/{id}', 'Adm\PainelArtigoConclusao@destroy'); 
+    
     Route::resource('adm/painel/empresa', 'Adm\PainelEmpresa');
     Route::get('adm/painel/empresa/destroy/{id}', 'Adm\PainelEmpresa@destroy'); 
     

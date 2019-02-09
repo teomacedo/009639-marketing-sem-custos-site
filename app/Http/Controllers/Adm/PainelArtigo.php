@@ -5,16 +5,18 @@ namespace App\Http\Controllers\Adm;
 use App\Http\Controllers\Controller;
 use App\Models\Artigo;
 use App\Models\ArtigoCategoria; //personalizado
+use App\Models\ArtigoConclusao; //personalizado
 use App\Models\ArtigoCategoriaRelac; //personalizado
 use App\Http\Requests\Adm\Request_PainelArtigo; //editavel
-use App\Http\Controllers\Utilitario;//personalizado
+use App\Http\Controllers\Utilitario; //personalizado
 
 class PainelArtigo extends Controller {
 
     public $dadosBase;
     /* personalizado 
-     
     */public $categorias;
+    /* personalizado 
+    */public $conclusoes;
 
     public function __construct(Artigo $model) {
         /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/artigo';
@@ -29,6 +31,7 @@ class PainelArtigo extends Controller {
         $this->dadosBase['rota'] = $rotaArray[count($rotaArray) - 1];
 
         /* personalizado */$this->categorias = ArtigoCategoria::pluck('nome', 'id');
+        /* personalizado */$this->conclusoes = ArtigoConclusao::pluck('titulo', 'id');
     }
 
     public function index() {
@@ -41,25 +44,26 @@ class PainelArtigo extends Controller {
         $dadosBase = $this->dadosBase;
         /* editavel */$titulo = 'Cadastro';
         /* personalizado */$categorias = $this->categorias;
+        /* personalizado */$conclusoes = $this->conclusoes;
 
         return view('adm.geral.create-edit', compact('dadosBase', 'titulo'
-                        , 'categorias'
+                        , 'categorias', 'conclusoes'
         ));
     }
 
     public function store(Request_PainelArtigo $request) {
         $dataForm = $request->all();
-        
+
         if (isset($dataForm['publicado'])) {
             $dataForm['publicado'] = 1;
         } else {
             $dataForm['publicado'] = 0;
         }
-        
+
         if ($dataForm['pagina_titulo'] == '') {
             $dataForm['pagina_titulo'] = $dataForm['titulo'];
         }
-        
+
         $dataForm['pagina_titulo'] = Utilitario::string2title($dataForm['pagina_titulo'], 62);
 
         if ($dataForm['pagina_url'] == '') {
@@ -67,7 +71,7 @@ class PainelArtigo extends Controller {
         } else {
             $dataForm['pagina_url'] = Utilitario::string2url($dataForm['pagina_url'], 140);
         }
-        
+
         $retorno = $this->dadosBase['model']->create($dataForm);
 
         if ($retorno) {
@@ -91,21 +95,22 @@ class PainelArtigo extends Controller {
         /* personalizado */$categoria = ArtigoCategoriaRelac::where('artigo_id', $id)->first();
         /* personalizado */$this->dadosBase['model']['categoria'] = $categoria->categoria_id;
         /* personalizado */$categorias = $this->categorias;
+        /* personalizado */$conclusoes = $this->conclusoes;
         return view('adm.geral.create-edit', compact('dadosBase', 'titulo'
-                        , 'categorias'
+                        , 'categorias', 'conclusoes'
         ));
     }
 
     public function update(Request_PainelArtigo $request, $id) {
         $dataForm = $request->all();
-        
+
         if (isset($dataForm['publicado'])) {
             $dataForm['publicado'] = 1;
         } else {
             $dataForm['publicado'] = 0;
         }
-        
-        
+
+
         if ($dataForm['pagina_titulo'] == '') {
             $dataForm['pagina_titulo'] = $dataForm['titulo'];
         }
