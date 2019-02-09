@@ -11,6 +11,7 @@ use App\Models\RedeSocial;
 use App\Models\Telefone;
 use App\Models\Email;
 use App\Models\ArtigoCategoria;
+use App\Models\ArtigoCategoriaRelac;
 use App\Models\Artigo;
 use App\Models\ArtigoComponente;
 use App\Models\SobreNos;
@@ -56,7 +57,7 @@ class Site extends Controller {
     }
 
     public function blog() {
-        $artigos = Artigo::orderBy('updated_at', 'desc')->get();
+        $artigos = Artigo::where('publicado', 1)->orderBy('created_at', 'desc')->get();
         $tituloAba = 'Blog';
         return view('web.blog.index', compact('artigos', 'tituloAba'))->with($this->cabecaloRodape);
     }
@@ -69,7 +70,7 @@ class Site extends Controller {
             if ($categoria->thumbnail == '') {
                 $categoria->thumbnail = $categoria->imagem;
             }
-            $artigos = $categoria->artigos;
+            $artigos = $categoria->artigos->where('publicado', 1);
             $tituloAba = $categoria->pagina_titulo;
             return view('web.categoria.index', compact('categoria', 'artigos', 'tituloAba'))->with($this->cabecaloRodape);
         }
@@ -85,7 +86,7 @@ class Site extends Controller {
             }
             $conteudo = ArtigoComponente::orderBy('sequencia')->where('artigo_id', $artigo->id)->get();
             foreach ($conteudo as $item) {
-                if($item->links_externos != ''){
+                if ($item->links_externos != '') {
                     $item->links_externos = Utilitario::linksExternos($item->links_externos);
                 }
             }
@@ -161,6 +162,7 @@ class Site extends Controller {
 
     public function injetarCategorias() {
         $this->cabecaloRodape['categorias'] = ArtigoCategoria::orderBy('sequencia')->get();
+        
         $i = 0;
         foreach ($this->cabecaloRodape['categorias'] as $categoria) {
             if ($i == 0) {
@@ -171,6 +173,15 @@ class Site extends Controller {
             }
             if ($categoria->thumbnail == '') {
                 $categoria->thumbnail = $categoria->imagem;
+            }
+            
+            $categoria->publicada = 0;
+            $artigos = ArtigoCategoriaRelac::where('categoria_id', $categoria->id)->get();
+            foreach ($artigos as $row) {
+                $artigo = Artigo::find($row->artigo_id);
+                if ($artigo->publicado == 1) {
+                    $categoria->publicada = 1;
+                }
             }
         }
     }

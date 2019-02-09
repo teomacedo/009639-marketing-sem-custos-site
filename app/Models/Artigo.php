@@ -16,7 +16,8 @@ class Artigo extends Model {
         'subtitulo',
         'pagina_url',
         'pagina_titulo',
-        'meta_description'
+        'meta_description',
+        'publicado'
     ];
     
     public function autor(){

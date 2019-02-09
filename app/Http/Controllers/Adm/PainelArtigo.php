@@ -18,7 +18,7 @@ class PainelArtigo extends Controller {
 
     public function __construct(Artigo $model) {
         /* editavel */$this->dadosBase['diretorio'] = '/adm/painel/artigo';
-        /* editavel */$this->dadosBase['tabelaColunas'] = ['ID', 'Titulo', 'Subtitulo', 'Categoria'];
+        /* editavel */$this->dadosBase['tabelaColunas'] = ['ID', 'Publicado', 'Titulo', 'Subtitulo', 'Categoria'];
         /* editavel */$this->dadosBase['imagem'] = ['active' => 'yes', 'label' => 'Capa'];
         /* editavel */$this->dadosBase['createEditInclude'] = [['active' => 'no', 'titulo' => 'baza', 'path' => 'baza']];
         /* editavel */$this->dadosBase['crudFuncoes'] = ['show' => 'yes', 'create' => 'yes', 'edit' => 'yes', 'delete' => 'yes'];
@@ -32,7 +32,7 @@ class PainelArtigo extends Controller {
     }
 
     public function index() {
-        $this->dadosBase['model'] = $this->dadosBase['model']->orderBy('updated_at', 'desc')->get();
+        $this->dadosBase['model'] = $this->dadosBase['model']->orderBy('created_at', 'desc')->get();
         $dadosBase = $this->dadosBase;
         return view('adm.geral.list', compact('dadosBase'));
     }
@@ -49,6 +49,12 @@ class PainelArtigo extends Controller {
 
     public function store(Request_PainelArtigo $request) {
         $dataForm = $request->all();
+        
+        if (isset($dataForm['publicado'])) {
+            $dataForm['publicado'] = 1;
+        } else {
+            $dataForm['publicado'] = 0;
+        }
         
         if ($dataForm['pagina_titulo'] == '') {
             $dataForm['pagina_titulo'] = $dataForm['titulo'];
@@ -92,6 +98,14 @@ class PainelArtigo extends Controller {
 
     public function update(Request_PainelArtigo $request, $id) {
         $dataForm = $request->all();
+        
+        if (isset($dataForm['publicado'])) {
+            $dataForm['publicado'] = 1;
+        } else {
+            $dataForm['publicado'] = 0;
+        }
+        
+        
         if ($dataForm['pagina_titulo'] == '') {
             $dataForm['pagina_titulo'] = $dataForm['titulo'];
         }

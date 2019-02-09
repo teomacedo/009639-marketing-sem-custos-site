@@ -89,10 +89,10 @@
                                     CATEGORIAS
                                 </div>
                                 @foreach($categorias as $row)
-                                @if(count($row->artigos)>0)
+                                @if($row->publicada == 1)
                                 <a href="{{url('categoria'.'/'.$row->pagina_url)}}">
                                     <div class="categoria-botao">
-                                        {!!$row->nome!!}
+                                        {{$row->nome}}
                                     </div>
                                 </a>
                                 @endif

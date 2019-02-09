@@ -3,6 +3,11 @@
     @include('adm.geral.label-small', ['texto' => 'Arquivo NÃO obrigatório. Caso esse arquivo não seja selecionado, será usado o arquivo selecionado no campo "Capa".'])
     
 </div>
+<hr>
+<div class="form-group col-md-12">
+    <label>Publicado</label>
+    {!! Form::checkbox('publicado', '1')!!}
+</div>
 <div class="form-group col-md-3">
     <label>Categoria</label>
     {!! Form::select('categoria', $categorias, null, ['class' => 'form-control', 'placeholder' => 'Escolha uma opção']) !!}
