@@ -29,6 +29,12 @@
 </div>
 
 <div class="form-group col-md-12">
+    <label>Esse artigo é recomendado para quem tem as seguintes dúvidas:</label>
+    {!! Form::textarea('duvidas_respondidas', null, ['class' => 'form-control tinymce', 'rows' => '3',])!!}
+    @include('adm.geral.label-small', ['texto' => 'use \';\' para separar os IDs'])
+</div>
+
+<div class="form-group col-md-12">
     <label>Subtítulo</label>
     {!! Form::text('subtitulo', null, ['class' => 'form-control', 'placeholder' => '' ])!!}
 </div>

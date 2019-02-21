@@ -17,6 +17,7 @@ class Artigo extends Model {
         'subtitulo',
         'pagina_url',
         'pagina_titulo',
+        'duvidas_respondidas',
         'meta_description',
         'publicado',
         'artigo_conclusaos_id'

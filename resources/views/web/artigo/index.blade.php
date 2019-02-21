@@ -47,6 +47,23 @@
             @endif
             @endif
         </div>
+
+        @if($artigo->duvidas_respondidas != '')
+        <div class="conteudo-composto-texto">
+            <div>
+                <h3 class="conteudo-composto-texto-titulo">
+                    Esse artigo é recomendado para quem tem as seguintes dúvidas:
+                </h3>
+                <p class="conteudo-composto-texto-descricao">
+                    <?php $itens = explode(';', $artigo->duvidas_respondidas); ?>
+                    @foreach ($itens as $item)
+                    <b>- {{$item}}</b><br>
+                    @endforeach
+                </p>
+            </div>
+        </div>
+        @endif
+
         @include('web.geral.conteudo-composto')
         <div class="conteudo-composto-texto">
             <hr>
