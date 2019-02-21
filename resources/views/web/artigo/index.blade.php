@@ -50,7 +50,7 @@
 
         @if($artigo->duvidas_respondidas != '')
         <div class="conteudo-composto-texto">
-            <div>
+            <div style="margin-bottom: 20px;">
                 <h3 class="conteudo-composto-texto-titulo">
                     Esse artigo é recomendado para quem tem as seguintes dúvidas:
                 </h3>
