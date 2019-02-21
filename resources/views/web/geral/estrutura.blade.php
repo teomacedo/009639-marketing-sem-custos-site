@@ -4,11 +4,11 @@
     <head>
         <title>{{$tituloAba ?? $empresa->nome}}</title>
         <meta charset="utf-8">
-        
+
         <link rel="base" href="{{'https://www.'.$_SERVER['HTTP_HOST']}}">
         <link rel="canonical" href="{{'https://www.'.$_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"]}}">
         <meta name="robots" content="index, follow">
-        
+
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -22,8 +22,8 @@
         <meta property="twitter:site" content="@plataformanuc">
         <meta property="twitter:creator" content="@plataformanuc">
         <meta property="twitter:title" content="{{$tituloAba ?? $empresa->nome}}">
-        
-        
+
+
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -139,6 +139,8 @@
                 <div class="rodape-area">
                     <div class="rodape-area-coluna">
                         <a href="{{route('home')}}"><img src="{{url(''.$empresa->imagem)}}" class="img-fluid"  alt="{{$empresa->nome}}" title="{{$empresa->nome}}"></a>
+                        <div style="width: 10px; height: 25px;"></div>
+                        <a href="http://www.sebrae.com.br/sites/PortalSebrae/sebraeaz/capital-empreendedor,382be3796beaf410VgnVCM1000004c00210aRCRD" target="_blank"><img src="{{url('/photos/shares/empresa/selo-capital-empreendedor-sebrae.png')}}" class="img-fluid"  alt="Selo Capital Empreendedor Sebrae" title="Capital Empreendedor - Sebrae"></a>
                     </div>
                     <div class="rodape-area-coluna">
                         <div class="rodape-area-coluna-titulo">
