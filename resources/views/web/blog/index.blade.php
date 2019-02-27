@@ -14,7 +14,7 @@
 @endsection
 
 @section('capa')
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide slide-desktop-decoracao" data-ride="carousel">
     <div class="carousel-inner">
         @foreach($categorias as $categoria)
         @if(count($categoria->artigos)>0)
@@ -41,7 +41,7 @@
 
 @section('content')
 <section>
-    <div class="secao">
+    <div class="secao border img-thumbnail shadow-sm">
         <div class="secao-involucro">
             @foreach($artigos as $row)
             @include('web.geral.miniatura-artigo-area')

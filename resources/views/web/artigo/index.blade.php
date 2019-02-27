@@ -24,7 +24,7 @@
 
 @section('content')
 
-<article class="secao">
+<article class="secao border img-thumbnail shadow-sm">
     <div class="secao-involucro">
         <div class="artigo-cabecalho">
             <a href="{{url('categoria'.'/'.$artigo->categoria()->pagina_url)}}">

@@ -1,5 +1,5 @@
 <section>
-    <div class="secao">
+    <div class="secao border img-thumbnail shadow-sm">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <div class="secao-involucro">
@@ -12,7 +12,7 @@
             <div class="cases-area">
                 <div class="responsive">
                     @foreach($cases as $row)
-                    <div class="border img-thumbnail shadow-sm">
+                    <div class="border img-thumbnail shadow-sm fundo-cinza-claro">
                         <div class="cases-item">
                             <div class="cases-item-coluna-a">
                                 @if($row->video != '')

@@ -38,7 +38,7 @@
 
     </head>
 
-    <body>
+    <body class="fundo-cinza-claro">
         <header>
             <div id="loading-bar" class="loading-bar loading-bar-off" style="background-image: url('{{url('/photos/shares/geral/progress.gif')}}')"></div>
             @include('web.geral.menu')
@@ -106,7 +106,7 @@
                             @if($row->banner_blog_vertical != '')                            
                             <a href="{{$row->botao_link}}">
                                 <div class="banner-blog-vertical-area">
-                                    <img src="{{url(''.$row->banner_blog_vertical)}}" alt="{!!strip_tags($row->titulo_desktop)!!}" title="{!!strip_tags($row->titulo_desktop)!!}" class="img-fluid">
+                                    <img src="{{url(''.$row->banner_blog_vertical)}}" alt="{!!strip_tags($row->titulo_desktop)!!}" title="{!!strip_tags($row->titulo_desktop)!!}" class="img-fluid" width="100%">
                                     <div class="banner-blog-vertical-area-botao">
                                         <div>
                                             {{$row->banner_blog_botao_texto}}

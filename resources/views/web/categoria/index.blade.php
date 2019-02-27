@@ -22,7 +22,7 @@
 
 @section('content')
 <section>
-    <div class="secao">
+    <div class="secao border img-thumbnail shadow-sm">
         <div class="secao-involucro">
             @foreach($artigos as $row)
             @include('web.geral.miniatura-artigo-area')

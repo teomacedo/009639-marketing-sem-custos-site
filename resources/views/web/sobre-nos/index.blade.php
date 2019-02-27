@@ -13,8 +13,9 @@
 @endsection
 
 @section('content')
+<div class="small-off" style="width: 100px; height: 60px"></div>
 <section>
-    <div class="secao">
+    <div class="secao border img-thumbnail shadow-sm">
         <div class="secao-involucro">
             @include('web.geral.conteudo-composto')
         </div>

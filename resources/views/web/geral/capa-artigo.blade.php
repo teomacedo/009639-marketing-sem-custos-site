@@ -9,7 +9,7 @@
         }
     }
 </style>
-<div class="capa small-off" style="background-image: url('{{url(''.$artigo->imagem)}}')">
+<div class="capa small-off slide-desktop-decoracao" style="background-image: url('{{url(''.$artigo->imagem)}}')">
     <div class="capa-pelicula-nuvem" style="background-image: url('{{url('/photos/shares/geral/tarja-decor.png')}}')"></div>
 </div>
 

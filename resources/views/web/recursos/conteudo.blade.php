@@ -1,5 +1,5 @@
 <section>
-<div class="secao">
+<div class="secao border img-thumbnail shadow-sm">
     <div class="secao-involucro">
         <h2 class="secao-titulo">
             {!!$chamadaRecurso->titulo!!}
@@ -11,7 +11,7 @@
         <div class="recursos-area">
             @foreach($recuros as $row)
 
-            <div class="recursos-item border img-thumbnail shadow-sm">
+            <div class="recursos-item border img-thumbnail shadow-sm fundo-cinza-claro">
                 <div class="d-flex justify-content-center" style="width: 100%;">
                     @php $icons = explode('#', $row->icons);
                     $i = count($icons);

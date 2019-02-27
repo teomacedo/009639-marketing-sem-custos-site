@@ -1,5 +1,5 @@
 <section>
-    <div class="secao">
+    <div class="secao border img-thumbnail shadow-sm">
         <div class="secao-involucro">
             <div class="clientes-area">
                 <h2 class="secao-titulo">

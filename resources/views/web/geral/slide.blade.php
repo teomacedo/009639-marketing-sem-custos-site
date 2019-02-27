@@ -1,4 +1,4 @@
-<div class="small-off">
+<div class="small-off slide-desktop-decoracao">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             @foreach($slides as $row)

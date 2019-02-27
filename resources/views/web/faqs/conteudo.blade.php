@@ -1,5 +1,5 @@
 <section>
-    <div class="secao">
+    <div class="secao border img-thumbnail shadow-sm">
         <div class="secao-involucro">
             @if(!isset($exibirTituloSubtitulo))
             <h2 class="secao-titulo">
@@ -12,7 +12,7 @@
             <div class="faq-lista-area">
                 @foreach($faqs as $row)
                 <a href="{{url('faqs/'.$row->pagina_url)}}">
-                    <div class="faq-lista-area-item">
+                    <div class="faq-lista-area-item fundo-cinza-claro">
                         <div class="faq-lista-area-item-cabecalho">
 
                             <div class="faq-lista-area-item-pergunta-sequencia">

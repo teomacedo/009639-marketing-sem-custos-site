@@ -2,12 +2,13 @@
     .desktop-off{
         display: none;
     }
-    
+
     .menu-desktop{
         height: 72px;
         box-shadow: 0 3px 3px rgba(0,0,0,.3);
         z-index: 2;
         position: relative;
+        background-color: white;
     }
 
     .menu-desktop-geral{
@@ -68,6 +69,10 @@
         background-position: right center;
     }
 
+    .slide-desktop-decoracao{
+        box-shadow: 0 3px 3px rgba(0,0,0,.3); border-bottom: solid white 2px
+    }
+
     .slide-desktop-pelicula{
         width: 100%;
         background: -moz-linear-gradient(45deg, rgba(65,129,194,1) 0%, rgba(65,129,194,1) 50%, rgba(255,255,0,1) 50.1%, rgba(255,255,0,1) 50.6%, rgba(255,255,0,0) 50.61%);
@@ -75,7 +80,7 @@
         background: linear-gradient(45deg, rgba(65,129,194,1) 0%,rgba(65,129,194,1) 50%,rgba(255,255,0,1) 50.1%,rgba(255,255,0,1) 50.6%,rgba(255,255,0,0) 50.61%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4181c2', endColorstr='#00ffff00',GradientType=1 );
     }
-    
+
     .slide-desktop-conteudo{
         width: 100%;
         height: 450px;
@@ -83,20 +88,20 @@
         flex-direction: column;
         justify-content: center;
     }
-    
+
     .slide-desktop-conteudo-titulo{
         font-size: 35px;
         line-height: 1.1;
         color: white;
         font-weight: bolder;
     }
-    
+
     .slide-desktop-conteudo-subtitulo{
         color: #FFFF00;
         margin-top: 10px;
         margin-bottom: 15px;
     }
-    
+
     .slide-desktop-conteudo-botao{
         display: flex;
         justify-content: center;
@@ -107,7 +112,7 @@
         width: 150px;
         height: 35px;
     }
-    
+
     .slide-desktop-conteudo-botao:hover{
         background-color: rgba(0,0,0,.5)
     }

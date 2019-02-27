@@ -14,5 +14,6 @@
 @endsection
 
 @section('content')
+<div class="small-off" style="width: 100px; height: 60px"></div>
 @include('web.recursos.conteudo')
 @endsection
