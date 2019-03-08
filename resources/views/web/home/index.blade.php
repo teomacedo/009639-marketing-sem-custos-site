@@ -11,7 +11,12 @@
 <!-- Compartilhamento Twitter -->
 <meta property="twitter:description" content="{{$seo[0]['meta_description']}}">
 <meta property="twitter:image" content="{{URL::asset(''.$seo[0]['imagem'])}}">
+
 @endsection
+
+<!-- Plugin ne rolagem -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
 @section('capa')
 @include('web.geral.slide') 

@@ -84,6 +84,9 @@ Route::group(["middleware" => "auth:adm"], function() {
     Route::resource('adm/painel/cliente-chamada', 'Adm\PainelClienteChamada');
     Route::get('adm/painel/cliente-chamada/destroy/{id}', 'Adm\PainelClienteChamada@destroy');
     
+    Route::resource('adm/painel/cliente-exibivel', 'Adm\PainelClienteExibivel');
+    Route::get('adm/painel/cliente-exibivel/destroy/{id}', 'Adm\PainelClienteExibivel@destroy');
+    
     Route::resource('adm/painel/seo', 'Adm\PainelSeo');
 });
 

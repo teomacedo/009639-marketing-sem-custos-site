@@ -39,6 +39,7 @@
             <a class="dropdown-item" href="{{url('adm/painel/faq-item')}}">Faq/Itens</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{url('adm/painel/cliente-chamada')}}">Cliente/Chamada</a>
+            <a class="dropdown-item" href="{{url('adm/painel/cliente-exibivel')}}">Cliente/Itens</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{url('adm/painel/sobre-nos')}}">Sobre nós</a>
         </div>

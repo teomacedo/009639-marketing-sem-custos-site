@@ -21,6 +21,7 @@ use App\Models\Recurso;
 use App\Models\CaseItem;
 use App\Models\Faq;
 use App\Models\Seo;
+use App\Models\ClienteExibivel;
 
 set_time_limit(600);
 
@@ -50,10 +51,11 @@ class Site extends Controller {
         $chamadaRecurso = \App\Models\RecursoChamada::first();
         $chamadaCase = \App\Models\CaseChamada::first();
         $chamadaFaq = \App\Models\FaqChamada::first();
-        $clientes = DB::connection('nucserver')->select('SELECT distinct clientes.codigo_estado, clientes.nome, clientes.url FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8 and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE() order by clientes.codigo_estado');
-        $estados = DB::connection('nucserver')->select('SELECT distinct codigo_estado FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente WHERE loja_pedidos.codigo_pedido_status = 8  and loja_pedidos.updated_at BETWEEN CURDATE() - INTERVAL 15 DAY AND CURDATE()');
+        $clientes = DB::connection('nucserver')->select('SELECT clientes.codigo_cliente, clientes.nome, clientes.url, loja_temas.configuracoes FROM clientes LEFT JOIN loja_temas ON clientes.codigo_cliente = loja_temas.codigo_cliente');
+        $clienteExibivel = ClienteExibivel::orderBy('sequencia')->get();
+        $estados = DB::connection('nucserver')->select('SELECT distinct codigo_estado FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente');
         $estadosLista = Estado::get();
-        return view('web.home.index', compact('quadroCategoriaOculto', 'recuros', 'cases', 'faqs', 'chamadaPrincipal', 'chamadaCliente', 'chamadaRecurso', 'chamadaCase', 'chamadaFaq', 'clientes', 'estados', 'estadosLista'))->with($this->cabecaloRodape);
+        return view('web.home.index', compact('quadroCategoriaOculto', 'recuros', 'cases', 'faqs', 'chamadaPrincipal', 'chamadaCliente', 'chamadaRecurso', 'chamadaCase', 'chamadaFaq', 'clientes', 'estados', 'clienteExibivel', 'estadosLista'))->with($this->cabecaloRodape);
     }
 
     public function blog() {

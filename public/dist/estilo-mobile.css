@@ -322,6 +322,7 @@
     .estado-area {
         margin-left: 10px;
         width: 100%;
+        flex-direction: column;
     }
 
     .recursos-item{
@@ -370,12 +371,31 @@
     .artigo-autor-area-foto {
         margin-bottom: 30px;
     }
-    
+
     .artigo-autor-area-inf{
         margin-left: initial;
     }
 
     .artigo-autor-area-inf-nome .artigo-autor-area-inf-data {
         text-align: center;
+    }
+
+    .mapa-clientes{
+        flex-direction: column;
+    }
+
+    .mapa-clientes-lista{
+        margin-top: 20px;
+    }
+
+    .responsive-clientes-lista{
+        height: 200px;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .clientes-lista-chamada {
+        text-align: center;
+        padding-bottom: 10px;
     }
 }

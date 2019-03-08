@@ -117,6 +117,17 @@
         background-color: rgba(0,0,0,.5)
     }
 
+    .responsive-clientes-lista{
+        height: 250px;
+        width: 350px;
+        margin-left: 100px;
+    }
+
+    .estado-area{
+        border-top: 1px solid rgba(0,0,0,.1);
+        padding-top: 10px;
+    }
+
 
 
 }

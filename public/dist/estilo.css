@@ -488,14 +488,27 @@ a .botao-azul-preenchido:hover{
 
 
 
-.estado-area{
-    margin-left: 35px;
+.estado-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .lista-cliente-item{
     width: 100%;
-    margin: 10px;
+}
+
+.lista-cliente-item-area{
+    display: flex;
     margin-bottom: 20px;
+}
+
+.lista-cliente-item-area-foto{
+    margin-left: 30px;
+}
+
+.lista-cliente-item-area-texto{
+    margin-left: 10px;
     padding-left: 10px;
     border-left: solid #4181c2 4px;
 }
@@ -510,6 +523,12 @@ a .botao-azul-preenchido:hover{
     font-size: 14px;   
 }
 
+.clientes-lista-chamada{
+    width: 100%;
+    text-align: right;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
 .estado-item{
     font-weight: bolder;
     color: #637381;
@@ -519,6 +538,7 @@ a .botao-azul-preenchido:hover{
     padding-right: 10px;
     border-radius: 3px;
     transition: .7s;
+    display: flex;
 }
 
 .estado-item:hover{
@@ -527,7 +547,9 @@ a .botao-azul-preenchido:hover{
 }
 
 .estado-quant{
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     width: 26px;
     height: 26px;
@@ -536,9 +558,8 @@ a .botao-azul-preenchido:hover{
     font-size: 12px;
     background-color: #4181c2;
     border-radius: 13px;
-    padding-top: 2px;
     border: solid 2px white;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .estado-destaque{
@@ -548,6 +569,15 @@ a .botao-azul-preenchido:hover{
 
 .mapa-destaque{
     fill: #ffff00 !important;
+}
+
+.mapa-clientes{
+    width: 100%;
+    display: flex;
+}
+
+.mapa-clientes-lista{
+
 }
 
 .recursos-area{

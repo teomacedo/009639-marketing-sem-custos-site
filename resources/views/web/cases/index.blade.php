@@ -1,7 +1,5 @@
 <section>
     <div class="secao border img-thumbnail shadow-sm">
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <div class="secao-involucro">
             <h2 class="secao-titulo">
                 {!!$chamadaCase->titulo!!}
