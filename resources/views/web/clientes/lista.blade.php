@@ -11,7 +11,7 @@
             
         </div>
         <div class="lista-cliente-item-site">
-            <a class="link-externo" href="{{'http://'.$clientes[$itemExibivel->cliente-1]->url}}">{{$clientes[$itemExibivel->cliente-1]->url}}</a>
+            <a class="link-externo" target="_blank" href="{{'http://'.$clientes[$itemExibivel->cliente-1]->url}}">{{$clientes[$itemExibivel->cliente-1]->url}}</a>
         </div>
     </div>
 </div>
