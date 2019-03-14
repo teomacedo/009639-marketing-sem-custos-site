@@ -16,7 +16,10 @@
 @section('content')
 <style type="text/css">
     body{
-        background-color: #fbfbfb;
+        background-color: #fbfbfb !important;
+    }
+    .secao{
+        background-color: #fbfbfb !important;
     }
 </style>
 <section>

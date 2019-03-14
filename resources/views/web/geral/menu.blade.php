@@ -1,20 +1,28 @@
-<div class="menu-desktop small-off">
+<nav class="menu-desktop small-off">
     <div class="container" style="height: 100%;">
         <div class="menu-desktop-geral">
             <a href="{{route('home')}}"><img src="{{url(''.$empresa->imagem)}}" alt="{{$empresa->nome}}" title="{{$empresa->nome}}"></a>
-            <div>
-                <a href="{{route('home')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Home</div></a>
-                <a href="{{url('/sobre-nos')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Sobre nós</div></a>
-                <a href="{{url('/fale-conosco')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Fale conosco</div></a>
-                <a href="{{route('blog')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Blog</div></a>
-            </div>
+            <ul>
+                <li>
+                    <a href="{{route('home')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Home</div></a>
+                </li>
+                <li>
+                    <a href="{{url('/sobre-nos')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Sobre nós</div></a>
+                </li>
+                <li>
+                    <a href="{{url('/fale-conosco')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Fale conosco</div></a>
+                </li>
+                <li>
+                    <a href="{{route('blog')}}"><div class="menu-desktop-links-item menu-desktop-links-item-centro">Blog</div></a>
+                </li>
+            </ul>
             <div>
                 <a href="https://sys.nuctecnologia.com.br/painel"><div class="menu-desktop-links-item">Entrar</div></a>
                 <a href="https://sys.nuctecnologia.com.br/cadastro"><div class="menu-desktop-links-item menu-desktop-links-botao">Tenho interesse</div></a>
             </div>
         </div>
     </div>
-</div>
+</nav>
 <div class="desktop-off" style="position: fixed; z-index: 3; width: 100%;">
     <div class="menu-small-topo">
         <div class="container">
