@@ -39,11 +39,12 @@
     </head>
 
     <body class="fundo-cinza-claro">
+        <h1 class="oculta">{{$tituloAba ?? $empresa->nome}}</h1>
         <header>
             <div id="loading-bar" class="loading-bar loading-bar-off" style="background-image: url('{{url('/photos/shares/geral/progress.gif')}}')"></div>
             @include('web.geral.menu')
         </header>
-        <h1 class="oculta">{{$tituloAba ?? $empresa->nome}}</h1>
+
         @include('web.geral.alert')
         <style type="text/css">
             .aba-assinautra-area-margin-top{
