@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-<url>
-  <loc>https://nuctecnologia.com.br/blog</loc>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://nuctecnologia.com.br/fale-conosco</loc>
-  <priority>0.99</priority>
-</url>
-
-<url>
-  <loc>https://sys.nuctecnologia.com.br/cadastro</loc>
-  <priority>0.98</priority>
-</url>
-<url>
-  <loc>https://sys.nuctecnologia.com.br/painel</loc>
-  <priority>0.97</priority>
-</url>
-
-<url>
-  <loc>https://nuctecnologia.com.br/sobre-nos</loc>
-  <priority>0.96</priority>
-</url>
-<url>
-  <loc>https://nuctecnologia.com.br/faqs</loc>
-  <priority>0.95</priority>
-</url>
-
+    <url>
+        <loc>http://www.nuctecnologia.com.br/blog</loc>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>http://www.nuctecnologia.com.br/fale-conosco</loc>
+        <priority>0.99</priority>
+    </url>
+    <url>
+        <loc>http://www.sys.nuctecnologia.com.br/cadastro</loc>
+        <priority>0.98</priority>
+    </url>
+      <url>
+        <loc>http://www.sys.nuctecnologia.com.br/painel</loc>
+        <priority>0.97</priority>
+    </url>
+    <url>
+        <loc>http://www.nuctecnologia.com.br/sobre-nos</loc>
+        <priority>0.96</priority>
+    </url>
+    <url>
+        <loc>http://www.nuctecnologia.com.br/faqs</loc>
+        <priority>0.95</priority>
+    </url>
 </urlset>
