@@ -3,7 +3,7 @@
         <div class="secao-involucro">
             <div class="clientes-area">
                 <h2 class="secao-titulo">
-                    {!!$chamadaCliente->titulo!!}
+                    Faça como {{@count($clientes)}} clientes pelo Brasil que utilizam nossa solução!
                 </h2>
 
                 <div class="map" id="map">
