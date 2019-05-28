@@ -30,5 +30,11 @@ class Error extends Controller {
         $quadroCategoriaOculto = 'yes';
         return view('web.errors.error404', compact('quadroCategoriaOculto', 'tituloAba'))->with($this->cabecaloRodape);
     }
+    
+    public function error405() {
+        $tituloAba = "Algo deu errado";
+        $quadroCategoriaOculto = 'yes';
+        return view('web.errors.error405', compact('quadroCategoriaOculto', 'tituloAba'))->with($this->cabecaloRodape);
+    }
 
 }
