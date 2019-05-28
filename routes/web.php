@@ -17,6 +17,9 @@ Route::resource('/email-assinatura', 'Web\EmailAssinante');
 Route::resource('/email-fale-conosco', 'Web\EmailFaleConosco');
 
 Route::get('/categoria/{url}', 'Web\Site@categoria');
+Route::get('/error404','Web\Error@error404')->name('error404');
 Route::get('/{url}', 'Web\Site@artigo');
+
+
 
 Route::fallback('Web\Error@error404');

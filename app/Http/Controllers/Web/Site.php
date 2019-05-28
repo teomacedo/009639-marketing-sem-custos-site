@@ -67,7 +67,7 @@ class Site extends Controller {
     public function categoria($url = null) {
         $categoria = ArtigoCategoria::where('pagina_url', $url)->first();
         if (!isset($categoria->id)) {
-            return redirect()->route('blog');
+            return redirect()->route('error404');
         } else {
             if ($categoria->thumbnail == '') {
                 $categoria->thumbnail = $categoria->imagem;
@@ -81,7 +81,7 @@ class Site extends Controller {
     public function artigo($url = null) {
         $artigo = Artigo::where('pagina_url', $url)->first();
         if (!isset($artigo->id)) {
-            return redirect()->route('blog');
+            return redirect()->route('error404');
         } else {
             if ($artigo->thumbnail == '') {
                 $artigo->thumbnail = $artigo->imagem;
@@ -132,7 +132,7 @@ class Site extends Controller {
     public function faqItem($url = null) {
         $faqs = Faq::where('pagina_url', $url)->get();
         if (!isset($faqs[0]['id'])) {
-            return redirect()->route('home');
+            return redirect()->route('error404');
         } else {
             $chamadaFaq = \App\Models\FaqChamada::first();
             $tituloAba = $faqs[0]['pagina_titulo'];
