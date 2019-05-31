@@ -1097,7 +1097,7 @@ and open the template in the editor.
         $trecho1 = "<a href='https://api.whatsapp.com/send?l=pt-BR&amp;phone=55";
         $trecho2 = "&amp;text=";
         $trecho3 = "' target='_blank'>";
-        $trecho4 = "</a><br>";
+        $trecho4 = "</a><br><br>";
         $mensagem = "Junho é o mês de aniversário do Mr. Lam, mas quem ganha o presente é você. Na compra de uma porção de Satay, você leva outra grátis. Acesse nosso site, faça seu pedido e bom apetite! www.mrlamdelivery.com.br";
         $nome = '';
         $epaco = '';
