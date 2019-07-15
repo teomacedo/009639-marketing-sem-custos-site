@@ -1094,7 +1094,7 @@ and open the template in the editor.
             1078 => array('nome' => 'Teo Teste', 'telefone' => '66984020566')
         );
 
-        $trecho1 = "<a href='https://api.whatsapp.com/send?l=pt-BR&amp;phone=55";
+        $trecho1 = "https://api.whatsapp.com/send?l=pt-BR&amp;phone=55";
         $trecho2 = "&amp;text=";
         $trecho3 = "' target='_blank'>";
         $trecho4 = "</a><br><br>";
@@ -1108,10 +1108,10 @@ and open the template in the editor.
             if ($i < 1000){ $numero = '0' .  $i;}
             if ($i < 100){ $numero = '00' .  $i;}
             if ($i < 10){ $numero = '000' .  $i;}
-            if ($a['nome'] != '-----'){$nome = $a['nome'];} else {$nome = 'Sem Nome';}
+            if ($a['nome'] != '-----'){$nome = $a['nome'];} else {$nome = '-----';}
             if ($nome != 'Sem Nome'){$epaco = ', ';}
             if ($a['nome'] == '-----'){$a['nome'] = '';}
-            echo $trecho1 . $a['telefone'] . $trecho2 . 'Olá' . $epaco . $a['nome'] . '! ' . $mensagem . $trecho3 . $numero . ' - ' . $a['telefone'] . ' - ' .$nome . $trecho4;
+            echo  $nome . '<br>';
             $i++;
         }
         ?>
