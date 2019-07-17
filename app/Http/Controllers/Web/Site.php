@@ -41,7 +41,7 @@ class Site extends Controller {
     }
 
     public function home() {
-        /*
+        
         $quadroCategoriaOculto = 'yes';
 
         $recuros = Recurso::orderBy('sequencia')->limit(3)->get();
@@ -57,8 +57,7 @@ class Site extends Controller {
         $estados = DB::connection('nucserver')->select('SELECT distinct codigo_estado FROM clientes LEFT JOIN loja_pedidos ON clientes.codigo_cliente = loja_pedidos.codigo_cliente');
         $estadosLista = Estado::get();
         return view('web.home.index', compact('quadroCategoriaOculto', 'recuros', 'cases', 'faqs', 'chamadaPrincipal', 'chamadaCliente', 'chamadaRecurso', 'chamadaCase', 'chamadaFaq', 'clientes', 'estados', 'clienteExibivel', 'estadosLista'))->with($this->cabecaloRodape);
-        */
-        return redirect('https://www.menuvem.com.br/');
+        //return redirect('https://www.menuvem.com.br/');
     }
 
     public function blog() {
