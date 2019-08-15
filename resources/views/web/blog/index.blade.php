@@ -14,29 +14,7 @@
 @endsection
 
 @section('capa')
-<div id="carouselExampleControls" class="carousel slide slide-desktop-decoracao" data-ride="carousel">
-    <div class="carousel-inner">
-        @foreach($categorias as $categoria)
-        @if(count($categoria->artigos)>0)
-        <div class="carousel-item {{$categoria->active}}">
-            <a href="{{url('categoria'.'/'.$categoria->pagina_url)}}">
-                @include('web.geral.capa-categoria')
-            </a>
-        </div>
-        @endif
-        @endforeach
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
-
+@include('web.geral.slide') 
 @endsection
 
 @section('content')
