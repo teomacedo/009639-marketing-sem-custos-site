@@ -1,3 +1,4 @@
+/public/.htaccess
 /node_modules
 /public/hot
 /public/storage
@@ -12,5 +13,6 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
+.gitignore
 .phpunit.result.cache
 !/.env
