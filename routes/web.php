@@ -1,6 +1,5 @@
 <?php
 
-Route::get('/mrlam/clientes', 'Web\Site@mrLamClinetes');
 Route::get('/', 'Web\Site@home');
 Route::get('/home', 'Web\Site@home')->name('home');
 

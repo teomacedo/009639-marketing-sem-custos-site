@@ -190,8 +190,5 @@ class Site extends Controller {
         }
     }
     
-    public function mrLamClinetes() {
-        return view('web.mrlam');
-    }
 
 }
