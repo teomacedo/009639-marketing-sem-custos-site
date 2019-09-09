@@ -144,6 +144,27 @@ class Site extends Controller {
         }
     }
 
+    public function link($link) {
+
+        
+        if ($link == 'whatsApp-01'){
+            return redirect('https://api.whatsapp.com/send?1=pt_BR&phone=5566996029513');
+        }
+        
+        if ($link == 'whatsApp-02'){
+            return redirect('https://api.whatsapp.com/send?1=pt_BR&phone=5566984020566');
+        }
+
+        if ($link == 'teste-gratis'){
+            return redirect('https://sys.nuctecnologia.com.br/cadastro');
+        }
+
+        else {
+            return redirect()->route('404');
+        }
+        
+    }
+
     public function conteudoSlide() {
         $slides = Slide::orderBy('sequencia')->get();
         for ($i = 0; $i < count($slides); $i++) {

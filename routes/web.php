@@ -21,6 +21,9 @@ Route::resource('/email-fale-conosco', 'Web\EmailFaleConosco');
 Route::get('/categoria/{url}', 'Web\Site@categoria');
 Route::get('/error404','Web\Error@error404')->name('404');
 Route::get('/error405','Web\Error@error405')->name('405');
+
+Route::get('/link/{link}', 'Web\Site@link');
+
 Route::get('/{url}', 'Web\Site@artigo');
 
 
