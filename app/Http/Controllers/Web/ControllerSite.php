@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 
 class ControllerSite extends Controller
 {
+    public function home() {
+        return redirect('https://nuctecnologia.com.br/blog');
+    }
+
     public function link($link) {
 
         
